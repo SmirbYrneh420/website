@@ -1,0 +1,81 @@
+#dock {
+    position: absolute;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    background-color: #1f1f1f;
+}
+
+.dock-item {
+    width: 10vh;
+    height: 10vh;
+    padding: 2vh;
+}
+
+#app {
+    background: url("apple.png");
+}
+
+#menubar {
+    background-color: lightcyan;
+    position: relative;
+    border: 1px;
+}
+
+#time {
+    display: inline;
+    float: right;
+}
+
+html {
+    background-image: url("image.png");
+    background-color: #1c1c1c;
+}
+
+.dropdown-menu, #appList {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+}
+
+#appList {
+    bottom: 49px;
+}
+
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+
+.dropdown-menu a:hover, #appList a:hover{
+    background-color: #696969;
+}
+
+#icon {
+    max-width: 20px;
+    max-height: 20px;
+}
+
+.winbox {
+    border-width: 0.2em;
+    background-color: #242424;
+}
+
+.wb-full {
+    display: none;
+}
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: #000000;
+}
+
+.not-gui {
+    color: #0000ff;
+}
+
+.wb-body {
+    color: #ffffff;
+    background: #131820;
+}
