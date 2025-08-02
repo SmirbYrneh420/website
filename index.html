@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="icon" type="image/png" href="favicon.png" />
+
+        <!-- Bootstrap version 5.3.6 -->
+        <!-- This applies a cleaner and more consistent feel for the Desktop Environment -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+
+        <!-- this is all SEO and social media optimizations -->
+        <meta charset="UTF-8" />
+        <meta name="description" content="Personal webpage for a person who goes on the Internet by many usernames, including Touhou Engie." />
+        <meta content="Touhou Engie" property="og:title" />
+        <meta property="og:type" content="website" />
+        <meta content="[INSERT IMAGE HERE]" property="og:image" />
+        <meta property="og:url" content="https://www.touhouengie.com" />
+        
+        <title>Touhou Engie Operating Environment</title>
+    </head>
+
+    <body id="body">
+        <!-- desktop environment -->
+        <div id="menubar">
+            <span class="dropdown">
+                <button><img src="ico.jpg" alt="E" id="icon"/></button>
+                <div class="dropdown-menu">
+                    <a href="#" onclick="aboutMe()">About</a>
+                    <br>
+                    <a href="#" onclick="preferences()">Settings</a>
+                    <br>
+                    <a href="#" onclick="refresh()">Refresh...</a>
+                    <p>TEOE version 0.01</p>
+                </div>
+            </span>
+            <span class="dropdown">
+                <button id="appName"></button>
+            </span>
+            <span class="dropdown">
+                <button>File</button>
+            </span>
+            <span class="dropdown">
+                <button>Special</button>
+            </span>
+            <span class="dropdown">
+                <button>Help</button>
+            </span>
+            <p id="time"></p>
+        </div>
+
+        <span id="dock">
+            <button class="dock-item" title="Files">
+                <img src="files.png" alt="Files" />
+            </button>
+            
+            <button class="dock-item" title="Apps" id="Apps">
+                <img src="apps.png" alt="Apps" />
+            </button>
+            
+            <button class="dock-item" title="Terminal" id="Terminal">
+                <img src="terminal.png" alt="CMD" />
+            </button>
+
+            <button class="dock-item" title="Preferences">
+                <img src="settings.png" alt="SET" />
+            </button>
+        </span>
+
+        <!-- all app functionality goes here until i can find a way to separate them and have WinBox detect the separate files -->
+        <div id="backend" style="display: none">
+            <div id="terminal">
+                <div class="terminal-contents">Touhou Engie Operating Environment</div>
+                <span class="terminal-contents">engie@site ~ % </span>
+                <input class="hidden-input" autocapitalize="off" value></input>
+            </div>
+            <div id="about">
+                <p>Hi! This is the personal website of [NAME EXPUNGED], also known online as 'Touhou Engie' or any of the loads of usernames I went through in my past years.</p>
+                <p>I'm currently a senior high school student working on a few coding projects here and there while also applying to colleges.</p>
+                <p>I also run a small coding 'society' at my high school, backed by Hack Club. (If you haven't checked them out, they provide and inspire for aspiring CS students.)</p>
+                <p>You can also check out the Gallery, where I host some of the art I make every once in a while.</p>
+                <br>
+                <p>Operating Environment v0.01 ALPHA</p>
+            </div>
+            <div id="launchpad">
+                <button>Photo Booth</button>
+                <button>Ongoing Projects</button>
+                <button>Nested Browser</button>
+                <button>Terminal</button>
+                <button>Site Preferences</button>
+            </div>
+        </div>
+
+        <script src="winbox.js" async></script>
+        <script src="script.js"></script>
+    </body>
+</html>
