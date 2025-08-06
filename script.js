@@ -48,5 +48,13 @@ function appList() {
     new WinBox("All Apps", { mount: document.getElementById("launchpad").cloneNode(true), x: position, y: position, class: "just-x"});
 }
 
+function help() {
+    new WinBox("Help", { mount: document.getElementById("help").cloneNode(true), x: position, y: position, class: "just-x"});
+}
+
+function contact() {
+    new WinBox("Help", { mount: document.getElementById("noHelpIntended").cloneNode(true), x: position, y: position, class: "just-x"});
+}
+
 document.getElementById("Terminal").addEventListener("click", terminal);
 document.getElementById("Apps").addEventListener("click", appList);

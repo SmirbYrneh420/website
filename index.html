@@ -23,29 +23,36 @@
     <body id="body">
         <!-- desktop environment -->
         <div id="menubar">
-            <span class="dropdown">
-                <button><img src="ico.jpg" alt="E" id="icon"/></button>
-                <div class="dropdown-menu">
-                    <a href="#" onclick="aboutMe()">About</a>
-                    <br>
-                    <a href="#" onclick="preferences()">Settings</a>
-                    <br>
-                    <a href="#" onclick="refresh()">Refresh...</a>
-                    <p>TEOE version 0.01</p>
-                </div>
-            </span>
-            <span class="dropdown">
-                <button id="appName"></button>
-            </span>
-            <span class="dropdown">
-                <button>File</button>
-            </span>
-            <span class="dropdown">
-                <button>Special</button>
-            </span>
-            <span class="dropdown">
-                <button>Help</button>
-            </span>
+            <ul id="menubar-contents">
+                <li class="dropdown">
+                    <button><img src="ico.png" alt="E" id="icon"/></button>
+                    <div class="dropdown-menu">
+                        <a href="#" onclick="aboutMe()">About</a>
+                        <br>
+                        <a href="#" onclick="preferences()">Settings</a>
+                        <br>
+                        <a href="#" onclick="refresh()">Refresh...</a>
+                        <p>TEOE version 0.01</p>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <button id="appName"></button>
+                </li>
+                <li class="dropdown">
+                    <button>File</button>
+                </li>
+                <li class="dropdown">
+                    <button>Special</button>
+                </li>
+                <li class="dropdown">
+                    <button>Help</button>
+                    <div class="dropdown-menu">
+                        <a href="#" onclick="help()">Site Documentation</a>
+                        <br>
+                        <a href="#" onclick="contact()">Contact/Credit</a>
+                    </div>
+                </li>
+            </ul>
             <p id="time"></p>
         </div>
 
@@ -88,6 +95,15 @@
                 <button>Nested Browser</button>
                 <button>Terminal</button>
                 <button>Site Preferences</button>
+            </div>
+            <div id="help">
+                <p>There is no help documentation currently.</p>                
+            </div>
+            <div id="noHelpIntended">
+                <h4>You can contact me or give credit for my art using the following:</h4>
+                <p>Discord: @touhouengie</p>
+                <p>YouTube: @macroharddoors</p>
+                <p>E-mail: [COMING SOON]</p>
             </div>
         </div>
 
