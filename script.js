@@ -97,6 +97,8 @@ function dragElement(element) {
   var initialY = 0;
   var currentX = 0;
   var currentY = 0;
+  var newX = 0;
+  var newY = 0;
 
   // Check if there is a special header element associated with the draggable element.
   if (document.getElementById(element.id + "header")) {
@@ -130,8 +132,18 @@ function dragElement(element) {
     initialX = e.clientX;
     initialY = e.clientY;
     // Step 11: Update the element's new position by modifying its `top` and `left` CSS properties.
-    element.style.top = (element.offsetTop - currentY) + "px";
-    element.style.left = (element.offsetLeft - currentX) + "px";
+    newX = element.offsetTop - currentY;
+    newY = element.offsetLeft - currentX;
+    if (newX < 0) {
+      stopDragging();
+      newX += 3;
+    }
+    if (newY < 0) {
+      stopDragging();
+      newY += 3;
+    }
+    element.style.top = (newX) + "px";
+    element.style.left = (newY) + "px";
   }
 
   function stopDragging() {
