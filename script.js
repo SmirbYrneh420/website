@@ -1,15 +1,37 @@
 // each and every window, close, and open. there should be a better way to write this, but eh
 // todo: shift to an array-object approach
-var welcomeScreen = document.querySelector("#welcome");
-var welcomeScreenClose = document.querySelector("#welcomeclose");
-var welcomeScreenOpen = document.querySelector("#welcomeopen");
-var notesScreen = document.querySelector("#noteview");
-var notesScreenClose = document.querySelector("#noteviewclose");
-var notesScreenOpen = document.querySelector("#noteviewopen");
+var appList = [
+  {
+    title: "welcome",
+    mainId: "welcome"
+  },
+  {
+    title: "noteview",
+    mainId: "notes"
+  },
+  {
+    title: "gallery",
+    mainId: "gallery"
+  }
+]
+
+for (var i = 0; i < appList.length; i++) {
+  var app = appList[i].title;
+  var namer = appList[i].mainId;
+  eval('var ' + namer + "Screen = document.querySelector(`#" + app + "`);");
+  eval('var ' + namer + "ScreenOpen = document.querySelector(`#" + app + "open`);");
+  eval('var ' + namer + "ScreenClose = document.querySelector(`#" + app + "close`);");
+  eval(namer + "ScreenClose.addEventListener('click', function() { closeWindow(" + namer + "Screen); });");
+  if (i > 0) {
+    eval(namer + "ScreenOpen.addEventListener('click', function() { openWindow(" + namer + "Screen); });");
+  } else {
+    eval(namer + "ScreenOpen.addEventListener('click', function() { iconTap(" + namer + "ScreenOpen, " + namer + "Screen); });");
+  }
+  dragElement(document.getElementById(app));
+}
+
 var topBar = document.querySelector("#topbar");
-
 var largestIndex = 1;
-
 var selectedIcon = undefined;
 
 var content = [
@@ -87,10 +109,6 @@ function time() {
 
 time();
 setInterval(time, 1000);
-
-// Make the windows draggable:
-dragElement(document.getElementById("welcome"));
-dragElement(document.getElementById("noteview"));
 
 function dragElement(element) {
   var initialX = 0;
@@ -191,20 +209,5 @@ function windowTap(element) {
   deselectIcon(selectedIcon);
 }
 
-// Event Listener Libraries
-welcomeScreenClose.addEventListener("click", function() {
-  closeWindow(welcomeScreen);
-});
 
-welcomeScreenOpen.addEventListener("click", function() {
-  openWindow(welcomeScreen);
-});
-
-notesScreenClose.addEventListener("click", function() {
-  closeWindow(notesScreen);
-});
-
-notesScreenOpen.addEventListener("click", function() {
-  iconTap(notesScreenOpen, notesScreen);
-});
 
