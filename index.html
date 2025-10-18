@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="style.css" />
-        <link rel="icon" type="image/png" href="favicon.png" />
+        <link rel="icon" type="image/png" href="image.png" />
+
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
         <!-- Bootstrap version 5.3.6 -->
         <!-- This applies a cleaner and more consistent feel for the Desktop Environment -->
@@ -20,94 +22,52 @@
         <title>Touhou Engie Operating Environment</title>
     </head>
 
-    <body id="body">
-        <!-- desktop environment -->
-        <div id="menubar">
-            <ul id="menubar-contents">
-                <li class="dropdown">
-                    <button><img src="ico.png" alt="E" id="icon"/></button>
-                    <div class="dropdown-menu">
-                        <a href="#" onclick="aboutMe()">About</a>
-                        <br>
-                        <a href="#" onclick="preferences()">Settings</a>
-                        <br>
-                        <a href="#" onclick="refresh()">Refresh...</a>
-                        <p>TEOE version 0.01</p>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <button id="appName"></button>
-                </li>
-                <li class="dropdown">
-                    <button>File</button>
-                </li>
-                <li class="dropdown">
-                    <button>Special</button>
-                </li>
-                <li class="dropdown">
-                    <button>Help</button>
-                    <div class="dropdown-menu">
-                        <a href="#" onclick="help()">Site Documentation</a>
-                        <br>
-                        <a href="#" onclick="contact()">Contact/Credit</a>
-                    </div>
-                </li>
-            </ul>
-            <p id="time"></p>
+    <body style="background-image: url(./wallpaper.gif)" class="font-sans bg-cover h-screen">
+        <div id="topbar" class="flex justify-between absolute w-full backdrop-blur-md bg-[rgba(0, 0, 0, 0.25)] items-center text-white">
+            <p class="ml-4 font-bold cursor-pointer backdrop-blur-md rounded-md border-solid border-1 pl-2 pr-2" id="welcomeopen">teOE</p>
+            <p class="mr-4" id="time"></p>
         </div>
-
-        <span id="dock">
-            <button class="dock-item" title="Files">
-                <img src="files.png" alt="Files" />
-            </button>
-            
-            <button class="dock-item" title="Apps" id="Apps">
-                <img src="apps.png" alt="Apps" />
-            </button>
-            
-            <button class="dock-item" title="Terminal" id="Terminal">
-                <img src="terminal.png" alt="CMD" />
-            </button>
-
-            <button class="dock-item" title="Preferences">
-                <img src="settings.png" alt="SET" />
-            </button>
-        </span>
-
-        <!-- all app functionality goes here until i can find a way to separate them and have WinBox detect the separate files -->
-        <div id="backend" style="display: none">
-            <div id="terminal">
-                <div class="terminal-contents">Touhou Engie Operating Environment</div>
-                <span class="terminal-contents">engie@site ~ % </span>
-                <input class="hidden-input" autocapitalize="off" value></input>
+        
+        <div id="welcome" class="border-solid rounded-xl border-4 w-fit absolute top-1/4 left-1/3 backdrop-blur-sm bg-[rgba(0, 0, 0, 0.125)] block">
+            <div id="welcomeheader" class="mt-2 font-semibold flex cursor-grab">
+                <div id="welcomeclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-1 ml-3 cursor-pointer"></div>
+                <p id="welcomeheader" class="pl-2 cursor-grab">Welcome</p>
             </div>
-            <div id="about">
-                <p>Hi! This is the personal website of [NAME EXPUNGED], also known online as 'Touhou Engie' or any of the loads of usernames I went through in my past years.</p>
-                <p>I'm currently a senior high school student working on a few coding projects here and there while also applying to colleges.</p>
-                <p>I also run a small coding 'society' at my high school, backed by Hack Club. (If you haven't checked them out, they provide and inspire for aspiring CS students.)</p>
-                <p>You can also check out the Gallery, where I host some of the art I make every once in a while.</p>
+            <div class="m-2 mt-0 rounded-lg w-100 p-4">
+                <img class="w-32 h-32 rounded-sm object-cover" src="image.png" alt="Profile pic">
+                <h2 class="font-bold">teOE</h2>
+                <p class="max-w-100">Hi! This is the feature-limited operating environment of [NAME EXPUNGED], also known online as 'Touhou Engie'.</p>
+            </div>
+        </div>
+        
+        <div id="noteview" class="border-solid rounded-xl border-4 w-fit absolute top-1/4 left-7/25 backdrop-blur-sm bg-[rgba(0, 0, 0, 0.125)] hidden">
+            <div id="noteviewheader" class="mt-2 font-semibold flex cursor-grab">
+                <div id="noteviewclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-1 ml-3 cursor-pointer"></div>
+                <p class="pl-2 cursor-grab">NoteView</p>
+            </div>
+            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-140 h-130 p-4 text-white rounded-lg overflow-y-scroll">
+                <div id="history" class="pt-2 flex justify-between overflow-x-scroll">
+                </div>
                 <br>
-                <p>Operating Environment v0.01 ALPHA</p>
-            </div>
-            <div id="launchpad">
-                <button>Photo Booth</button>
-                <button>Ongoing Projects</button>
-                <button>Nested Browser</button>
-                <button>Terminal</button>
-                <button>Site Preferences</button>
-            </div>
-            <div id="help">
-                <p>There is no help documentation currently.</p>                
-            </div>
-            <div id="noHelpIntended">
-                <h4>You can contact me or give credit for my art using the following:</h4>
-                <p>Discord: @touhouengie</p>
-                <p>YouTube: @macroharddoors</p>
-                <p>E-mail: [COMING SOON]</p>
+                <div id="notesContent">
+                </div>
             </div>
         </div>
-
-        <script src="winbox.js" async></script>
+        
+        <div id="desktopApps" class="pt-16 z-0 flex">
+            <div id="noteviewopen" class="text-center p-4 drop-shadow-lg w-fit">
+                <img src="noteview.jpg" class="w-16 h-16 rounded-md" alt="noteview">
+                <p class="m-0 text-white">NoteView</p>
+            </div>
+        </div>
         <script src="script.js"></script>
     </body>
+
+    <style>
+        .selected {
+            background-color: rgba(0, 0, 222, 0.25);
+        }
+    </style>
 </html>
+
+
