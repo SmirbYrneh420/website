@@ -1,5 +1,3 @@
-// each and every window, close, and open. there should be a better way to write this, but eh
-// todo: shift to an array-object approach
 var appList = [
   {
     title: "welcome",
@@ -15,6 +13,7 @@ var appList = [
   }
 ]
 
+// set all them variables for them windows
 for (var i = 0; i < appList.length; i++) {
   var app = appList[i].title;
   var namer = appList[i].mainId;
@@ -22,7 +21,7 @@ for (var i = 0; i < appList.length; i++) {
   eval('var ' + namer + "ScreenOpen = document.querySelector(`#" + app + "open`);");
   eval('var ' + namer + "ScreenClose = document.querySelector(`#" + app + "close`);");
   eval(namer + "ScreenClose.addEventListener('click', function() { closeWindow(" + namer + "Screen); });");
-  if (i > 0) {
+  if (i === 0) {
     eval(namer + "ScreenOpen.addEventListener('click', function() { openWindow(" + namer + "Screen); });");
   } else {
     eval(namer + "ScreenOpen.addEventListener('click', function() { iconTap(" + namer + "ScreenOpen, " + namer + "Screen); });");
@@ -154,11 +153,11 @@ function dragElement(element) {
     newY = element.offsetLeft - currentX;
     if (newX < 0) {
       stopDragging();
-      newX += 3;
+      newX = 1;
     }
     if (newY < 0) {
       stopDragging();
-      newY += 3;
+      newY = 1;
     }
     element.style.top = (newX) + "px";
     element.style.left = (newY) + "px";
