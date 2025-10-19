@@ -33,37 +33,7 @@ var topBar = document.querySelector("#topbar");
 var largestIndex = 1;
 var selectedIcon = undefined;
 
-var content = [
-  {
-    title: "Welcome",
-    date: "10/15/25",
-    content: `<h2>Welcome to NoteView</h2>
-    <p>This is more of a personal blog of sorts. Use the Top Bar to navigate through past posts.</p>
-    <p>For the art I post here and there, check out the Gallery app.</p>`
-  },
-
-  {
-    title: "Test 2",
-    date: "10/17/25",
-    content: `<p>This is a test of separate blogposts</p>
-    <img src="./rin.png">`
-  },
-
-  {
-    title: "Test 4",
-    date: "10/17/25",
-    content: `<p>This is a test of separate blogposts</p>
-    <img src="./rin.png">`
-  },
-
-  {
-    title: "Test 3",
-    date: "10/17/25",
-    content: `<p>This is a test of separate blogposts</p>
-    <img src="./rin.png">`
-  }
-]
-
+// consult blog.js for the content array
 function setNotesContent(index) {
   var notesContent = document.querySelector('#notesContent');
   notesContent.innerHTML = content[index].content;
@@ -92,6 +62,7 @@ for (let i = 0; i < content.length; i++) {
   noteViewTopBar(i);
 }
 
+// time for topbar
 function time() {
     const deez = new Date();
     let hour = deez.getHours();
@@ -105,10 +76,10 @@ function time() {
     const actualDate = `${hour}:${minutes} ${period}`;
     document.getElementById("time").innerHTML = actualDate;
 }
-
 time();
 setInterval(time, 1000);
 
+// window management.sys
 function dragElement(element) {
   var initialX = 0;
   var initialY = 0;
@@ -169,6 +140,7 @@ function dragElement(element) {
   }
 }
 
+// icon and window stuffs
 function selectIcon(element) {
     element.classList.add("selected");
     selectedIcon = element;
