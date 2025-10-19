@@ -41,6 +41,7 @@ const content = [
     <p class="font-light text-xs">I still cherish this one. Made by @onepiecesimp</p>
     <img src="./Images/exotech_touhou_engie.png">
     <p class="font-light text-xs">Fun fact: this was made entirely in Microsoft Word. Made by @exotechs</p>
+    <p>P.S. If you want to use these variants, feel free. But PLEASE attribute the person who made them alongside me. They deserve more credit.</p>
    `
   },
 
