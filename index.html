@@ -24,8 +24,16 @@
 
     <body style="background-image: url(./wallpaper.gif)" class="font-sans bg-cover h-screen">
         <div id="topbar" class="flex justify-between absolute w-full backdrop-blur-md bg-[rgba(0, 0, 0, 0.25)] items-center text-white">
-            <p class="ml-4 font-bold cursor-pointer backdrop-blur-md rounded-md border-solid border-1 pl-2 pr-2" id="welcomeopen">teOE</p>
-            <p class="mr-4" id="time"></p>
+            <span id="dropdownopen" class="ml-4 font-bold cursor-pointer backdrop-blur-md rounded-md border-solid border-1 pl-2 pr-2">teOE
+                <span id="dropdownmenu" class="absolute w-40 left-1/100 top-4/3 z-5 bg-gray-800 rounded-md font-normal border-solid border-1 hidden">
+                    <p id="welcomeopen" class="cursor-pointer p-2 pb-0">About teOE</p>
+                    <p id="aboutopen" class="cursor-pointer pl-2 pr-2">More about the creator</p>
+                    <p id="contactopen" class="cursor-pointer pl-2 pr-2">Contact...</p>
+                    <p id="licenseopen" class="cursor-pointer pl-2 pr-2">Art License Info</p>
+                    <p onclick="refresh()" class="cursor-pointer pl-2 pr-2">Refresh...</p>
+                </span>
+            </span>
+            <span class="mr-4" id="time"></span>
         </div>
         
         <div id="welcome" class="border-solid rounded-xl border-4 w-fit absolute top-1/4 left-13/38 text-white border-slate-800 bg-slate-800 block">
@@ -34,9 +42,51 @@
                 <p id="welcomeheader" class="pl-2 cursor-grab">Welcome</p>
             </div>
             <div class="m-2 mt-0 rounded-lg w-95 p-4 bg-gray-950 text-white">
-                <img class="w-32 h-32 rounded-sm object-cover" src="./Images/image.png" alt="Profile pic">
+                <img class="w-32 h-32 object-cover" src="./Images/image.png" alt="Profile pic">
                 <h2 class="font-bold">teOE</h2>
-                <p class="max-w-100">Hi! This is the feature-limited operating environment of [NAME EXPUNGED], also known online as 'Touhou Engie'.</p>
+                <p class="max-w-100">This is the feature-limited operating environment of [NAME EXPUNGED], also known online as 'Touhou Engie'.</p>
+                <p>Version 1.0.0</p>
+            </div>
+        </div>
+
+        <div id="about" class="border-solid rounded-xl border-4 w-fit absolute top-1/4 left-13/38 text-white border-slate-800 bg-slate-800 hidden">
+            <div id="aboutheader" class="mt-2 font-semibold flex cursor-grab">
+                <div id="aboutclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-1 border-black ml-3 cursor-pointer"></div>
+                <p id="aboutheader" class="pl-2 cursor-grab">About the Creator</p>
+            </div>
+            <div class="m-2 mt-0 rounded-lg w-95 p-4 bg-gray-950 text-white">
+                <p>Hi. I code, draw, and drum in my spare time. When I don't have spare time it's usually due to work or school.</p>
+                <p>I also run my school's one and only coding club, powered by and partnered with Hack Club (shoutout to their great programs btw)</p>
+            </div>
+        </div>
+
+        <div id="contact" class="border-solid rounded-xl border-4 w-fit absolute top-1/5 left-6/19 text-white border-slate-800 bg-slate-800 hidden">
+            <div id="contactheader" class="mt-2 font-semibold flex cursor-grab">
+                <div id="contactclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-1 border-black ml-3 cursor-pointer"></div>
+                <p id="contactheader" class="pl-2 cursor-grab">How to Contact Me</p>
+            </div>
+            <div class="m-2 mt-0 rounded-lg w-120 p-4 bg-gray-950 text-white">
+                <h4>While I get the built-in email functionality working, you can contact me through other means:</h4>
+                <br>
+                <p>Discord: @touhouengie</p>
+                <p>E-mail: natsuki.ddlc1@outlook.com</p>
+                <p>(you thought you were getting my real email there, were you? Nah, this is a burner email)</p>
+                <p>Reddit: smirbymariecallie1 (I rarely check this anymore)</p>
+                <p>I do NOT operate on Twitter nor Facebook.</p>
+            </div>
+        </div>
+
+        <div id="license" class="border-solid rounded-xl border-4 w-fit absolute top-1/5 left-6/19 text-white border-slate-800 bg-slate-800 hidden">
+            <div id="licenseheader" class="mt-2 font-semibold flex cursor-grab">
+                <div id="licenseclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-1 border-black ml-3 cursor-pointer"></div>
+                <p id="licenseheader" class="pl-2 cursor-grab">Art Licensing Policy</p>
+            </div>
+            <div class="m-2 mt-0 rounded-lg w-120 p-4 bg-gray-950 text-white">
+                <p>Unless otherwise stated, all icons, art, or anything not in the Gallery are licensed under the
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.
+                    <span class="flex"><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"></span>
+                </p>
+                <p>The Gallery has its own license terms to accomodate any potential conflicts of interest. See the README.txt in the Gallery's root directory for details.</p>
             </div>
         </div>
         
@@ -66,12 +116,12 @@
             </div>
         </div>
         
-        <div id="desktopApps" class="pt-16 z-0 flex">
-            <div id="noteviewopen" class="text-center p-4 drop-shadow-lg w-fit">
+        <div id="desktopApps" class="pt-8 z-0 flex">
+            <div id="noteviewopen" class="text-center p-3 drop-shadow-lg w-fit">
                 <img src="./Images/noteview.png" class="w-16 h-16 rounded-md" alt="noteview">
                 <p class="m-0 text-white">NoteView</p>
             </div>
-            <div id="galleryopen" class="text-center p-4 drop-shadow-lg w-fit">
+            <div id="galleryopen" class="text-center p-3 drop-shadow-lg w-fit">
                 <img src="./Images/gallery.png" class="w-16 h-16 rounded-md" alt="gallery">
                 <p class="m-0 text-white">Gallery</p>
             </div>

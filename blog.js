@@ -8,7 +8,7 @@ const content = [
   },
 
   {
-    title: "Test 2",
+    title: "Random Test Post",
     date: "10/17/25",
     content: `<p>This is a test of separate blogposts</p>
     <p>I'm just going to leave this here for shits and giggles.</p>
@@ -16,25 +16,38 @@ const content = [
   },
 
   {
-    title: "About Me",
-    date: "10/18/25",
-    content: `<p>This is going to be a blogpost until I figure out where to implement where to put this in a text document.</p>
-    <p>Hi. I code, draw, and drum in my spare time. When I don't have spare time it's usually due to work or school.</p>
-    <p>I also run my school's one and only coding club, powered by and partnered with Hack Club (shoutout to their great programs btw)</p>
-    <p>For now, here's a rendition of my OC, drawn by a friend.</p>
+    title: "Story of my OC",
+    date: "10/19/25",
+    content: `<h2>How Touhou Engie came to fruition</h2>
+    <p>A few months ago, during my full-time job, I created this concept:</p>
+    <img src="./Images/un_owen_engie.png">
+    <p>Looking back, it wasn't the most creative, nor the most innovative concept.</p>
+    <p>It was a funny idea that I put on digital paper, after all.</p>
+    <br>
+    <p>In the meantime, my online presence was fragmented, with references from many different years and to many different fandoms and OCs.</p>
+    <p>As part of unifying my online presence, I went back to the drawing board and used the Engineer I created as a baseline.</p>
+    <p>An hour in Goodnotes later, I come up with this:</p>
+    <img src="./Images/touhou_engie_v1.png">
+    <p>Needless to say, I found this worthy of replacing my old online presence with.</p>
+    <p>I also tested my first artstyle, the Paperization suite (based upon Paper Mario), using this new OC.</p>
+    <p>The Paperizations have been one of the most well-known and the longest-running artstyles I have utilized, and it all started from here:</p>
+    <img src="./Images/paper_touhou_engie.png">
+    <p class="font-light text-xs">The watermark here really shows how I desparately needed a rebrand.</p>
+    <br>
+    <p>Overall, it was a strong start at revitalizing what I used to overlook for the past few years, especially during the COVID pandemic.</p>
+    <p>It also gave me a niche of art that I realized that I enjoyed making every once in a while.</p>
+    <p>Before I sign off, here are two variants that I received from friends on Discord:</p>
     <img src="./Images/bubblee_touhou_engie.png">
+    <p class="font-light text-xs">I still cherish this one. Made by @onepiecesimp</p>
+    <img src="./Images/exotech_touhou_engie.png">
+    <p class="font-light text-xs">Fun fact: this was made entirely in Microsoft Word. Made by @exotechs</p>
    `
   },
 
   {
-    title: "Contact Me",
-    date: "10/18/25",
-    content: `<p>While I get the built-in email functionality working, you can contact me through other means:</p>
-    <p>Discord: @touhouengie</p>
-    <p>E-mail: natsuki.ddlc1@outlook.com</p>
-    <p>(you thought you were getting my real email there, were you? Nah, this is a burner email)</p>
-    <p>Reddit: smirbymariecallie1 (I rarely check this anymore)</p>
-    <p>I do NOT operate on Twitter nor Facebook.</p>
+    title: "WIP",
+    date: "10/20/25",
+    content: `<p>Coming Soon...</p>
     `
   }
 ];

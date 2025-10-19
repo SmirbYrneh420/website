@@ -4,6 +4,18 @@ var appList = [
     mainId: "welcome"
   },
   {
+    title: "about",
+    mainId: "about"
+  },
+  {
+    title: "contact",
+    mainId: "contact"
+  },
+  {
+    title: "license",
+    mainId: "license"
+  },
+  {
     title: "noteview",
     mainId: "notes"
   },
@@ -21,13 +33,23 @@ for (var i = 0; i < appList.length; i++) {
   eval('var ' + namer + "ScreenOpen = document.querySelector(`#" + app + "open`);");
   eval('var ' + namer + "ScreenClose = document.querySelector(`#" + app + "close`);");
   eval(namer + "ScreenClose.addEventListener('click', function() { closeWindow(" + namer + "Screen); });");
-  if (i === 0) {
+  if (i < 4) {
     eval(namer + "ScreenOpen.addEventListener('click', function() { openWindow(" + namer + "Screen); });");
   } else {
     eval(namer + "ScreenOpen.addEventListener('click', function() { iconTap(" + namer + "ScreenOpen, " + namer + "Screen); });");
   }
   dragElement(document.getElementById(app));
 }
+
+var dropdownMenu = document.querySelector("#dropdownmenu");
+var dropdownMenuOpen = document.querySelector("#dropdownopen");
+dropdownMenuOpen.addEventListener('click', function(event) { 
+  event.stopPropagation();
+  openWindow(dropdownMenu);
+});
+document.addEventListener('click', function() {
+  closeWindow(dropdownMenu);
+});
 
 var topBar = document.querySelector("#topbar");
 var largestIndex = 1;
@@ -138,6 +160,10 @@ function dragElement(element) {
     document.onmouseup = null;
     document.onmousemove = null;
   }
+}
+
+function refresh() {
+  window.location.reload();
 }
 
 // icon and window stuffs
