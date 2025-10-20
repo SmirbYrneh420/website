@@ -89,7 +89,7 @@ for (let i = 0; i < content.length; i++) {
 function setGalleryContent(inputArray, index) {
   var galleryContent = document.querySelector("#gallerycontents");
   var newEntry = document.createElement("span");
-  newEntry.innerHTML = `<img class="w-32 h-32" src="${inputArray[index].image}"><p>${inputArray[index].name}</p>`;
+  newEntry.innerHTML = `<img class="w-20 h-20" src="${inputArray[index].image}"><p>${inputArray[index].name}</p>`;
 
   if (inputArray[index].isFolder) {
     newEntry.addEventListener("click", function() {
