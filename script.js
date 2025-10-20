@@ -57,7 +57,7 @@ var selectedIcon = undefined;
 
 // consult blog.js for the content array
 function setNotesContent(index) {
-  var notesContent = document.querySelector('#notesContent');
+  var notesContent = document.querySelector('#notescontent');
   notesContent.innerHTML = content[index].content;
 }
 
@@ -84,7 +84,39 @@ for (let i = 0; i < content.length; i++) {
   noteViewTopBar(i);
 }
 
-// time for topbar
+// consult gallery.js for the file structure array
+// TODO: implement moving out of the folder
+function setGalleryContent(inputArray, index) {
+  var galleryContent = document.querySelector("#gallerycontents");
+  var newEntry = document.createElement("span");
+  newEntry.innerHTML = `<img class="w-32 h-32" src="${inputArray[index].image}"><p>${inputArray[index].name}</p>`;
+
+  if (inputArray[index].isFolder) {
+    newEntry.addEventListener("click", function() {
+      for (var i = 0; i < inputArray[index].contents.length; i++) {
+        clearAllGalleryContent();
+        setGalleryContent(inputArray[index].contents, i);
+        console.log("Opened folder");
+      } 
+    });
+  } else {
+    newEntry.addEventListener("click", function() {
+      console.log("Attempted to open file");
+    })
+  }
+  galleryContent.appendChild(newEntry);
+}
+
+function clearAllGalleryContent() {
+  var galleryContent = document.querySelector("#gallerycontents");
+  galleryContent.innerHTML = '';
+}
+
+for (var i = 0; i < galleryStructure.length; i++) {
+  setGalleryContent(galleryStructure, i);
+}
+
+// set time for topbar
 function time() {
     const deez = new Date();
     let hour = deez.getHours();
