@@ -30,7 +30,6 @@ var topBar = document.querySelector("#topbar");
 var largestIndex = 1;
 var selectedIcon = undefined;
 var audio = null;
-var isPlaying = false;
 
 // consult blog.js for the content array
 function setNotesContent(index) {
@@ -108,7 +107,7 @@ function setPlaylistContent() {
     var song = playlist[i];
     var newSong = document.createElement("li");
     newSong.classList.add("cursor-pointer");
-    newSong.innerHTML = `<p>${song.title}</p>`;
+    newSong.innerHTML = `<p>${song.title}</p><p class="text-xs">${song.author}</p><br>`;
     newSong.addEventListener('click', (function(currentSong) {
       return function() {
         playSong(currentSong);
@@ -125,7 +124,7 @@ function setPlaylistContent() {
       pauseButton.innerHTML = `<p>&#9205</p>`;
     } else {
       audio.play();
-      pauseButton.innerHTML = `<p>&#9208</p>`
+      pauseButton.innerHTML = `<p>&#9208</p>`;
     }
   });
 }
@@ -144,7 +143,6 @@ function playSong(song) {
   title.innerHTML = `<h3>${song.title}</h3>`;
   author.innerHTML = `<p>${song.author}</p>`;
   audio.play();
-  isPlaying = true;
 }
 
 // set time for topbar
