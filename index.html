@@ -58,7 +58,7 @@
             </div>
             <div class="m-2 mt-0 rounded-lg w-95 p-4 bg-gray-950 text-white">
                 <p>Hi. I bike, code, draw, and drum in my spare time. When I don't have spare time it's usually due to work or school.</p>
-                <p>I also run my school's one and only coding club, powered by and partnered with Hack Club (shoutout to their great programs btw)</p>
+                <p>I also run my school's one and only coding club, powered by and partnered with Hack Club. (shoutout to their great programs btw)</p>
             </div>
         </div>
 
@@ -69,7 +69,7 @@
             </div>
             <div class="m-2 mt-0 rounded-lg w-120 p-4 bg-gray-950 text-white">
                 <h4>While I get the built-in email functionality working, you can contact me through other means:</h4>
-                <p>please note that I operate on Eastern Time and will typically be more likely to respond from 4pm to 10pm.</p>
+                <p>Please note that I operate on Eastern Time and will typically be more likely to respond from 4pm to 10pm.</p>
                 <br>
                 <p>Discord: @touhouengie</p>
                 <p>E-mail: natsuki.ddlc1@outlook.com</p>
@@ -117,6 +117,18 @@
                 <div id="gallerycontents" class="grid grid-cols-5"></div>
             </div>
         </div>
+
+        <div id="musicplayer" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
+            <div id="musicplayerheader" class="mt-2 font-semibold flex cursor-grab">
+                <div id="musicplayerclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-pointer"></div>
+                <p class="pl-2 cursor-grab">Music Player</p>
+            </div>
+            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white overflow-y-scroll">
+                <div id="musicplayercontents" class="grid grid-cols-5">
+                    Coming soon...
+                </div>
+            </div>
+        </div>
         
         <div id="desktopApps" class="pt-8 z-0 flex">
             <div id="noteviewopen" class="text-center p-3 drop-shadow-lg w-fit">
@@ -127,10 +139,16 @@
                 <img src="./Images/gallery.png" class="w-16 h-16 rounded-md" alt="gallery">
                 <p class="m-0 text-white">Gallery</p>
             </div>
+            <div id="musicplayeropen" class="text-center p-3 drop-shadow-lg w-fit">
+                <img src="./Images/music.png" class="w-16 h-16 rounded-md" alt="musicplayer">
+                <p class="m-0 text-white">Music</p>
+            </div>
         </div>
 
+        <script src="appList.js"></script>
         <script src="blog.js"></script>
         <script src="gallery.js"></script>
+        <script src="music.js"></script>
         <script src="script.js"></script>
     </body>
 

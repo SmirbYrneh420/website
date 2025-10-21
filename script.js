@@ -1,30 +1,3 @@
-var appList = [
-  {
-    title: "welcome",
-    mainId: "welcome"
-  },
-  {
-    title: "about",
-    mainId: "about"
-  },
-  {
-    title: "contact",
-    mainId: "contact"
-  },
-  {
-    title: "license",
-    mainId: "license"
-  },
-  {
-    title: "noteview",
-    mainId: "notes"
-  },
-  {
-    title: "gallery",
-    mainId: "gallery"
-  }
-]
-
 // set all them variables for them windows
 for (var i = 0; i < appList.length; i++) {
   var app = appList[i].title;
@@ -36,11 +9,12 @@ for (var i = 0; i < appList.length; i++) {
   if (i < 4) {
     eval(namer + "ScreenOpen.addEventListener('click', function() { openWindow(" + namer + "Screen); });");
   } else {
-    eval(namer + "ScreenOpen.addEventListener('click', function() { iconTap(" + namer + "ScreenOpen, " + namer + "Screen); });");
+    eval(namer + "ScreenOpen.addEventListener('click', function() { iconTap(" + namer + "ScreenOpen, " + namer + "Screen, true); });");
   }
   dragElement(document.getElementById(app));
 }
 
+// the lone dropdown menu
 var dropdownMenu = document.querySelector("#dropdownmenu");
 var dropdownMenuOpen = document.querySelector("#dropdownopen");
 dropdownMenuOpen.addEventListener('click', function(event) { 
@@ -51,6 +25,7 @@ document.addEventListener('click', function() {
   closeWindow(dropdownMenu);
 });
 
+// additional variables
 var topBar = document.querySelector("#topbar");
 var largestIndex = 1;
 var selectedIcon = undefined;
@@ -79,13 +54,19 @@ function noteViewTopBar(index) {
   top.appendChild(newEntry);
 }
 setNotesContent(0);
-
 for (let i = 0; i < content.length; i++) {
   noteViewTopBar(i);
 }
 
+// navbar logic
+var goUp = document.querySelector("#moveup");
+goUp.addEventListener('click', function() {
+  clearAllGalleryContent();
+  setInitialGalleryContent();
+  // this will work for now but will have to redo logic later
+});
+
 // consult gallery.js for the file structure array
-// TODO: implement moving out of the folder
 function setGalleryContent(inputArray, index) {
   var galleryContent = document.querySelector("#gallerycontents");
   var newEntry = document.createElement("span");
@@ -96,7 +77,6 @@ function setGalleryContent(inputArray, index) {
       for (var i = 0; i < inputArray[index].contents.length; i++) {
         clearAllGalleryContent();
         setGalleryContent(inputArray[index].contents, i);
-        console.log("Opened folder");
       } 
     });
   } else {
@@ -112,9 +92,12 @@ function clearAllGalleryContent() {
   galleryContent.innerHTML = '';
 }
 
-for (var i = 0; i < galleryStructure.length; i++) {
-  setGalleryContent(galleryStructure, i);
+function setInitialGalleryContent() {
+  for (var i = 0; i < galleryStructure.length; i++) {
+    setGalleryContent(galleryStructure, i);
+  }
 }
+setInitialGalleryContent();
 
 // set time for topbar
 function time() {
@@ -209,7 +192,7 @@ function deselectIcon(element) {
     selectedIcon = undefined;
 }
 
-function iconTap(element, window) {
+function iconTap(element, window, isFolder) {
     if (element.classList.contains("selected")) {
       deselectIcon(element);
       openWindow(window);
@@ -237,6 +220,3 @@ function windowTap(element) {
   reorganizeWindows(element);
   deselectIcon(selectedIcon);
 }
-
-
-

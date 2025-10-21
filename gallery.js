@@ -8,6 +8,7 @@ const galleryStructure = [
             {
                 name: "test.txt",
                 isFolder: false,
+                image: "./Images/file.png",
                 contents: "test"
             }
         ]
@@ -20,6 +21,7 @@ const galleryStructure = [
             {
                 name: "test.txt",
                 isFolder: false,
+                image: "./Images/file.png",
                 contents: "test"
             }
         ]
@@ -32,6 +34,7 @@ const galleryStructure = [
             {
                 name: "test.txt",
                 isFolder: false,
+                image: "./Images/file.png",
                 contents: "test"
             }
         ]
@@ -44,13 +47,14 @@ const galleryStructure = [
             {
                 name: "test.txt",
                 isFolder: false,
+                image: "./Images/file.png",
                 contents: "test"
             }
         ]
     },
     {
         name: "README.txt",
-        image: "./Images/file.png",
+        image: "./Images/textdoc.png",
         isFolder: false,
         contents: "galleryreadme"
     }
