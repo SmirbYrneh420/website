@@ -29,7 +29,7 @@ document.addEventListener('click', function() {
 var topBar = document.querySelector("#topbar");
 var largestIndex = 1;
 var selectedIcon = undefined;
-var audio = undefined;
+var audio = null;
 var isPlaying = false;
 
 // consult blog.js for the content array
@@ -109,9 +109,11 @@ function setPlaylistContent() {
     var newSong = document.createElement("li");
     newSong.classList.add("cursor-pointer");
     newSong.innerHTML = `<p>${song.title}</p>`;
-    newSong.addEventListener('click', function() {
-      playSong(song);
-    });
+    newSong.addEventListener('click', (function(currentSong) {
+      return function() {
+        playSong(currentSong);
+      };
+    })(song));
     target.appendChild(newSong);
   }
 
@@ -133,6 +135,10 @@ function playSong(song) {
   var image = document.querySelector("#thumbnail");
   var title = document.querySelector("#songtitle");
   var author = document.querySelector("#songauthor");
+  if (audio) {
+    audio.pause();
+    audio = null;
+  }
   audio = new Audio(song.file);
   image.innerHTML = `<img src="${song.image}">`;
   title.innerHTML = `<h3>${song.title}</h3>`;
