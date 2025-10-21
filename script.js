@@ -29,6 +29,8 @@ document.addEventListener('click', function() {
 var topBar = document.querySelector("#topbar");
 var largestIndex = 1;
 var selectedIcon = undefined;
+var audio = undefined;
+var isPlaying = false;
 
 // consult blog.js for the content array
 function setNotesContent(index) {
@@ -112,6 +114,18 @@ function setPlaylistContent() {
     });
     target.appendChild(newSong);
   }
+
+  // not in the naming scheme but set the pause button event listener too
+  var pauseButton = document.querySelector("#pause");
+  pauseButton.addEventListener('click', function() {
+    if (!audio.paused) {
+      audio.pause();
+      pauseButton.innerHTML = `<p>&#9205</p>`;
+    } else {
+      audio.play();
+      pauseButton.innerHTML = `<p>&#9208</p>`
+    }
+  });
 }
 setPlaylistContent();
 
@@ -119,11 +133,12 @@ function playSong(song) {
   var image = document.querySelector("#thumbnail");
   var title = document.querySelector("#songtitle");
   var author = document.querySelector("#songauthor");
-  var audio = new Audio(song.file);
+  audio = new Audio(song.file);
   image.innerHTML = `<img src="${song.image}">`;
   title.innerHTML = `<h3>${song.title}</h3>`;
   author.innerHTML = `<p>${song.author}</p>`;
   audio.play();
+  isPlaying = true;
 }
 
 // set time for topbar
