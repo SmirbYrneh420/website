@@ -126,21 +126,17 @@
             <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white overflow-y-scroll">
                 <div id="musicplayercontents" class="grid grid-cols-2">
                     <div id="player">
-                        <img src="./Images/rin_chan.png">
-                        <h3>Test music title</h3>
-                        <p>Kagamine Rin, Mafuyu Asahina, Mizuki Akiyama</p>
+                        <span id="thumbnail"><img src="./Images/miku_chan.png"></span>
+                        <span id="songtitle"><h3>Test music title</h3></span>
+                        <span id="songauthor"><p>Kagamine Rin, Mafuyu Asahina, Mizuki Akiyama</p></span>
                         <div class="group flex justify-around text-xl">
                             <p>&#9198;</p>
                             <p>&#9199;</p>
                             <p>&#9197;</p>
                         </div>
                     </div>
-                    <div id="playlist">
-                        <ul class="list-none overflow-x-scroll overflow-y-scroll">
-                            <li>Machine Love</li>
-                            <li>Usseewa</li>
-                            <li>Jackpot Sad Girl</li>
-                            <li>Can't Take "Take No Notice Boys"</li>
+                    <div>
+                        <ul id="playlist" class="list-none overflow-x-scroll overflow-y-scroll"></ul>
                         </ul>
                     </div>
                 </div>
@@ -162,10 +158,10 @@
             </div>
         </div>
 
-        <script src="appList.js"></script>
-        <script src="blog.js"></script>
-        <script src="gallery.js"></script>
-        <script src="music.js"></script>
+        <script src="./arrays/appList.js"></script>
+        <script src="./arrays/blog.js"></script>
+        <script src="./arrays/gallery.js"></script>
+        <script src="./arrays/music.js"></script>
         <script src="script.js"></script>
     </body>
 

@@ -36,35 +36,28 @@ function setNotesContent(index) {
   notesContent.innerHTML = content[index].content;
 }
 
-function noteViewTopBar(index) {
+function noteViewTopBar() {
   var top = document.querySelector("#history");
-  var note = content[index];
-  var newEntry = document.createElement("div");
-  newEntry.classList.add("cursor-pointer");
-  newEntry.classList.add("border-solid");
-  newEntry.classList.add("border-2");
-  newEntry.classList.add("rounded-md");
-  newEntry.classList.add("bg-gray-900");
-  newEntry.innerHTML = `<p>${note.title} (${note.date})</p>`;
-  
-  newEntry.addEventListener("click", function() {
-    setNotesContent(index);
-  });
+  for (let i = 0; i < content.length; i++) {
+    var note = content[i];
+    var newEntry = document.createElement("div");
+    newEntry.classList.add("cursor-pointer");
+    newEntry.classList.add("border-solid");
+    newEntry.classList.add("border-2");
+    newEntry.classList.add("rounded-md");
+    newEntry.classList.add("bg-gray-900");
+    newEntry.innerHTML = `<p>${note.title} (${note.date})</p>`;
+    
+    newEntry.addEventListener("click", function() {
+      setNotesContent(i);
+    });
 
-  top.appendChild(newEntry);
+    top.appendChild(newEntry);
+  }
 }
+
 setNotesContent(0);
-for (let i = 0; i < content.length; i++) {
-  noteViewTopBar(i);
-}
-
-// navbar logic
-var goUp = document.querySelector("#moveup");
-goUp.addEventListener('click', function() {
-  clearAllGalleryContent();
-  setInitialGalleryContent();
-  // this will work for now but will have to redo logic later
-});
+noteViewTopBar();
 
 // consult gallery.js for the file structure array
 function setGalleryContent(inputArray, index) {
@@ -98,6 +91,40 @@ function setInitialGalleryContent() {
   }
 }
 setInitialGalleryContent();
+
+// navbar logic
+var goUp = document.querySelector("#moveup");
+goUp.addEventListener('click', function() {
+  clearAllGalleryContent();
+  setInitialGalleryContent();
+  // this will work for now but will have to redo logic later
+});
+
+function setPlaylistContent() {
+  var target = document.querySelector("#playlist");
+  for (let i = 0; i < playlist.length; i++) {
+    var song = playlist[i];
+    var newSong = document.createElement("li");
+    newSong.classList.add("cursor-pointer");
+    newSong.innerHTML = `<p>${song.title}</p>`;
+    newSong.addEventListener('click', function() {
+      playSong(song);
+    });
+    target.appendChild(newSong);
+  }
+}
+setPlaylistContent();
+
+function playSong(song) {
+  var image = document.querySelector("#thumbnail");
+  var title = document.querySelector("#songtitle");
+  var author = document.querySelector("#songauthor");
+  var audio = new Audio(song.file);
+  image.innerHTML = `<img src="${song.image}">`;
+  title.innerHTML = `<h3>${song.title}</h3>`;
+  author.innerHTML = `<p>${song.author}</p>`;
+  audio.play();
+}
 
 // set time for topbar
 function time() {
