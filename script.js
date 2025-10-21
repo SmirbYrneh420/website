@@ -30,6 +30,7 @@ var topBar = document.querySelector("#topbar");
 var largestIndex = 1;
 var selectedIcon = undefined;
 var audio = null;
+var pauseButton = document.querySelector("#pause");
 
 // consult blog.js for the content array
 function setNotesContent(index) {
@@ -117,7 +118,6 @@ function setPlaylistContent() {
   }
 
   // not in the naming scheme but set the pause button event listener too
-  var pauseButton = document.querySelector("#pause");
   pauseButton.addEventListener('click', function() {
     if (!audio.paused) {
       audio.pause();
@@ -142,7 +142,11 @@ function playSong(song) {
   image.innerHTML = `<img src="${song.image}">`;
   title.innerHTML = `<h3>${song.title}</h3>`;
   author.innerHTML = `<p>${song.author}</p>`;
+  pauseButton.innerHTML = `<p>&#9208</p>`;
   audio.play();
+  audio.addEventListener('ended', function() {
+    pauseButton.innerHTML = `<p>&#9205</p>`;
+  });
 }
 
 // set time for topbar
