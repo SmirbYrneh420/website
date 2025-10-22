@@ -7,7 +7,7 @@ const content = [
     <p>For the art I post here and there, check out the Gallery app.</p>
     <code>"Now's your chance to be a [[BIG SHOT]] - Spamton G. Spamton</code>
     <br>
-    <img src="./Images/kagamine-rin-kagamine.gif">`
+    <img class="max-w-80" src="./Images/kagamine-rin-kagamine.gif">`
 
   },
 

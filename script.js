@@ -134,6 +134,7 @@ function playSong(song) {
   var image = document.querySelector("#thumbnail");
   var title = document.querySelector("#songtitle");
   var author = document.querySelector("#songauthor");
+  var seekbar = document.querySelector("#seekbar");
   if (audio) {
     audio.pause();
     audio = null;
@@ -143,6 +144,9 @@ function playSong(song) {
   title.innerHTML = `<h3>${song.title}</h3>`;
   author.innerHTML = `<p>${song.author}</p>`;
   pauseButton.innerHTML = `<p>&#9208</p>`;
+  audio.addEventListener('timeupdate', function() {
+    seekbar.value = (this.currentTime / this.duration);
+  });
   audio.play();
   audio.addEventListener('ended', function() {
     pauseButton.innerHTML = `<p>&#9205</p>`;

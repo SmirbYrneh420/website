@@ -22,7 +22,7 @@
         <title>Touhou Engie Operating Environment</title>
     </head>
 
-    <body style="background-image: url(./wallpaper.png)" class="font-sans bg-cover h-screen">
+    <body class="font-sans bg-cover h-screen bg-sky-500 md:bg-[url(./wallpaper.png)]">
         <div id="topbar" class="flex justify-between absolute w-full backdrop-blur-md bg-[rgba(0, 0, 0, 0.25)] items-center text-white">
             <span id="dropdownopen" class="ml-4 font-bold cursor-pointer backdrop-blur-md pl-2 pr-2">teOE
                 <span id="dropdownmenu" class="absolute w-40 left-1/100 top-4/3 z-5 bg-gray-800 rounded-md font-normal border-solid border-1 hidden">
@@ -59,6 +59,7 @@
             <div class="m-2 mt-0 rounded-lg w-95 p-4 bg-gray-950 text-white">
                 <p>Hi. I bike, code, draw, and drum in my spare time. When I don't have spare time it's usually due to work or school.</p>
                 <p>I also run my school's one and only coding club, powered by and partnered with Hack Club. (shoutout to their great programs btw)</p>
+                <p class="text-sm">Been having a keen interest in vocaloid lately...</p>
             </div>
         </div>
 
@@ -100,7 +101,7 @@
                 <p class="pl-2 cursor-grab">NoteView</p>
             </div>
             <div id="history" class="flex justify-between overflow-x-scroll bg-gray-950 m-2 mt-0 rounded-lg w-140 p-2 text-white"></div>
-            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-140 h-110 p-4 text-white overflow-y-scroll">
+            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-140 h-140 p-4 text-white overflow-y-scroll">
                 <div id="notescontent"></div>
             </div>
         </div>
@@ -124,19 +125,24 @@
                 <div id="musicplayerclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-pointer"></div>
                 <p class="pl-2 cursor-grab">Music Player</p>
             </div>
-            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white">
+            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-130 p-4 text-white">
                 <div id="musicplayercontents" class="grid grid-cols-2">
                     <div id="player">
                         <span id="thumbnail"><img src="./Images/music.png"></span>
                         <span id="songtitle"><h3>Not Playing</h3></span>
                         <span id="songauthor"><p>~</p></span>
+                        <span class="flex items-center">
+                            <p id="seekprogress" class="pt-3">0:00</p>
+                            <progress id="seekbar" value="0" max="1" class="w-75"></progress>
+                            <p id="totalprogress" class="pt-3">0:00</p>
+                        </span>
                         <div class="group flex justify-around text-xl">
                             <p class="cursor-pointer">&#9198;</p>
                             <span id="pause" class="cursor-pointer"><p>&#9208;</p></span>
                             <p class="cursor-pointer">&#9197;</p>
                         </div>
                     </div>
-                    <div class="overflow-y-scroll h-110">
+                    <div class="overflow-y-scroll h-120">
                         <ul id="playlist" class="list-none"></ul>
                         </ul>
                     </div>
@@ -144,10 +150,10 @@
             </div>
         </div>
         
-        <div id="desktopApps" class="pt-8 z-0 flex">
+        <div id="desktopApps" class="pt-8 pl-2 z-0 flex flex-col">
             <div id="noteviewopen" class="text-center p-3 drop-shadow-lg w-fit">
                 <img src="./Images/noteview.png" class="w-16 h-16 rounded-md" alt="noteview">
-                <p class="m-0 text-white">NoteView</p>
+                <p class="-ml-1 my-0 mr-0 text-white">NoteView</p>
             </div>
             <div id="galleryopen" class="text-center p-3 drop-shadow-lg w-fit">
                 <img src="./Images/gallery.png" class="w-16 h-16 rounded-md" alt="gallery">
