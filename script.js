@@ -166,12 +166,12 @@ function playSong(song) {
 function time() {
     const deez = new Date();
     let hour = deez.getHours();
-    let minutes = deez.getMinutes();
+    let minute = deez.getMinutes();
     let period = hour >= 12 ? "PM" : "AM";
 
     hour = hour % 12;
     hour = hour ? hour : 12;
-    minutes = convertToProperMinutesOrSeconds(minutes);
+    minute = convertToProperMinutesOrSeconds(minute);
 
     const actualDate = `${hour}:${minutes} ${period}`;
     document.getElementById("time").innerHTML = actualDate;
