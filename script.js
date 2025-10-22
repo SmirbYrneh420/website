@@ -135,6 +135,10 @@ function playSong(song) {
   var title = document.querySelector("#songtitle");
   var author = document.querySelector("#songauthor");
   var seekbar = document.querySelector("#seekbar");
+  var seekleft = document.querySelector("#seekprogress");
+  var seekright = document.querySelector("#totalprogress");
+  var currentProgressInSeconds = 0;
+  var totalProgressInSeconds = 0;
   if (audio) {
     audio.pause();
     audio = null;
@@ -146,7 +150,12 @@ function playSong(song) {
   pauseButton.innerHTML = `<p>&#9208</p>`;
   audio.addEventListener('timeupdate', function() {
     seekbar.value = (this.currentTime / this.duration);
+    currentProgressInSeconds = convertToProperMinutesOrSeconds(Math.round(this.currentTime) % 60);
+    totalProgressInSeconds = convertToProperMinutesOrSeconds(Math.round(this.duration) % 60);
+    seekleft.innerHTML = `${(Math.floor(Math.round(this.currentTime) / 60))}:${currentProgressInSeconds}`;
+    seekright.innerHTML = `${Math.floor(Math.round(this.duration) / 60)}:${totalProgressInSeconds}`;
   });
+  // TODO: replace <progress> with <input>
   audio.play();
   audio.addEventListener('ended', function() {
     pauseButton.innerHTML = `<p>&#9205</p>`;
@@ -162,13 +171,18 @@ function time() {
 
     hour = hour % 12;
     hour = hour ? hour : 12;
-    minutes = minutes < 10 ? "0" + minutes : minutes;
+    convertToProperMinutesOrSeconds(minutes);
 
     const actualDate = `${hour}:${minutes} ${period}`;
     document.getElementById("time").innerHTML = actualDate;
 }
 time();
 setInterval(time, 1000);
+
+function convertToProperMinutesOrSeconds(minutes) {
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  return minutes;
+}
 
 // window management.sys
 function dragElement(element) {

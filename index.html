@@ -128,13 +128,14 @@
             <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-130 p-4 text-white">
                 <div id="musicplayercontents" class="grid grid-cols-2">
                     <div id="player">
-                        <span id="thumbnail"><img src="./Images/music.png"></span>
+                        <span id="thumbnail" class="pt-0"><img src="./Images/music.png"></span>
                         <span id="songtitle"><h3>Not Playing</h3></span>
                         <span id="songauthor"><p>~</p></span>
-                        <span class="flex items-center">
-                            <p id="seekprogress" class="pt-3">0:00</p>
-                            <progress id="seekbar" value="0" max="1" class="w-75"></progress>
-                            <p id="totalprogress" class="pt-3">0:00</p>
+                        <span class="flex justify-center items-center">
+                            <p id="seekprogress" class="pt-3 pr-1">0:00</p>
+                            <!-- maybe an <input> would work better? -->
+                            <progress id="seekbar" value="0" max="1" class="w-75 rounded-md border border-1 border-white"></progress>
+                            <p id="totalprogress" class="pt-3 pl-1">0:00</p>
                         </span>
                         <div class="group flex justify-around text-xl">
                             <p class="cursor-pointer">&#9198;</p>
