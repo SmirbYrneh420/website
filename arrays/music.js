@@ -94,13 +94,6 @@ const playlist = [
         image: "./Images/teto_chan.png",
         author: "??? feat. Kasane Teto",
         file: "./mp3s/ochamekinou.mp3"
-    },
-    {
-        title: "This is a broken entry",
-        image: "./Images/music.png",
-        author: "None",
-        file: "./mp3s/ochamekinou.mp3"
-    }
 ];
 
 window.playlist = playlist;
