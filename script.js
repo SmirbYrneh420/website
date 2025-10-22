@@ -102,8 +102,6 @@ goUp.addEventListener('click', function() {
   // this will work for now but will have to redo logic later
 });
 
-// temporary solution
-
 function setPlaylistContent() {
   var target = document.querySelector("#playlist");
   for (let i = 0; i < playlist.length; i++) {
@@ -133,6 +131,8 @@ function setPlaylistContent() {
 setPlaylistContent();
 
 function playSong(song) {
+  // basically the equivalent of taking an integral of a derivative.
+  // takes the index of a song in the array
   let index = playlist.findIndex(s => s.title === song.title && s.author === song.author);
   let nextSong = playlist[index+1];
   if (!nextSong) {
@@ -156,13 +156,17 @@ function playSong(song) {
   author.innerHTML = `<p>${song.author}</p>`;
   pauseButton.innerHTML = `<p>&#9208</p>`;
   audio.addEventListener('timeupdate', function() {
-    seekbar.value = (this.currentTime / this.duration);
+    seekbar.value = (this.currentTime / this.duration) * 100;
     currentProgressInSeconds = convertToProperMinutesOrSeconds(Math.round(this.currentTime) % 60);
     totalProgressInSeconds = convertToProperMinutesOrSeconds(Math.round(this.duration) % 60);
     seekleft.innerHTML = `${(Math.floor(Math.round(this.currentTime) / 60))}:${currentProgressInSeconds}`;
     seekright.innerHTML = `${Math.floor(Math.round(this.duration) / 60)}:${totalProgressInSeconds}`;
   });
-  // TODO: replace <progress> with <input>
+  seekbar.addEventListener('input', function() {
+    if (audio && audio.duration) {
+      audio.currentTime = (seekbar.value / 100) * audio.duration;
+    }
+  });
   audio.play();
   audio.addEventListener('ended', function() {
     if (nextSong) {
