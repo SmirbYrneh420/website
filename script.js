@@ -102,6 +102,8 @@ goUp.addEventListener('click', function() {
   // this will work for now but will have to redo logic later
 });
 
+// temporary solution
+
 function setPlaylistContent() {
   var target = document.querySelector("#playlist");
   for (let i = 0; i < playlist.length; i++) {
@@ -131,6 +133,12 @@ function setPlaylistContent() {
 setPlaylistContent();
 
 function playSong(song) {
+  let index = playlist.findIndex(s => s.title === song.title && s.author === song.author);
+  let nextSong = playlist[index+1];
+  if (!nextSong) {
+    pauseButton.innerHTML = `<p>&#9205</p>`;
+    return;
+  }
   var image = document.querySelector("#thumbnail");
   var title = document.querySelector("#songtitle");
   var author = document.querySelector("#songauthor");
@@ -158,7 +166,9 @@ function playSong(song) {
   // TODO: replace <progress> with <input>
   audio.play();
   audio.addEventListener('ended', function() {
-    pauseButton.innerHTML = `<p>&#9205</p>`;
+    if (nextSong) {
+      playSong(nextSong);
+    }
   });
 }
 
