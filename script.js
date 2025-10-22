@@ -137,7 +137,6 @@ function playSong(song) {
   let nextSong = playlist[index+1];
   if (!nextSong) {
     pauseButton.innerHTML = `<p>&#9205</p>`;
-    return;
   }
   var image = document.querySelector("#thumbnail");
   var title = document.querySelector("#songtitle");
