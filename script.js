@@ -173,7 +173,7 @@ function time() {
     hour = hour ? hour : 12;
     minute = convertToProperMinutesOrSeconds(minute);
 
-    const actualDate = `${hour}:${minutes} ${period}`;
+    const actualDate = `${hour}:${minute} ${period}`;
     document.getElementById("time").innerHTML = actualDate;
 }
 time();
