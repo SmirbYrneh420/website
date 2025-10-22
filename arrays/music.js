@@ -7,37 +7,37 @@ const playlist = [
     },
     {
         title: "Usseewa",
-        image: "./Images/music.png",
+        image: "./Images/n25.png",
         author: "Ado feat. Mafuyu Asahina and Mizuki Akiyama",
         file: "./mp3s/usseewa.mp3"
     },
     {
         title: "Jackpot Sad Girl",
-        image: "./Images/music.png",
+        image: "./Images/n25.png",
         author: "syudou feat. Mafuyu Asahina",
         file: "./mp3s/jackpotsadgirl.mp3"
     },
     {
         title: "Mind Brand",
-        image: "./Images/miku_chan.png",
+        image: "./Images/n25.png",
         author: "MARETU feat. Nightcord at 25:00 and Hatsune Miku",
         file: "./mp3s/mindbrand.mp3"
     },
     {
         title: "Cellphone Love Story",
-        image: "./Images/music.png",
+        image: "./Images/n25.png",
         author: "mafumafu feat. Mizuki Akiyama and Ena Shinonome",
         file: "./mp3s/cellphonelovestory.mp3"
     },
     {
         title: "Shadow Shadow",
-        image: "./Images/music.png",
+        image: "./Images/len_chan.png",
         author: "Azari feat. Nightcord at 25:00 and Kagamine Len",
         file: "./mp3s/shadowshadow.mp3"
     },
     {
         title: "Bad Apple (SEKAI)",
-        image: "./Images/miku_chan.png",
+        image: "./Images/n25.png",
         author: "beatMARIO x MARON x marasy feat. Nightcord at 25:00 and Hatsune Miku",
         file: "./mp3s/badapplesekai.mp3"
     },
