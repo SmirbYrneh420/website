@@ -9,7 +9,7 @@ for (var i = 0; i < appList.length; i++) {
   if (i < 4) {
     eval(namer + "ScreenOpen.addEventListener('click', function() { openWindow(" + namer + "Screen); });");
   } else {
-    eval(namer + "ScreenOpen.addEventListener('click', function() { iconTap(" + namer + "ScreenOpen, " + namer + "Screen, true); });");
+    eval(namer + "ScreenOpen.addEventListener('click', function() { iconTap(" + namer + "ScreenOpen, " + namer + "Screen, '" + app + "'); });");
   }
   dragElement(document.getElementById(app));
 }
@@ -31,14 +31,17 @@ var largestIndex = 1;
 var selectedIcon = undefined;
 var audio = null;
 var pauseButton = document.querySelector("#pause");
+// navbar logic
+var goUp = document.querySelector("#moveup");
+goUp.addEventListener('click', function() {
+  clearAllGalleryContent();
+  setInitialGalleryContent();
+  // this will work for now but will have to redo logic later
+});
 
 // consult blog.js for the content array
-function setNotesContent(index) {
+function noteview() {
   var notesContent = document.querySelector('#notescontent');
-  notesContent.innerHTML = content[index].content;
-}
-
-function noteViewTopBar() {
   var top = document.querySelector("#history");
   for (let i = 0; i < content.length; i++) {
     var note = content[i];
@@ -51,15 +54,20 @@ function noteViewTopBar() {
     newEntry.innerHTML = `<p>${note.title} (${note.date})</p>`;
     
     newEntry.addEventListener("click", function() {
-      setNotesContent(i);
+      notesContent.innerHTML = content[i].content;
     });
 
     top.appendChild(newEntry);
   }
+  notesContent.innerHTML = content[0].content;
 }
 
-setNotesContent(0);
-noteViewTopBar();
+function gallery() {
+  for (var i = 0; i < galleryStructure.length; i++) {
+    setGalleryContent(galleryStructure, i);
+    // i ain't gonna make your life harder than it has to be
+  }
+}
 
 // consult gallery.js for the file structure array
 function setGalleryContent(inputArray, index) {
@@ -70,7 +78,8 @@ function setGalleryContent(inputArray, index) {
   if (inputArray[index].isFolder) {
     newEntry.addEventListener("click", function() {
       for (var i = 0; i < inputArray[index].contents.length; i++) {
-        clearAllGalleryContent();
+        var galleryContent = document.querySelector("#gallerycontents");
+        galleryContent.innerHTML = '';
         setGalleryContent(inputArray[index].contents, i);
       } 
     });
@@ -82,27 +91,7 @@ function setGalleryContent(inputArray, index) {
   galleryContent.appendChild(newEntry);
 }
 
-function clearAllGalleryContent() {
-  var galleryContent = document.querySelector("#gallerycontents");
-  galleryContent.innerHTML = '';
-}
-
-function setInitialGalleryContent() {
-  for (var i = 0; i < galleryStructure.length; i++) {
-    setGalleryContent(galleryStructure, i);
-  }
-}
-setInitialGalleryContent();
-
-// navbar logic
-var goUp = document.querySelector("#moveup");
-goUp.addEventListener('click', function() {
-  clearAllGalleryContent();
-  setInitialGalleryContent();
-  // this will work for now but will have to redo logic later
-});
-
-function setPlaylistContent() {
+function musicplayer() {
   var target = document.querySelector("#playlist");
   
   for (let i = 0; i < playlist.length; i++) {
@@ -112,13 +101,13 @@ function setPlaylistContent() {
     newSong.innerHTML = `<p>${song.title}</p><p class="text-xs">${song.author}</p><br>`;
     newSong.addEventListener('click', (function(currentSong) {
       return function() {
+        // is only called once but it's one hell of a logic segment
         playSong(currentSong);
       };
     })(song));
     target.appendChild(newSong);
   }
 
-  // not in the naming scheme but set the pause button event listener too
   pauseButton.addEventListener('click', function() {
     if (!audio.paused) {
       audio.pause();
@@ -129,7 +118,7 @@ function setPlaylistContent() {
     }
   });
 }
-setPlaylistContent();
+
 
 function playSong(song) {
   // basically the equivalent of taking an integral of a derivative.
@@ -186,7 +175,7 @@ function playNextSong(song) {
     audio.pause();
   }
 }
-// set time for topbar
+
 function time() {
     const deez = new Date();
     let hour = deez.getHours();
@@ -203,6 +192,7 @@ function time() {
 time();
 setInterval(time, 1000);
 
+// used for both mp3 player and current time
 function convertToProperMinutesOrSeconds(minutes) {
   minutes = minutes < 10 ? "0" + minutes : minutes;
   return minutes;
@@ -284,9 +274,10 @@ function deselectIcon(element) {
     selectedIcon = undefined;
 }
 
-function iconTap(element, window, isFolder) {
+function iconTap(element, window, id) {
     if (element.classList.contains("selected")) {
       deselectIcon(element);
+      loadApp(id);
       openWindow(window);
     } else {
       selectIcon(element);
@@ -311,4 +302,8 @@ function reorganizeWindows(element) {
 function windowTap(element) {
   reorganizeWindows(element);
   deselectIcon(selectedIcon);
+}
+
+function loadApp(ignition) {
+  eval(ignition + "();");
 }
