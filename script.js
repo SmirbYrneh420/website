@@ -52,11 +52,9 @@ function noteview() {
     newEntry.classList.add("rounded-md");
     newEntry.classList.add("bg-gray-900");
     newEntry.innerHTML = `<p>${note.title} (${note.date})</p>`;
-    
     newEntry.addEventListener("click", function() {
       notesContent.innerHTML = content[i].content;
     });
-
     top.appendChild(newEntry);
   }
   notesContent.innerHTML = content[0].content;
@@ -93,7 +91,6 @@ function setGalleryContent(inputArray, index) {
 
 function musicplayer() {
   var target = document.querySelector("#playlist");
-  
   for (let i = 0; i < playlist.length; i++) {
     var song = playlist[i];
     var newSong = document.createElement("li");
@@ -107,7 +104,6 @@ function musicplayer() {
     })(song));
     target.appendChild(newSong);
   }
-
   pauseButton.addEventListener('click', function() {
     if (!audio.paused) {
       audio.pause();
@@ -119,16 +115,10 @@ function musicplayer() {
   });
 }
 
-
 function playSong(song) {
   // basically the equivalent of taking an integral of a derivative.
   // takes the index of a song in the array
-  var next = document.querySelector("#nextsong");
-  var prev = document.querySelector("#rewind");
   var index = playlist.findIndex(s => s.title === song.title && s.author === song.author);
-  var image = document.querySelector("#thumbnail");
-  var title = document.querySelector("#songtitle");
-  var author = document.querySelector("#songauthor");
   var seekbar = document.querySelector("#seekbar");
   var seekleft = document.querySelector("#seekprogress");
   var seekright = document.querySelector("#totalprogress");
@@ -139,9 +129,9 @@ function playSong(song) {
     audio = null;
   }
   audio = new Audio(song.file);
-  image.innerHTML = `<img src="${song.image}">`;
-  title.innerHTML = `<h3>${song.title}</h3>`;
-  author.innerHTML = `<p>${song.author}</p>`;
+  document.querySelector("#thumbnail").innerHTML = `<img src="${song.image}">`;
+  document.querySelector("#songtitle").innerHTML = `<h3>${song.title}</h3>`;
+  document.querySelector("#songauthor").innerHTML = `<p>${song.author}</p>`;
   pauseButton.innerHTML = `<p>&#9208</p>`;
   audio.addEventListener('timeupdate', function() {
     seekbar.value = (this.currentTime / this.duration) * 100;
@@ -150,20 +140,27 @@ function playSong(song) {
     seekleft.innerHTML = `${(Math.floor(Math.round(this.currentTime) / 60))}:${currentProgressInSeconds}`;
     seekright.innerHTML = `${Math.floor(Math.round(this.duration) / 60)}:${totalProgressInSeconds}`;
   });
+  // The following logic initializes UI, then plays audio, then sets event listeners to check for headphone input or song ending
   seekbar.addEventListener('input', function() {
     if (audio && audio.duration) {
       audio.currentTime = (seekbar.value / 100) * audio.duration;
     }
   });
-  next.addEventListener('click', function() {
+  document.querySelector("#nextsong").addEventListener('click', function() {
     playNextSong(playlist[index+1]);
   });
-  prev.addEventListener('click', function() {
+  document.querySelector("#rewind").addEventListener('click', function() {
     playNextSong(playlist[index-1]);
   });
   audio.play();
   audio.addEventListener('ended', function() {
     playNextSong(playlist[index+1]);
+  });
+  audio.addEventListener('pause', function() {
+    pauseButton.innerHTML = `<p>&#9205</p>`;
+  });
+  audio.addEventListener('play', function() {
+    pauseButton.innerHTML = `<p>&#9208</p>`;
   });
 }
 
