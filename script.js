@@ -104,6 +104,7 @@ goUp.addEventListener('click', function() {
 
 function setPlaylistContent() {
   var target = document.querySelector("#playlist");
+  
   for (let i = 0; i < playlist.length; i++) {
     var song = playlist[i];
     var newSong = document.createElement("li");
@@ -133,11 +134,9 @@ setPlaylistContent();
 function playSong(song) {
   // basically the equivalent of taking an integral of a derivative.
   // takes the index of a song in the array
-  let index = playlist.findIndex(s => s.title === song.title && s.author === song.author);
-  let nextSong = playlist[index+1];
-  if (!nextSong) {
-    pauseButton.innerHTML = `<p>&#9205</p>`;
-  }
+  var next = document.querySelector("#nextsong");
+  var prev = document.querySelector("#rewind");
+  var index = playlist.findIndex(s => s.title === song.title && s.author === song.author);
   var image = document.querySelector("#thumbnail");
   var title = document.querySelector("#songtitle");
   var author = document.querySelector("#songauthor");
@@ -167,14 +166,26 @@ function playSong(song) {
       audio.currentTime = (seekbar.value / 100) * audio.duration;
     }
   });
+  next.addEventListener('click', function() {
+    playNextSong(playlist[index+1]);
+  });
+  prev.addEventListener('click', function() {
+    playNextSong(playlist[index-1]);
+  });
   audio.play();
   audio.addEventListener('ended', function() {
-    if (nextSong) {
-      playSong(nextSong);
-    }
+    playNextSong(playlist[index+1]);
   });
 }
 
+function playNextSong(song) {
+  if (song) {
+    playSong(song);
+  } else {
+    pauseButton.innerHTML = `<p>&#9205</p>`;
+    audio.pause();
+  }
+}
 // set time for topbar
 function time() {
     const deez = new Date();
