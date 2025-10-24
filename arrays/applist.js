@@ -1,35 +1,43 @@
 var appList = [
   {
     title: "welcome",
-    mainId: "welcome"
+    mainId: "welcome",
+    hasBeenOpened: "true"
   },
   {
     title: "about",
-    mainId: "about"
+    mainId: "about",
+    hasBeenOpened: true
   },
   {
     title: "contact",
-    mainId: "contact"
+    mainId: "contact",
+    hasBeenOpened: true
   },
   {
     title: "license",
-    mainId: "license"
+    mainId: "license",
+    hasBeenOpened: true
   },
   {
     title: "noteview",
-    mainId: "notes"
+    mainId: "notes",
+    hasBeenOpened: false
   },
   {
     title: "gallery",
-    mainId: "gallery"
+    mainId: "gallery",
+    hasBeenOpened: false
   },
   {
     title: "musicplayer",
-    mainId: "musicplayer"
+    mainId: "musicplayer",
+    hasBeenOpened: false
   },
   { 
     title: "gamedemo",
-    mainId: "gamedemo"
+    mainId: "gamedemo",
+    hasBeenOpened: false
   }
 ];
 

@@ -292,7 +292,7 @@ function iconTap(element, window, id) {
     }
 }
 
-function closeWindow(element) {
+function closeWindow(element, id) {
     element.style.display = "none"
 }
 
@@ -313,5 +313,9 @@ function windowTap(element) {
 }
 
 function loadApp(ignition) {
-  eval(ignition + "();");
+  var index = appList.findIndex(a => a.title === ignition);
+  if (!(appList[index].hasBeenOpened)) { 
+    eval(ignition + "();");
+    appList[index].hasBeenOpened = true;
+  } else { return; }
 }
