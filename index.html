@@ -13,6 +13,7 @@
 
         <!-- this is all SEO and social media optimizations -->
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Personal webpage for a person who goes on the Internet by many usernames, including Touhou Engie." />
         <meta content="Touhou Engie" property="og:title" />
         <meta property="og:type" content="website" />
@@ -22,7 +23,7 @@
         <title>Touhou Engie Operating Environment</title>
     </head>
 
-    <body class="font-sans bg-cover h-screen bg-sky-500 bg-[url(./wallpaper.png)] overflow-hidden">
+    <body id="desktop" class="font-sans bg-cover h-screen bg-sky-500 bg-[url(./wallpaper.png)] overflow-hidden">
         <div id="topbar" class="flex justify-between absolute w-full backdrop-blur-md bg-[rgba(0, 0, 0, 0.25)] items-center text-white">
             <span id="dropdownopen" class="ml-4 font-bold cursor-pointer backdrop-blur-md pl-2 pr-2">teOE
                 <span id="dropdownmenu" class="absolute w-40 left-1/100 top-4/3 z-5 bg-gray-800 rounded-md font-normal border-solid border-1 hidden">
@@ -127,6 +128,18 @@
             </div>
         </div>
 
+        <!-- window boilerplate
+            <div id="window" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
+                <div id="windowheader" class="mt-2 font-semibold flex cursor-grab">
+                    <div id="windowclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-pointer"></div>
+                    <p class="pl-2 cursor-grab">Gallery</p>
+                </div>
+                <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white overflow-y-scroll">
+                    
+                </div>
+            </div>
+        -->
+
         <div id="musicplayer" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
             <div id="musicplayerheader" class="mt-2 font-semibold flex cursor-grab">
                 <div id="musicplayerclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-pointer"></div>
@@ -156,6 +169,16 @@
                 </div>
             </div>
         </div>
+
+        <div id="gamedemo" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
+            <div id="gamedemoheader" class="mt-2 font-semibold flex cursor-grab">
+                <div id="gamedemoclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-pointer"></div>
+                <p class="pl-2 cursor-grab">Gallery</p>
+            </div>
+            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white overflow-y-scroll">
+                <iframe frameborder="0" src="https://itch.io/embed/3917756" width="552" height="167"><a href="https://smirbyrneh420.itch.io/together-or-never-demo">Itch.io page</a></iframe>
+            </div>
+        </div>
         
         <div id="desktopApps" class="pt-8 pl-2 z-0 flex flex-col">
             <div id="noteviewopen" class="text-center p-3 drop-shadow-lg w-fit">
@@ -169,6 +192,10 @@
             <div id="musicplayeropen" class="text-center p-3 drop-shadow-lg w-fit">
                 <img src="./Images/music.png" class="w-16 h-16 rounded-md" alt="musicplayer">
                 <p class="m-0 text-white">Music</p>
+            </div>
+            <div id="gamedemoopen" class="text-center p-3 drop-shadow-lg w-fit">
+                <img src="./Images/luka_chan.png" class="w-16 h-16 rounded-md" alt="gamedemo">
+                <p class="m-0 text-white max-w-16">Random Godot Demo</p>
             </div>
         </div>
 

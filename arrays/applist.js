@@ -26,6 +26,10 @@ var appList = [
   {
     title: "musicplayer",
     mainId: "musicplayer"
+  },
+  { 
+    title: "gamedemo",
+    mainId: "gamedemo"
   }
 ];
 

@@ -80,6 +80,11 @@ function gallery() {
       });
     } else {
       newEntry.addEventListener("click", function() {
+        // here's the plan:
+        // store the boilerplate somewhere around here.
+        // when this function is called, create a new div in #desktop with the boilerplate, setting variables and everything.
+        // then, set the contents to whatever is in the file.
+        // consult the first loop for more details.
         console.log("Attempted to open file");
       })
     }
@@ -217,7 +222,6 @@ function dragElement(element) {
     // initial mouse pos
     initialX = e.clientX;
     initialY = e.clientY;
-    // check for mouse movement and button release
     document.onmouseup = stopDragging;
     document.onmousemove = elementDrag;
   }
