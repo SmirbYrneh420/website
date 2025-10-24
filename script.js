@@ -65,28 +65,26 @@ function gallery() {
     setGalleryContent(galleryStructure, i);
     // i ain't gonna make your life harder than it has to be
   }
-}
-
-// consult gallery.js for the file structure array
-function setGalleryContent(inputArray, index) {
-  var galleryContent = document.querySelector("#gallerycontents");
-  var newEntry = document.createElement("span");
-  newEntry.innerHTML = `<img class="w-20 h-20" src="${inputArray[index].image}"><p>${inputArray[index].name}</p>`;
-
-  if (inputArray[index].isFolder) {
-    newEntry.addEventListener("click", function() {
-      for (var i = 0; i < inputArray[index].contents.length; i++) {
-        var galleryContent = document.querySelector("#gallerycontents");
-        galleryContent.innerHTML = '';
-        setGalleryContent(inputArray[index].contents, i);
-      } 
-    });
-  } else {
-    newEntry.addEventListener("click", function() {
-      console.log("Attempted to open file");
-    })
+  // consult gallery.js for the file structure array
+  function setGalleryContent(inputArray, index) {
+    var galleryContent = document.querySelector("#gallerycontents");
+    var newEntry = document.createElement("span");
+    newEntry.innerHTML = `<img class="w-20 h-20" src="${inputArray[index].image}"><p>${inputArray[index].name}</p>`;
+    if (inputArray[index].isFolder) {
+      newEntry.addEventListener("click", function() {
+        for (var i = 0; i < inputArray[index].contents.length; i++) {
+          var galleryContent = document.querySelector("#gallerycontents");
+          galleryContent.innerHTML = '';
+          setGalleryContent(inputArray[index].contents, i);
+        } 
+      });
+    } else {
+      newEntry.addEventListener("click", function() {
+        console.log("Attempted to open file");
+      })
+    }
+    galleryContent.appendChild(newEntry);
   }
-  galleryContent.appendChild(newEntry);
 }
 
 function musicplayer() {
@@ -113,63 +111,61 @@ function musicplayer() {
       pauseButton.innerHTML = `<p>&#9208</p>`;
     }
   });
-}
-
-function playSong(song) {
-  // basically the equivalent of taking an integral of a derivative.
-  // takes the index of a song in the array
-  var index = playlist.findIndex(s => s.title === song.title && s.author === song.author);
-  var seekbar = document.querySelector("#seekbar");
-  var seekleft = document.querySelector("#seekprogress");
-  var seekright = document.querySelector("#totalprogress");
-  var currentProgressInSeconds = 0;
-  var totalProgressInSeconds = 0;
-  if (audio) {
-    audio.pause();
-    audio = null;
-  }
-  audio = new Audio(song.file);
-  document.querySelector("#thumbnail").innerHTML = `<img src="${song.image}">`;
-  document.querySelector("#songtitle").innerHTML = `<h3>${song.title}</h3>`;
-  document.querySelector("#songauthor").innerHTML = `<p>${song.author}</p>`;
-  pauseButton.innerHTML = `<p>&#9208</p>`;
-  audio.addEventListener('timeupdate', function() {
-    seekbar.value = (this.currentTime / this.duration) * 100;
-    currentProgressInSeconds = convertToProperMinutesOrSeconds(Math.round(this.currentTime) % 60);
-    totalProgressInSeconds = convertToProperMinutesOrSeconds(Math.round(this.duration) % 60);
-    seekleft.innerHTML = `${(Math.floor(Math.round(this.currentTime) / 60))}:${currentProgressInSeconds}`;
-    seekright.innerHTML = `${Math.floor(Math.round(this.duration) / 60)}:${totalProgressInSeconds}`;
-  });
-  // The following logic initializes UI, then plays audio, then sets event listeners to check for headphone input or song ending
-  seekbar.addEventListener('input', function() {
-    if (audio && audio.duration) {
-      audio.currentTime = (seekbar.value / 100) * audio.duration;
+  function playSong(song) {
+    // basically the equivalent of taking an integral of a derivative.
+    // takes the index of a song in the array
+    var index = playlist.findIndex(s => s.title === song.title && s.author === song.author);
+    var seekbar = document.querySelector("#seekbar");
+    var seekleft = document.querySelector("#seekprogress");
+    var seekright = document.querySelector("#totalprogress");
+    var currentProgressInSeconds = 0;
+    var totalProgressInSeconds = 0;
+    if (audio) {
+      audio.pause();
+      audio = null;
     }
-  });
-  document.querySelector("#nextsong").addEventListener('click', function() {
-    playNextSong(playlist[index+1]);
-  });
-  document.querySelector("#rewind").addEventListener('click', function() {
-    playNextSong(playlist[index-1]);
-  });
-  audio.play();
-  audio.addEventListener('ended', function() {
-    playNextSong(playlist[index+1]);
-  });
-  audio.addEventListener('pause', function() {
-    pauseButton.innerHTML = `<p>&#9205</p>`;
-  });
-  audio.addEventListener('play', function() {
+    audio = new Audio(song.file);
+    document.querySelector("#thumbnail").innerHTML = `<img src="${song.image}">`;
+    document.querySelector("#songtitle").innerHTML = `<h3>${song.title}</h3>`;
+    document.querySelector("#songauthor").innerHTML = `<p>${song.author}</p>`;
     pauseButton.innerHTML = `<p>&#9208</p>`;
-  });
-}
-
-function playNextSong(song) {
-  if (song) {
-    playSong(song);
-  } else {
-    pauseButton.innerHTML = `<p>&#9205</p>`;
-    audio.pause();
+    audio.addEventListener('timeupdate', function() {
+      seekbar.value = (this.currentTime / this.duration) * 100;
+      currentProgressInSeconds = convertToProperMinutesOrSeconds(Math.round(this.currentTime) % 60);
+      totalProgressInSeconds = convertToProperMinutesOrSeconds(Math.round(this.duration) % 60);
+      seekleft.innerHTML = `${(Math.floor(Math.round(this.currentTime) / 60))}:${currentProgressInSeconds}`;
+      seekright.innerHTML = `${Math.floor(Math.round(this.duration) / 60)}:${totalProgressInSeconds}`;
+    });
+    // The following logic initializes UI, then plays audio, then sets event listeners to check for headphone input or song ending
+    seekbar.addEventListener('input', function() {
+      if (audio && audio.duration) {
+        audio.currentTime = (seekbar.value / 100) * audio.duration;
+      }
+    });
+    document.querySelector("#nextsong").addEventListener('click', function() {
+      playNextSong(playlist[index+1]);
+    });
+    document.querySelector("#rewind").addEventListener('click', function() {
+      playNextSong(playlist[index-1]);
+    });
+    audio.play();
+    audio.addEventListener('ended', function() {
+      playNextSong(playlist[index+1]);
+    });
+    audio.addEventListener('pause', function() {
+      pauseButton.innerHTML = `<p>&#9205</p>`;
+    });
+    audio.addEventListener('play', function() {
+      pauseButton.innerHTML = `<p>&#9208</p>`;
+    });
+  }
+  function playNextSong(song) {
+    if (song) {
+      playSong(song);
+    } else {
+      pauseButton.innerHTML = `<p>&#9205</p>`;
+      audio.pause();
+    }
   }
 }
 
@@ -226,18 +222,17 @@ function dragElement(element) {
     document.onmousemove = elementDrag;
   }
 
-  // Step 9: Define the `elementDrag` function to calculate the new position of the element based on mouse movement.
+  // checks mouse position and drags window accordingly, with limitations
   function elementDrag(e) {
     e = e || window.event;
     e.preventDefault();
-    // Step 10: Calculate the new cursor position.
     currentX = initialX - e.clientX;
     currentY = initialY - e.clientY;
     initialX = e.clientX;
     initialY = e.clientY;
-    // Step 11: Update the element's new position by modifying its `top` and `left` CSS properties.
-    newX = element.offsetTop - currentY;
-    newY = element.offsetLeft - currentX;
+    // I inverted these at one point...
+    newY = element.offsetTop - currentY;
+    newX = element.offsetLeft - currentX;
     if (newX < 0) {
       stopDragging();
       newX = 1;
@@ -246,8 +241,16 @@ function dragElement(element) {
       stopDragging();
       newY = 1;
     }
-    element.style.top = (newX) + "px";
-    element.style.left = (newY) + "px";
+    if (newX > (document.documentElement.clientWidth)) {
+      stopDragging();
+      newX = document.documentElement.clientWidth - 32;
+    }
+    if (newY > document.documentElement.clientHeight) {
+      stopDragging();
+      newY = document.documentElement.clientHeight - 32;
+    }
+    element.style.top = (newY) + "px";
+    element.style.left = (newX) + "px";
   }
 
   function stopDragging() {
