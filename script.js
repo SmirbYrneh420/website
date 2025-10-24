@@ -93,7 +93,7 @@ function gallery() {
 }
 
 function gamedemo() {
-  return;
+  document.querySelector("#thing").innerHTML = `<iframe frameborder="0" src="https://itch.io/embed-upload/15081350?color=333333" allowfullscreen="" width="640" height="380"><a href="https://smirbyrneh420.itch.io/together-or-never-demo">Itch.io link</a></iframe>`;
 }
 
 function musicplayer() {

@@ -23,24 +23,24 @@
         <title>Touhou Engie Operating Environment</title>
     </head>
 
-    <body id="desktop" class="font-sans bg-cover h-screen bg-sky-500 bg-[url(./wallpaper.png)] overflow-hidden">
+    <body id="desktop" class="font-sans bg-cover h-screen bg-sky-500 bg-[url(./wallpaper.png)] overflow-hidden cursor-[url('./cursors/normal.cur'),_default]">
         <div id="topbar" class="flex justify-between absolute w-full backdrop-blur-md bg-[rgba(0, 0, 0, 0.25)] items-center text-white">
-            <span id="dropdownopen" class="ml-4 font-bold cursor-pointer backdrop-blur-md pl-2 pr-2">teOE
+            <span id="dropdownopen" class="ml-4 font-bold cursor-[url(./cursors/select.cur),_pointer] backdrop-blur-md pl-2 pr-2">teOE
                 <span id="dropdownmenu" class="absolute w-40 left-1/100 top-4/3 z-5 bg-gray-800 rounded-md font-normal border-solid border-1 hidden">
-                    <p id="welcomeopen" class="cursor-pointer p-2 pb-0">About teOE</p>
-                    <p id="aboutopen" class="cursor-pointer pl-2 pr-2">More about me</p>
-                    <p id="contactopen" class="cursor-pointer pl-2 pr-2">Contact...</p>
-                    <p id="licenseopen" class="cursor-pointer pl-2 pr-2">Copyright Info</p>
-                    <p onclick="refresh()" class="cursor-pointer pl-2 pr-2">Refresh...</p>
+                    <p id="welcomeopen" class="cursor-[url(./cursors/select.cur),_pointer] p-2 pb-0">About teOE</p>
+                    <p id="aboutopen" class="cursor-[url(./cursors/select.cur),_pointer] pl-2 pr-2">More about me</p>
+                    <p id="contactopen" class="cursor-[url(./cursors/select.cur),_pointer] pl-2 pr-2">Contact...</p>
+                    <p id="licenseopen" class="cursor-[url(./cursors/select.cur),_pointer] pl-2 pr-2">Copyright Info</p>
+                    <p onclick="refresh()" class="cursor-[url(./cursors/select.cur),_pointer] pl-2 pr-2">Refresh...</p>
                 </span>
             </span>
             <span class="mr-4" id="time"></span>
         </div>
         
         <div id="welcome" class="border-solid rounded-xl border-4 w-fit absolute top-1/4 left-13/38 text-white border-slate-800 bg-slate-800 block">
-            <div id="welcomeheader" class="mt-2 font-semibold flex cursor-grab">
-                <div id="welcomeclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-1 border-black ml-3 cursor-pointer"></div>
-                <p id="welcomeheader" class="pl-2 cursor-grab">Welcome</p>
+            <div id="welcomeheader" class="mt-2 font-semibold flex ">
+                <div id="welcomeclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-1 border-black ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <p id="welcomeheader" class="pl-2 ">Welcome</p>
             </div>
             <div class="m-2 mt-0 rounded-lg w-96 p-4 bg-gray-950 text-white text-center">
                 <img class="mx-auto w-32 h-32" src="./Images/image.png" alt="Profile pic">
@@ -53,9 +53,9 @@
         </div>
 
         <div id="about" class="border-solid rounded-xl border-4 w-fit absolute top-1/4 left-13/38 text-white border-slate-800 bg-slate-800 hidden">
-            <div id="aboutheader" class="mt-2 font-semibold flex cursor-grab">
-                <div id="aboutclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-1 border-black ml-3 cursor-pointer"></div>
-                <p id="aboutheader" class="pl-2 cursor-grab">About the Creator</p>
+            <div id="aboutheader" class="mt-2 font-semibold flex ">
+                <div id="aboutclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-1 border-black ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <p id="aboutheader" class="pl-2 ">About the Creator</p>
             </div>
             <div class="m-2 mt-0 rounded-lg w-95 p-4 bg-gray-950 text-white">
                 <p>Hi. I bike, code, draw, and drum in the slivers of spare time that I have.</p>
@@ -67,9 +67,9 @@
         </div>
 
         <div id="contact" class="border-solid rounded-xl border-4 w-fit absolute top-1/5 left-6/19 text-white border-slate-800 bg-slate-800 hidden">
-            <div id="contactheader" class="mt-2 font-semibold flex cursor-grab">
-                <div id="contactclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-1 border-black ml-3 cursor-pointer"></div>
-                <p id="contactheader" class="pl-2 cursor-grab">How to Contact Me</p>
+            <div id="contactheader" class="mt-2 font-semibold flex ">
+                <div id="contactclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-1 border-black ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <p id="contactheader" class="pl-2 ">How to Contact Me</p>
             </div>
             <div class="m-2 mt-0 rounded-lg w-120 p-4 bg-gray-950 text-white">
                 <p>Please note that I operate on Eastern Time and will typically be more likely to respond from 4pm to 10pm.</p>
@@ -87,9 +87,9 @@
         </div>
 
         <div id="license" class="border-solid rounded-xl border-4 w-fit absolute top-1/5 left-6/19 text-white border-slate-800 bg-slate-800 hidden">
-            <div id="licenseheader" class="mt-2 font-semibold flex cursor-grab">
-                <div id="licenseclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-1 border-black ml-3 cursor-pointer"></div>
-                <p id="licenseheader" class="pl-2 cursor-grab">Art Licensing Policy</p>
+            <div id="licenseheader" class="mt-2 font-semibold flex ">
+                <div id="licenseclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-1 border-black ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <p id="licenseheader" class="pl-2 ">Art Licensing Policy</p>
             </div>
             <div class="m-2 mt-0 rounded-lg w-120 p-4 bg-gray-950 text-white">
                 <p>Unless otherwise stated, all icons, art, or images not in the Gallery are licensed under the
@@ -104,9 +104,9 @@
         </div>
         
         <div id="noteview" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-7/25 text-white border-slate-800 bg-slate-800 hidden">
-            <div id="noteviewheader" class="mt-2 font-semibold flex cursor-grab">
-                <div id="noteviewclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-pointer"></div>
-                <p class="pl-2 cursor-grab">NoteView</p>
+            <div id="noteviewheader" class="mt-2 font-semibold flex ">
+                <div id="noteviewclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <p class="pl-2 ">NoteView</p>
             </div>
             <div id="history" class="flex justify-between overflow-x-scroll bg-gray-950 m-2 mt-0 rounded-lg w-140 p-2 text-white"></div>
             <div class="bg-gray-950 m-2 mt-0 rounded-lg w-140 h-140 p-4 text-white overflow-y-scroll">
@@ -115,9 +115,9 @@
         </div>
 
         <div id="gallery" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
-            <div id="galleryheader" class="mt-2 font-semibold flex cursor-grab">
-                <div id="galleryclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-pointer"></div>
-                <p class="pl-2 cursor-grab">Gallery</p>
+            <div id="galleryheader" class="mt-2 font-semibold flex">
+                <div id="galleryclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <p class="pl-2">Gallery</p>
             </div>
             <div id="navbar" class="flex justify-between bg-gray-950 m-2 mt-0 rounded-lg w-140 p-2 text-white">
                 <img id="moveup" src="./Images/up-arrow.png" class="flex-none w-8 h-8 mx-3">
@@ -130,9 +130,9 @@
 
         <!-- window boilerplate
             <div id="window" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
-                <div id="windowheader" class="mt-2 font-semibold flex cursor-grab">
-                    <div id="windowclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-pointer"></div>
-                    <p class="pl-2 cursor-grab">Gallery</p>
+                <div id="windowheader" class="mt-2 font-semibold flex ">
+                    <div id="windowclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                    <p class="pl-2">Gallery</p>
                 </div>
                 <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white overflow-y-scroll">
                     
@@ -141,9 +141,9 @@
         -->
 
         <div id="musicplayer" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
-            <div id="musicplayerheader" class="mt-2 font-semibold flex cursor-grab">
-                <div id="musicplayerclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-pointer"></div>
-                <p class="pl-2 cursor-grab">Music Player</p>
+            <div id="musicplayerheader" class="mt-2 font-semibold flex ">
+                <div id="musicplayerclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <p class="pl-2">Music Player</p>
             </div>
             <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-130 p-4 text-white">
                 <div id="musicplayercontents" class="grid grid-cols-2">
@@ -157,9 +157,9 @@
                             <p id="totalprogress" class="pt-3 pl-1">0:00</p>
                         </span>
                         <div class="group flex justify-around text-xl">
-                            <p id="rewind" class="cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M22 17.574V6.426c0-1.847-1.6-3.015-2.903-2.118L13 8.768V7.123c0-1.616-1.467-2.638-2.661-1.853L2.92 10.147c-1.228.807-1.228 2.899 0 3.706l7.418 4.877c1.194.785 2.661-.237 2.661-1.853v-1.645l6.097 4.46c1.302.897 2.903-.27 2.903-2.118"/></svg></p>
-                            <span id="pause" class="cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6c0-1.886 0-2.828.586-3.414S4.114 2 6 2s2.828 0 3.414.586S10 4.114 10 6v12c0 1.886 0 2.828-.586 3.414S7.886 22 6 22s-2.828 0-3.414-.586S2 19.886 2 18zm12 0c0-1.886 0-2.828.586-3.414S16.114 2 18 2s2.828 0 3.414.586S22 4.114 22 6v12c0 1.886 0 2.828-.586 3.414S19.886 22 18 22s-2.828 0-3.414-.586S14 19.886 14 18z"/></svg></span>
-                            <p id="nextsong" class="cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 17.574V6.426C2 4.58 3.6 3.411 4.903 4.308L11 8.768V7.123c0-1.616 1.467-2.638 2.661-1.853l7.417 4.877c1.229.807 1.229 2.899 0 3.706l-7.417 4.877c-1.194.785-2.661-.237-2.661-1.853v-1.645l-6.097 4.46C3.601 20.589 2 19.422 2 17.574"/></svg></p>
+                            <p id="rewind" class="cursor-[url(./cursors/select.cur),_pointer]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M22 17.574V6.426c0-1.847-1.6-3.015-2.903-2.118L13 8.768V7.123c0-1.616-1.467-2.638-2.661-1.853L2.92 10.147c-1.228.807-1.228 2.899 0 3.706l7.418 4.877c1.194.785 2.661-.237 2.661-1.853v-1.645l6.097 4.46c1.302.897 2.903-.27 2.903-2.118"/></svg></p>
+                            <span id="pause" class="cursor-[url(./cursors/select.cur),_pointer]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6c0-1.886 0-2.828.586-3.414S4.114 2 6 2s2.828 0 3.414.586S10 4.114 10 6v12c0 1.886 0 2.828-.586 3.414S7.886 22 6 22s-2.828 0-3.414-.586S2 19.886 2 18zm12 0c0-1.886 0-2.828.586-3.414S16.114 2 18 2s2.828 0 3.414.586S22 4.114 22 6v12c0 1.886 0 2.828-.586 3.414S19.886 22 18 22s-2.828 0-3.414-.586S14 19.886 14 18z"/></svg></span>
+                            <p id="nextsong" class="cursor-[url(./cursors/select.cur),_pointer]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 17.574V6.426C2 4.58 3.6 3.411 4.903 4.308L11 8.768V7.123c0-1.616 1.467-2.638 2.661-1.853l7.417 4.877c1.229.807 1.229 2.899 0 3.706l-7.417 4.877c-1.194.785-2.661-.237-2.661-1.853v-1.645l-6.097 4.46C3.601 20.589 2 19.422 2 17.574"/></svg></p>
                         </div>
                     </div>
                     <div class="overflow-y-scroll h-120">
@@ -171,12 +171,11 @@
         </div>
 
         <div id="gamedemo" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
-            <div id="gamedemoheader" class="mt-2 font-semibold flex cursor-grab">
-                <div id="gamedemoclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-pointer"></div>
-                <p class="pl-2 cursor-grab">Gallery</p>
+            <div id="gamedemoheader" class="mt-2 font-semibold flex ">
+                <div id="gamedemoclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <p class="pl-2">Gallery</p>
             </div>
-            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-170 h-120 p-4 text-white overflow-y-scroll">
-                <iframe frameborder="0" src="https://itch.io/embed-upload/15081350?color=333333" allowfullscreen="" width="640" height="380"><a href="https://smirbyrneh420.itch.io/together-or-never-demo">Itch.io link</a></iframe>
+            <div id="thing" class="bg-gray-950 m-2 mt-0 rounded-lg w-170 h-120 p-4 text-white overflow-y-scroll">
             </div>
         </div>
         
