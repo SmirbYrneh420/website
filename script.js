@@ -46,7 +46,7 @@ function noteview() {
   for (let i = 0; i < content.length; i++) {
     var note = content[i];
     var newEntry = document.createElement("div");
-    newEntry.classList.add("cursor-pointer");
+    newEntry.classList.add("cursor-[url(./cursors/select.cur),_pointer]");
     newEntry.classList.add("border-solid");
     newEntry.classList.add("border-2");
     newEntry.classList.add("rounded-md");
@@ -101,7 +101,7 @@ function musicplayer() {
   for (let i = 0; i < playlist.length; i++) {
     var song = playlist[i];
     var newSong = document.createElement("li");
-    newSong.classList.add("cursor-pointer");
+    newSong.classList.add("cursor-[url(./cursors/select.cur),_pointer]");
     newSong.innerHTML = `<p>${song.title}</p><p class="text-xs">${song.author}</p><br>`;
     newSong.addEventListener('click', (function(currentSong) {
       return function() {
