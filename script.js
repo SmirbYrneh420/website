@@ -92,6 +92,10 @@ function gallery() {
   }
 }
 
+function gamedemo() {
+  return;
+}
+
 function musicplayer() {
   var target = document.querySelector("#playlist");
   for (let i = 0; i < playlist.length; i++) {
