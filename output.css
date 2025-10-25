@@ -113,6 +113,7 @@
   }
   img, svg, video, canvas, audio, iframe, embed, object {
     display: block;
+    vertical-align: middle;
   }
   img, video {
     max-width: 100%;
@@ -388,6 +389,9 @@
   .cursor-\[url\(\'\.\/cursors\/select\.cur\'\)\,pointer\] {
     cursor: url('./cursors/select.cur'),pointer;
   }
+  .cursor-\[url\(\'\.\/cursors\/text_sel\.cur\'\)\,text\] {
+    cursor: url('./cursors/text_sel.cur'),text;
+  }
   .cursor-\[url\(\.\/cursors\/select\.cur\)\,_pointer\] {
     cursor: url(./cursors/select.cur), pointer;
   }
@@ -509,6 +513,12 @@
   }
   .p-4 {
     padding: calc(var(--spacing) * 4);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
   }
   .pt-0 {
     padding-top: calc(var(--spacing) * 0);

@@ -97,7 +97,8 @@ function gamedemo() {
 }
 
 function email() {
-  document.querySelector("#emailcontent").innerHTML = `<input type="email" id="email" name="email" class="text-white border border-white rounded-md cursor-[url(./cursors/text_sel.cur),text]"></input><input type="text" id="message" name="message" class="text-white border border-white rounded-md cursor-[url(./cursors/text_sel.cur),text]" required ></input><button id="submit" class="text-white border border-white rounded-md cursor-[url(./cursors/select.cur),pointer]">Send</button>`;
+  // TODO: Buy a domain to migrate from GitHub Pages to another provider for PHP and MySQL support
+  return;
 }
 
 function musicplayer() {

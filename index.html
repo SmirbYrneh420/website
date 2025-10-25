@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
     <head>
         <link rel="icon" type="image/png" href="./Images/image.png" />
 
@@ -133,7 +133,7 @@
             <div id="window" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
                 <div id="windowheader" class="mt-2 font-semibold flex">
                     <div id="windowclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
-                    <p class="pl-2">Gallery</p>
+                    <p class="pl-2">Text</p>
                 </div>
                 <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white overflow-y-scroll">
                     
@@ -186,7 +186,31 @@
                 <p class="pl-2">Email Me</p>
             </div>
             <div id="emailcontent" class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white overflow-y-scroll">
-            </div>
+                <form action="" method="get">
+                    <div>
+                        <label for="replyto">Choose your preferred method of contact: </label>
+                        <select name="replyto" id="replyto" class="cursor-[url('./cursors/normal.cur'),default]">
+                            <option value="email">E-mail (preferred)</option>
+                            <option value="phone">Phone (text)</option>
+                            <option value="discord">Discord</option>
+                            <option value="telegram">Telegram</option>
+                            <option value="anonymous">Anonymous</option>
+                        </select>
+                    </div>
+                    <p class="text-sm"> (NOTE: If you select 'Anonymous' or do not provide a username/email/phone, I will not be able to reply.)</p>
+                    <div>
+                        <label for="username">Enter your email, phone, or username: </label>
+                        <input type="text" id="username" name="username" class="border border-white rounded-md cursor-[url('./cursors/text_sel.cur'),text]" />
+                    </div>
+                    <div>
+                        <label for="message">Type your message here: </label>
+                        <textarea id="message" name="message" rows="11" cols="56" class="border border-white rounded-md cursor-[url('./cursors/text_sel.cur'),text]" required></textarea>
+                    </div>
+                    <div>
+                        <input type="submit" value="Send" class="cursor-[url('./cursors/select.cur'),pointer] border border-white py-2 px-4 rounded-md bg-sky-500"/>
+                    </div>
+                </form>   
+          </div>
         </div>
         
         <div id="desktopApps" class="pt-8 pl-2 z-0 flex flex-col">
