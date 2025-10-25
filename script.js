@@ -30,7 +30,6 @@ var topBar = document.querySelector("#topbar");
 var largestIndex = 1;
 var selectedIcon = undefined;
 var audio = null;
-var pauseButton = document.querySelector("#pause");
 // navbar logic
 var goUp = document.querySelector("#moveup");
 goUp.addEventListener('click', function() {
@@ -103,6 +102,10 @@ function email() {
 
 function musicplayer() {
   var target = document.querySelector("#playlist");
+  var pauseButton = document.querySelector("#pause");
+  var shuffle = false;
+  var shuffleOrder = [];
+  var increment = 0;
   for (let i = 0; i < playlist.length; i++) {
     var song = playlist[i];
     var newSong = document.createElement("li");
@@ -125,7 +128,41 @@ function musicplayer() {
       pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6c0-1.886 0-2.828.586-3.414S4.114 2 6 2s2.828 0 3.414.586S10 4.114 10 6v12c0 1.886 0 2.828-.586 3.414S7.886 22 6 22s-2.828 0-3.414-.586S2 19.886 2 18zm12 0c0-1.886 0-2.828.586-3.414S16.114 2 18 2s2.828 0 3.414.586S22 4.114 22 6v12c0 1.886 0 2.828-.586 3.414S19.886 22 18 22s-2.828 0-3.414-.586S14 19.886 14 18z"/></svg>`;
     }
   });
+
+  // Set the buttons and shuffle functionality
+  document.querySelector("#shuffle").addEventListener('click', function() {
+    var temp = 0;
+    while (shuffleOrder.length <= (playlist.length - 1)) {
+      temp = Math.abs(Math.round((Math.random() * playlist.length) - 1));
+      if (shuffleOrder.indexOf(temp) < 0) {
+        shuffleOrder.push(temp);
+      }
+    }
+    document.querySelector("#shuffle").innerHTML = shuffle ? "Shuffle: OFF" : "Shuffle: ON";
+    shuffle = !(shuffle);
+    console.log(shuffleOrder);
+    playSong(playlist[shuffleOrder[0]]);
+  });
+  document.querySelector("#nextsong").addEventListener('click', function() {
+    if (shuffle) {
+      increment++;
+      playNextSong(playlist[shuffleOrder[increment]]);
+    } else { 
+      playNextSong(playlist[index+1]);
+    }
+  });
+  document.querySelector("#rewind").addEventListener('click', function() {
+    if (shuffle) {
+      increment--;
+      playNextSong(playlist[shuffleOrder[increment]]);
+    } else { 
+      playNextSong(playlist[index-1]);
+    }
+  });
+
   function playSong(song) {
+    // Handles anything related to the Audio class.
+
     // basically the equivalent of taking an integral of a derivative.
     // takes the index of a song in the array
     var index = playlist.findIndex(s => s.title === song.title && s.author === song.author);
@@ -156,15 +193,14 @@ function musicplayer() {
         audio.currentTime = (seekbar.value / 100) * audio.duration;
       }
     });
-    document.querySelector("#nextsong").addEventListener('click', function() {
-      playNextSong(playlist[index+1]);
-    });
-    document.querySelector("#rewind").addEventListener('click', function() {
-      playNextSong(playlist[index-1]);
-    });
     audio.play();
     audio.addEventListener('ended', function() {
-      playNextSong(playlist[index+1]);
+      if (shuffle) {
+        increment++;
+        playNextSong(playlist[shuffleOrder[increment]]);
+      } else { 
+        playNextSong(playlist[index+1]);
+      }
     });
     audio.addEventListener('pause', function() {
       pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M21.409 9.353a2.998 2.998 0 0 1 0 5.294L8.597 21.614C6.534 22.737 4 21.277 4 18.968V5.033c0-2.31 2.534-3.769 4.597-2.648z"/></svg>`;
