@@ -93,7 +93,11 @@ function gallery() {
 }
 
 function gamedemo() {
-  document.querySelector("#thing").innerHTML = `<iframe class="cursor-[url('./cursors/normal.cur'),_default]" frameborder="0" src="https://itch.io/embed-upload/15081350?color=333333" allowfullscreen="" width="640" height="380"><a href="https://smirbyrneh420.itch.io/together-or-never-demo">Itch.io link</a></iframe>`;
+  document.querySelector("#thing").innerHTML = `<iframe class="cursor-[url('./cursors/normal.cur'),default]" frameborder="0" src="https://itch.io/embed-upload/15081350?color=333333" allowfullscreen="" width="640" height="380"><a href="https://smirbyrneh420.itch.io/together-or-never-demo">Itch.io link</a></iframe>`;
+}
+
+function email() {
+  document.querySelector("#emailcontent").innerHTML = `<input type="email" id="email" name="email" class="text-white border border-white rounded-md cursor-[url(./cursors/text_sel.cur),text]"></input><input type="text" id="message" name="message" class="text-white border border-white rounded-md cursor-[url(./cursors/text_sel.cur),text]" required ></input><button id="submit" class="text-white border border-white rounded-md cursor-[url(./cursors/select.cur),pointer]">Send</button>`;
 }
 
 function musicplayer() {
@@ -101,7 +105,7 @@ function musicplayer() {
   for (let i = 0; i < playlist.length; i++) {
     var song = playlist[i];
     var newSong = document.createElement("li");
-    newSong.classList.add("cursor-[url(./cursors/select.cur),_pointer]");
+    newSong.classList.add("cursor-[url(./cursors/select.cur),pointer]");
     newSong.innerHTML = `<p>${song.title}</p><p class="text-xs">${song.author}</p><br>`;
     newSong.addEventListener('click', (function(currentSong) {
       return function() {

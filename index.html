@@ -5,7 +5,7 @@
         <link rel="icon" type="image/png" href="./Images/image.png" />
 
         <!-- TODO: Shift to a the proper way of building TCSS (Tailwind CLI) -->
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <link rel="stylesheet" type="text/css" href="./output.css">
 
         <!-- Bootstrap version 5.3.6 -->
         <!-- This applies a cleaner and more consistent feel for the Desktop Environment -->
@@ -24,15 +24,15 @@
         <title>Touhou Engie Operating Environment</title>
     </head>
 
-    <body id="desktop" class="font-sans bg-cover h-screen bg-sky-500 bg-[url(./wallpaper.png)] overflow-hidden cursor-[url('./cursors/normal.cur'),_default]">
+    <body id="desktop" class="font-sans bg-cover h-screen bg-sky-500 bg-[url(./wallpaper.png)] overflow-hidden cursor-[url('./cursors/normal.cur'),default]">
         <div id="topbar" class="flex justify-between absolute w-full backdrop-blur-md bg-[rgba(0, 0, 0, 0.25)] items-center text-white">
-            <span id="dropdownopen" class="ml-4 font-bold cursor-[url(./cursors/select.cur),_pointer] backdrop-blur-md pl-2 pr-2">teOE
-                <span id="dropdownmenu" class="absolute w-40 left-1/100 top-4/3 z-5 bg-gray-800 rounded-md font-normal border-solid border-1 hidden">
-                    <p id="welcomeopen" class="cursor-[url(./cursors/select.cur),_pointer] p-2 pb-0">About teOE</p>
-                    <p id="aboutopen" class="cursor-[url(./cursors/select.cur),_pointer] pl-2 pr-2">More about me</p>
-                    <p id="contactopen" class="cursor-[url(./cursors/select.cur),_pointer] pl-2 pr-2">Contact...</p>
-                    <p id="licenseopen" class="cursor-[url(./cursors/select.cur),_pointer] pl-2 pr-2">Copyright Info</p>
-                    <p onclick="refresh()" class="cursor-[url(./cursors/select.cur),_pointer] pl-2 pr-2">Refresh...</p>
+            <span id="dropdownopen" class="ml-4 font-bold cursor-[url('./cursors/select.cur'),pointer] backdrop-blur-md pl-2 pr-2">teOE
+                <span id="dropdownmenu" class="absolute w-40 left-1/100 top-4/3 z-5 bg-gray-800 rounded-md font-normal border-solid border hidden">
+                    <p id="welcomeopen" class="cursor-[url('./cursors/select.cur'),pointer] p-2 pb-0">About teOE</p>
+                    <p id="aboutopen" class="cursor-[url('./cursors/select.cur'),pointer] pl-2 pr-2">More about me</p>
+                    <p id="contactopen" class="cursor-[url('./cursors/select.cur'),pointer] pl-2 pr-2">Contact...</p>
+                    <p id="licenseopen" class="cursor-[url('./cursors/select.cur'),pointer] pl-2 pr-2">Copyright Info</p>
+                    <p onclick="refresh()" class="cursor-[url('./cursors/select.cur'),pointer] pl-2 pr-2">Refresh...</p>
                 </span>
             </span>
             <span class="mr-4" id="time"></span>
@@ -40,7 +40,7 @@
         
         <div id="welcome" class="border-solid rounded-xl border-4 w-fit absolute top-1/4 left-13/38 text-white border-slate-800 bg-slate-800 block">
             <div id="welcomeheader" class="mt-2 font-semibold flex ">
-                <div id="welcomeclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-1 border-black ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <div id="welcomeclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
                 <p id="welcomeheader" class="pl-2 ">Welcome</p>
             </div>
             <div class="m-2 mt-0 rounded-lg w-96 p-4 bg-gray-950 text-white text-center">
@@ -55,7 +55,7 @@
 
         <div id="about" class="border-solid rounded-xl border-4 w-fit absolute top-1/4 left-13/38 text-white border-slate-800 bg-slate-800 hidden">
             <div id="aboutheader" class="mt-2 font-semibold flex ">
-                <div id="aboutclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-1 border-black ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <div id="aboutclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
                 <p id="aboutheader" class="pl-2 ">About the Creator</p>
             </div>
             <div class="m-2 mt-0 rounded-lg w-95 p-4 bg-gray-950 text-white">
@@ -69,7 +69,7 @@
 
         <div id="contact" class="border-solid rounded-xl border-4 w-fit absolute top-1/5 left-6/19 text-white border-slate-800 bg-slate-800 hidden">
             <div id="contactheader" class="mt-2 font-semibold flex ">
-                <div id="contactclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-1 border-black ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <div id="contactclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
                 <p id="contactheader" class="pl-2 ">How to Contact Me</p>
             </div>
             <div class="m-2 mt-0 rounded-lg w-120 p-4 bg-gray-950 text-white">
@@ -89,7 +89,7 @@
 
         <div id="license" class="border-solid rounded-xl border-4 w-fit absolute top-1/5 left-6/19 text-white border-slate-800 bg-slate-800 hidden">
             <div id="licenseheader" class="mt-2 font-semibold flex ">
-                <div id="licenseclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-1 border-black ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <div id="licenseclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
                 <p id="licenseheader" class="pl-2 ">Art Licensing Policy</p>
             </div>
             <div class="m-2 mt-0 rounded-lg w-120 p-4 bg-gray-950 text-white">
@@ -106,7 +106,7 @@
         
         <div id="noteview" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-7/25 text-white border-slate-800 bg-slate-800 hidden">
             <div id="noteviewheader" class="mt-2 font-semibold flex ">
-                <div id="noteviewclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <div id="noteviewclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
                 <p class="pl-2 ">NoteView</p>
             </div>
             <div id="history" class="flex justify-between overflow-x-scroll bg-gray-950 m-2 mt-0 rounded-lg w-140 p-2 text-white"></div>
@@ -117,7 +117,7 @@
 
         <div id="gallery" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
             <div id="galleryheader" class="mt-2 font-semibold flex">
-                <div id="galleryclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <div id="galleryclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
                 <p class="pl-2">Gallery</p>
             </div>
             <div id="navbar" class="flex justify-between bg-gray-950 m-2 mt-0 rounded-lg w-140 p-2 text-white">
@@ -132,7 +132,7 @@
         <!-- window boilerplate
             <div id="window" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
                 <div id="windowheader" class="mt-2 font-semibold flex">
-                    <div id="windowclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                    <div id="windowclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
                     <p class="pl-2">Gallery</p>
                 </div>
                 <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white overflow-y-scroll">
@@ -143,7 +143,7 @@
 
         <div id="musicplayer" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
             <div id="musicplayerheader" class="mt-2 font-semibold flex">
-                <div id="musicplayerclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <div id="musicplayerclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
                 <p class="pl-2">Music Player</p>
             </div>
             <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-130 p-4 text-white">
@@ -154,13 +154,13 @@
                         <span id="songauthor"><p>~</p></span>
                         <span class="flex justify-center items-center">
                             <p id="seekprogress" class="pt-3 pr-1">0:00</p>
-                            <input type="range" id="seekbar" value="0" max="100" class="w-75 rounded-md border border-1 border-white cursor-[url('./cursors/normal.cur'),_default]">
+                            <input type="range" id="seekbar" value="0" max="100" class="w-75 rounded-md border border-white cursor-[url('./cursors/normal.cur'),default]">
                             <p id="totalprogress" class="pt-3 pl-1">0:00</p>
                         </span>
                         <div class="group flex justify-around text-xl">
-                            <p id="rewind" class="cursor-[url(./cursors/select.cur),_pointer]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M22 17.574V6.426c0-1.847-1.6-3.015-2.903-2.118L13 8.768V7.123c0-1.616-1.467-2.638-2.661-1.853L2.92 10.147c-1.228.807-1.228 2.899 0 3.706l7.418 4.877c1.194.785 2.661-.237 2.661-1.853v-1.645l6.097 4.46c1.302.897 2.903-.27 2.903-2.118"/></svg></p>
-                            <span id="pause" class="cursor-[url(./cursors/select.cur),_pointer]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6c0-1.886 0-2.828.586-3.414S4.114 2 6 2s2.828 0 3.414.586S10 4.114 10 6v12c0 1.886 0 2.828-.586 3.414S7.886 22 6 22s-2.828 0-3.414-.586S2 19.886 2 18zm12 0c0-1.886 0-2.828.586-3.414S16.114 2 18 2s2.828 0 3.414.586S22 4.114 22 6v12c0 1.886 0 2.828-.586 3.414S19.886 22 18 22s-2.828 0-3.414-.586S14 19.886 14 18z"/></svg></span>
-                            <p id="nextsong" class="cursor-[url(./cursors/select.cur),_pointer]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 17.574V6.426C2 4.58 3.6 3.411 4.903 4.308L11 8.768V7.123c0-1.616 1.467-2.638 2.661-1.853l7.417 4.877c1.229.807 1.229 2.899 0 3.706l-7.417 4.877c-1.194.785-2.661-.237-2.661-1.853v-1.645l-6.097 4.46C3.601 20.589 2 19.422 2 17.574"/></svg></p>
+                            <p id="rewind" class="cursor-[url('./cursors/select.cur'),pointer]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M22 17.574V6.426c0-1.847-1.6-3.015-2.903-2.118L13 8.768V7.123c0-1.616-1.467-2.638-2.661-1.853L2.92 10.147c-1.228.807-1.228 2.899 0 3.706l7.418 4.877c1.194.785 2.661-.237 2.661-1.853v-1.645l6.097 4.46c1.302.897 2.903-.27 2.903-2.118"/></svg></p>
+                            <span id="pause" class="cursor-[url('./cursors/select.cur'),pointer]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6c0-1.886 0-2.828.586-3.414S4.114 2 6 2s2.828 0 3.414.586S10 4.114 10 6v12c0 1.886 0 2.828-.586 3.414S7.886 22 6 22s-2.828 0-3.414-.586S2 19.886 2 18zm12 0c0-1.886 0-2.828.586-3.414S16.114 2 18 2s2.828 0 3.414.586S22 4.114 22 6v12c0 1.886 0 2.828-.586 3.414S19.886 22 18 22s-2.828 0-3.414-.586S14 19.886 14 18z"/></svg></span>
+                            <p id="nextsong" class="cursor-[url('./cursors/select.cur'),pointer]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 17.574V6.426C2 4.58 3.6 3.411 4.903 4.308L11 8.768V7.123c0-1.616 1.467-2.638 2.661-1.853l7.417 4.877c1.229.807 1.229 2.899 0 3.706l-7.417 4.877c-1.194.785-2.661-.237-2.661-1.853v-1.645l-6.097 4.46C3.601 20.589 2 19.422 2 17.574"/></svg></p>
                         </div>
                     </div>
                     <div class="overflow-y-scroll h-120">
@@ -173,7 +173,7 @@
 
         <div id="gamedemo" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
             <div id="gamedemoheader" class="mt-2 font-semibold flex">
-                <div id="gamedemoclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <div id="gamedemoclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
                 <p class="pl-2">A Random Godot Demo That Barely Works</p>
             </div>
             <div id="thing" class="bg-gray-950 m-2 mt-0 rounded-lg w-170 h-120 p-4 text-white overflow-y-scroll">
@@ -182,13 +182,10 @@
 
         <div id="email" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
             <div id="emailheader" class="mt-2 font-semibold flex">
-                <div id="emailclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <div id="emailclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
                 <p class="pl-2">Email Me</p>
             </div>
-            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white overflow-y-scroll">
-                <input type="email" id="email" name="email"></input>
-                <input type="text" id="message" name="message" required></input>
-                <button id="submit">Send</button>
+            <div id="emailcontent" class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white overflow-y-scroll">
             </div>
         </div>
         
@@ -207,10 +204,10 @@
             </div>
             <div id="gamedemoopen" class="text-center p-3 drop-shadow-lg w-fit">
                 <img src="./Images/luka_chan.png" class="w-16 h-16 rounded-md" alt="gamedemo">
-                <p class="m-0 text-white max-w-16">Random Godot Demo</p>
+                <p class="m-0 text-white max-w-16">Godot Demo</p>
             </div>
             <div id="emailopen" class="text-center p-3 drop-shadow-lg w-fit">
-                <img src="./Images/mail.png">
+                <img src="./Images/mail.png" class="w-16 h-16 rounded-md" alt="email">
                 <p class="m-0 text-white">E-mail Me</p>
             </div>
         </div>

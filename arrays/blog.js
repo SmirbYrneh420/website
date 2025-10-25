@@ -5,7 +5,7 @@ const content = [
     content: `<h2>Welcome to NoteView</h2>
     <p>This is more of a personal blog of sorts. Use the Top Bar to navigate through past posts.</p>
     <p>For the art I post here and there, check out the Gallery app.</p>
-    <code>"Now's your chance to be a [[BIG SHOT]] - Spamton G. Spamton</code>
+    <code>"Now's your chance to be a [[BIG SHOT]]" - Spamton G. Spamton</code>
     <br>
     <img class="max-w-80" src="./Images/kagamine-rin-kagamine.gif">`
 
