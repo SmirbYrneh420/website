@@ -131,7 +131,7 @@
 
         <!-- window boilerplate
             <div id="window" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
-                <div id="windowheader" class="mt-2 font-semibold flex ">
+                <div id="windowheader" class="mt-2 font-semibold flex">
                     <div id="windowclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
                     <p class="pl-2">Gallery</p>
                 </div>
@@ -142,7 +142,7 @@
         -->
 
         <div id="musicplayer" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
-            <div id="musicplayerheader" class="mt-2 font-semibold flex ">
+            <div id="musicplayerheader" class="mt-2 font-semibold flex">
                 <div id="musicplayerclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
                 <p class="pl-2">Music Player</p>
             </div>
@@ -172,11 +172,23 @@
         </div>
 
         <div id="gamedemo" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
-            <div id="gamedemoheader" class="mt-2 font-semibold flex ">
+            <div id="gamedemoheader" class="mt-2 font-semibold flex">
                 <div id="gamedemoclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
                 <p class="pl-2">A Random Godot Demo That Barely Works</p>
             </div>
             <div id="thing" class="bg-gray-950 m-2 mt-0 rounded-lg w-170 h-120 p-4 text-white overflow-y-scroll">
+            </div>
+        </div>
+
+        <div id="email" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
+            <div id="emailheader" class="mt-2 font-semibold flex">
+                <div id="emailclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url(./cursors/select.cur),_pointer]"></div>
+                <p class="pl-2">Email Me</p>
+            </div>
+            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white overflow-y-scroll">
+                <input type="email" id="email" name="email"></input>
+                <input type="text" id="message" name="message" required></input>
+                <button id="submit">Send</button>
             </div>
         </div>
         
@@ -196,6 +208,10 @@
             <div id="gamedemoopen" class="text-center p-3 drop-shadow-lg w-fit">
                 <img src="./Images/luka_chan.png" class="w-16 h-16 rounded-md" alt="gamedemo">
                 <p class="m-0 text-white max-w-16">Random Godot Demo</p>
+            </div>
+            <div id="emailopen" class="text-center p-3 drop-shadow-lg w-fit">
+                <img src="./Images/mail.png">
+                <p class="m-0 text-white">E-mail Me</p>
             </div>
         </div>
 

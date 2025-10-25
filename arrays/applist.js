@@ -38,6 +38,11 @@ var appList = [
     title: "gamedemo",
     mainId: "gamedemo",
     hasBeenOpened: false
+  },
+  {
+    title: "email",
+    mainId: "email",
+    hasBeenOpened: false
   }
 ];
 
