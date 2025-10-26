@@ -9,7 +9,7 @@ for (var i = 0; i < appList.length; i++) {
   if (i < 4) {
     eval(namer + "ScreenOpen.addEventListener('click', function() { openWindow(" + namer + "Screen); });");
   } else {
-    eval(namer + "ScreenOpen.addEventListener('click', function() { iconTap(" + namer + "ScreenOpen, " + namer + "Screen, '" + app + "'); });");
+    eval(namer + "ScreenOpen.addEventListener('click', function() { iconTap(" + namer + "Screen, '" + app + "'); });");
   }
   dragElement(document.getElementById(app));
 }
@@ -27,6 +27,7 @@ document.addEventListener('click', function() {
 
 // additional variables
 var topBar = document.querySelector("#topbar");
+var dock = document.querySelector("#desktopApps");
 var largestIndex = 1;
 var selectedIcon = undefined;
 var audio = null;
@@ -313,24 +314,10 @@ function refresh() {
 }
 
 // icon and window stuffs
-function selectIcon(element) {
-    element.classList.add("selected");
-    selectedIcon = element;
-}
 
-function deselectIcon(element) {
-    element.classList.remove("selected");
-    selectedIcon = undefined;
-}
-
-function iconTap(element, window, id) {
-    if (element.classList.contains("selected")) {
-      deselectIcon(element);
-      loadApp(id);
-      openWindow(window);
-    } else {
-      selectIcon(element);
-    }
+function iconTap(window, id) {
+    loadApp(id);
+    openWindow(window);
 }
 
 function closeWindow(element, id) {
@@ -346,6 +333,7 @@ function reorganizeWindows(element) {
   largestIndex = largestIndex + 1;
   element.style.zIndex = largestIndex;
   topBar.style.zIndex = largestIndex + 1;
+  dock.style.zIndex = largestIndex + 1;
 }
 
 function windowTap(element) {
