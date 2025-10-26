@@ -105,8 +105,10 @@ function musicplayer() {
   var target = document.querySelector("#playlist");
   var pauseButton = document.querySelector("#pause");
   var shuffle = false;
+  var repeat = false;
   var shuffleOrder = [];
   var increment = 0;
+  var index = 0;
   for (let i = 0; i < playlist.length; i++) {
     var song = playlist[i];
     var newSong = document.createElement("li");
@@ -141,13 +143,18 @@ function musicplayer() {
     }
     document.querySelector("#shuffle").innerHTML = shuffle ? "Shuffle: OFF" : "Shuffle: ON";
     shuffle = !(shuffle);
-    console.log(shuffleOrder);
     playSong(playlist[shuffleOrder[0]]);
+  });
+  document.querySelector("#repeat").addEventListener('click', function() {
+    document.querySelector("#repeat").innerHTML = repeat ? "Repeat: OFF" : "Repeat: ON";
+    repeat = !(repeat);
   });
   document.querySelector("#nextsong").addEventListener('click', function() {
     if (shuffle) {
       increment++;
       playNextSong(playlist[shuffleOrder[increment]]);
+    } else if (repeat) {
+      playNextSong(playlist[index]);
     } else { 
       playNextSong(playlist[index+1]);
     }
@@ -156,6 +163,8 @@ function musicplayer() {
     if (shuffle) {
       increment--;
       playNextSong(playlist[shuffleOrder[increment]]);
+    } else if (repeat) {
+      playNextSong(playlist[index]);
     } else { 
       playNextSong(playlist[index-1]);
     }
@@ -166,7 +175,7 @@ function musicplayer() {
 
     // basically the equivalent of taking an integral of a derivative.
     // takes the index of a song in the array
-    var index = playlist.findIndex(s => s.title === song.title && s.author === song.author);
+    index = playlist.findIndex(s => s.title === song.title && s.author === song.author);
     var seekbar = document.querySelector("#seekbar");
     var seekleft = document.querySelector("#seekprogress");
     var seekright = document.querySelector("#totalprogress");
@@ -199,6 +208,8 @@ function musicplayer() {
       if (shuffle) {
         increment++;
         playNextSong(playlist[shuffleOrder[increment]]);
+      } else if (repeat) {
+        playNextSong(playlist[index]);
       } else { 
         playNextSong(playlist[index+1]);
       }
