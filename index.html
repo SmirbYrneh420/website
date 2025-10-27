@@ -38,27 +38,35 @@
             <span class="mr-4" id="time"></span>
         </div>
         
-        <div id="welcome" class="border-solid rounded-xl border-4 w-fit absolute top-1/16 left-27/76 text-white border-slate-800 bg-slate-800 block">
+        <div id="welcome" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/16 sm:left-27/76 text-white border-slate-800 bg-slate-800 block">
             <div id="welcomeheader" class="mt-2 font-semibold flex">
-                <div id="welcomeclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
-                <p id="welcomeheader" class="pl-2 ">Welcome</p>
+                <div id="welcomeclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 cursor-[url('./cursors/select.cur'),pointer]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#ffffff"/>
+                    </svg>
+                </div>
+                <p id="welcomeheader" class="pl-2">Welcome</p>
             </div>
-            <div class="m-2 mt-0 rounded-lg w-96 p-4 bg-gray-950 text-white text-center">
+            <div class="m-2 mt-0 rounded-lg w-full sm:w-96 p-4 bg-gray-950 text-white text-center">
                 <img class="mx-auto w-32 h-32" src="./Images/image.png" alt="Profile pic">
                 <h2 class="font-bold">teOE</h2>
                 <p>The Touhou Engie Desktop Experience</p>
                 <p>A Personal Hobby Project</p>
                 <p>and a Feature-Limited Operating Environment</p>
-                <p>Version 1.0.0</p>
+                <p>Version 1.0.1</p>
             </div>
         </div>
 
-        <div id="about" class="border-solid rounded-xl border-4 w-fit absolute top-1/16 left-27/76 text-white border-slate-800 bg-slate-800 hidden">
-            <div id="aboutheader" class="mt-2 font-semibold flex ">
-                <div id="aboutclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
+        <div id="about" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/16 sm:left-27/76 text-white border-slate-800 bg-slate-800 hidden">
+            <div id="aboutheader" class="mt-2 font-semibold flex">
+                <div id="aboutclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 cursor-[url('./cursors/select.cur'),pointer]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#ffffff"/>
+                    </svg>
+                </div>
                 <p id="aboutheader" class="pl-2 ">About the Creator</p>
             </div>
-            <div class="m-2 mt-0 rounded-lg w-95 p-4 bg-gray-950 text-white overflow-x-scroll">
+            <div class="m-2 mt-0 rounded-lg w-full sm:w-95 p-4 bg-gray-950 text-white overflow-x-scroll">
                 <p>Hi. I bike, code, draw, and drum in the slivers of spare time that I have.</p>
                 <p>I'm an aspiring computer engineering student, teaching myself about computers and coding since <span class="text-cyan-300 inline">August 2020</span>.</p>
                 <p>Most of my expertise stems from <span class="text-cyan-300 inline">HTML, CSS, Tailwind CSS, and JavaScript</span>, with a little bit of Godot and C dazzled in between.</p>
@@ -70,12 +78,16 @@
             </div>
         </div>
 
-        <div id="contact" class="border-solid rounded-xl border-4 w-fit absolute top-1/8 left-6/19 text-white border-slate-800 bg-slate-800 hidden">
-            <div id="contactheader" class="mt-2 font-semibold flex ">
-                <div id="contactclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
+        <div id="contact" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/8 sm:left-6/19 text-white border-slate-800 bg-slate-800 hidden">
+            <div id="contactheader" class="mt-2 font-semibold flex">
+                <div id="contactclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 cursor-[url('./cursors/select.cur'),pointer]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#ffffff"/>
+                    </svg>
+                </div>
                 <p id="contactheader" class="pl-2 ">How to Contact Me</p>
             </div>
-            <div class="m-2 mt-0 rounded-lg w-120 p-4 bg-gray-950 text-white">
+            <div class="m-2 mt-0 rounded-lg w-full sm:w-120 p-4 bg-gray-950 text-white">
                 <p>Please note that I operate on Eastern Time and will typically be more likely to respond from 4pm to 10pm.</p>
                 <br>
                 <p>Discord: @touhouengie</p>
@@ -90,12 +102,16 @@
             </div>
         </div>
 
-        <div id="license" class="border-solid rounded-xl border-4 w-fit absolute top-1/8 left-6/19 text-white border-slate-800 bg-slate-800 hidden">
+        <div id="license" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/8 sm:left-6/19 text-white border-slate-800 bg-slate-800 hidden">
             <div id="licenseheader" class="mt-2 font-semibold flex ">
-                <div id="licenseclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
+                <div id="licenseclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 cursor-[url('./cursors/select.cur'),pointer]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#ffffff"/>
+                    </svg>
+                </div>
                 <p id="licenseheader" class="pl-2 ">Art Licensing Policy</p>
             </div>
-            <div class="m-2 mt-0 rounded-lg w-120 p-4 bg-gray-950 text-white">
+            <div class="m-2 mt-0 rounded-lg w-full sm:w-120 p-4 bg-gray-950 text-white">
                 <p>Unless otherwise stated, all icons, art, or images not in the Gallery are licensed under the
                     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.
                     <span class="flex"><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"></span>
@@ -107,23 +123,31 @@
             </div>
         </div>
         
-        <div id="noteview" class="border-solid rounded-xl border-4 w-fit absolute top-1/25 left-7/25 text-white border-slate-800 bg-slate-800 hidden">
-            <div id="noteviewheader" class="mt-2 font-semibold flex ">
-                <div id="noteviewclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
+        <div id="noteview" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/25 sm:left-7/25 text-white border-slate-800 bg-slate-800 hidden">
+            <div id="noteviewheader" class="mt-2 font-semibold flex">
+                <div id="noteviewclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#ffffff"/>
+                    </svg>
+                </div>
                 <p class="pl-2 ">NoteView</p>
             </div>
-            <div id="history" class="flex justify-between overflow-x-scroll bg-gray-950 m-2 mt-0 rounded-lg w-140 p-2 text-white"></div>
-            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-140 h-140 p-4 text-white overflow-y-scroll">
+            <div id="history" class="flex justify-between overflow-x-scroll bg-gray-950 m-2 mt-0 rounded-lg w-full sm:w-140 p-2 text-white"></div>
+            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-full h-full sm:w-140 sm:h-140 p-4 text-white overflow-y-scroll">
                 <div id="notescontent"></div>
             </div>
         </div>
 
-        <div id="gallery" class="border-solid rounded-xl border-4 w-fit absolute top-1/20 left-27/100 text-white border-slate-800 bg-slate-800 hidden">
+        <div id="gallery" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/20 sm:left-27/100 text-white border-slate-800 bg-slate-800 hidden">
             <div id="galleryheader" class="mt-2 font-semibold flex">
-                <div id="galleryclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
+                <div id="galleryclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#ffffff"/>
+                    </svg>
+                </div>
                 <p class="pl-2">Gallery</p>
             </div>
-            <div id="navbar" class="flex justify-between bg-gray-950 m-2 mt-0 rounded-lg w-140 p-2 text-white">
+            <div id="navbar" class="flex justify-between bg-gray-950 m-2 mt-0 rounded-lg w-full sm:w-140 p-2 text-white">
                 <img id="moveup" src="./Images/up-arrow.png" class="flex-none w-8 h-8 mx-3">
                 <p id="filepath" class="flex-auto">Sorry not yet implemented.</p>
             </div>
@@ -132,12 +156,16 @@
             </div>
         </div>
 
-        <div id="musicplayer" class="border-solid rounded-xl border-4 w-fit absolute top-1/20 left-27/100 text-white border-slate-800 bg-slate-800 hidden">
+        <div id="musicplayer" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/20 sm:left-27/100 text-white border-slate-800 bg-slate-800 hidden">
             <div id="musicplayerheader" class="mt-2 font-semibold flex">
-                <div id="musicplayerclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
+                <div id="musicplayerclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#ffffff"/>
+                    </svg>
+                </div>
                 <p class="pl-2">Music Player</p>
             </div>
-            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-130 p-4 text-white">
+            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-full h-full sm:w-150 sm:h-130 p-4 text-white">
                 <div id="musicplayercontents" class="grid grid-cols-2">
                     <div id="player">
                         <span id="thumbnail" class="pt-0"><img src="./Images/music.png"></span>
@@ -145,7 +173,7 @@
                         <span id="songauthor"><p>~</p></span>
                         <span class="flex justify-center items-center">
                             <p id="seekprogress" class="pt-3 pr-1">0:00</p>
-                            <input type="range" id="seekbar" value="0" max="100" class="w-75 rounded-md border border-white cursor-[url('./cursors/normal.cur'),default]">
+                            <input type="range" id="seekbar" value="0" max="100" class="w-full rounded-md border border-white cursor-[url('./cursors/normal.cur'),default]">
                             <p id="totalprogress" class="pt-3 pl-1">0:00</p>
                         </span>
                         <div class="group flex justify-around text-xl">
@@ -158,7 +186,7 @@
                             <span id="repeat" class="cursor-[url('./cursors/select.cur'),pointer]">Repeat: OFF</span>
                         </div>
                     </div>
-                    <div class="overflow-y-scroll h-120">
+                    <div class="overflow-y-scroll h-screen sm:h-120">
                         <ul id="playlist" class="list-none"></ul>
                         </ul>
                     </div>
@@ -166,21 +194,29 @@
             </div>
         </div>
 
-        <div id="gamedemo" class="border-solid rounded-xl border-4 w-fit absolute top-1/20 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
+        <div id="gamedemo" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/20 sm:left-1/4 text-white border-slate-800 bg-slate-800 hidden">
             <div id="gamedemoheader" class="mt-2 font-semibold flex">
-                <div id="gamedemoclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
+                <div id="gamedemoclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#ffffff"/>
+                    </svg>
+                </div>
                 <p class="pl-2">A Random Godot Demo That Barely Works</p>
             </div>
             <div id="thing" class="bg-gray-950 m-2 mt-0 rounded-lg w-170 h-120 p-4 text-white overflow-y-scroll">
             </div>
         </div>
 
-        <div id="email" class="border-solid rounded-xl border-4 w-fit absolute top-1/20 left-3/10 text-white border-slate-800 bg-slate-800 hidden">
+        <div id="email" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/20 sm:left-3/10 text-white border-slate-800 bg-slate-800 hidden">
             <div id="emailheader" class="mt-2 font-semibold flex">
-                <div id="emailclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
+                <div id="emailclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#ffffff"/>
+                    </svg>
+                </div>
                 <p class="pl-2">Email Me</p>
             </div>
-            <div id="emailcontent" class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white overflow-y-scroll">
+            <div id="emailcontent" class="bg-gray-950 m-2 mt-0 rounded-lg w-full h-full sm:w-150 sm:h-120 p-4 text-white overflow-y-scroll">
                 <form action="" method="post">
                     <div>
                         <label for="replyto">Choose your preferred method of contact: </label>
@@ -208,7 +244,7 @@
           </div>
         </div>
         
-        <div id="desktopApps" class="mb-2 fixed bottom-0 left-1/2 flex -translate-x-45 justify-center flex-row bg-[rgba(0, 0, 0, 0.25)] backdrop-blur-md rounded-lg border-1 border-gray-700">
+        <div id="desktopApps" class="flex justify-center flex-row bg-[rgba(0, 0, 0, 0.25)] backdrop-blur-md rounded-lg border-1 border-gray-700 mb-2 fixed bottom-0 left-1/2 -translate-x-1/2">
             <div id="noteviewopen" class="text-center p-1 drop-shadow-lg w-fit cursor-[url('./cursors/select.cur'),pointer]">
                 <img src="./Images/noteview.png" class="w-16 h-16 rounded-md" alt="noteview">
             </div>
@@ -227,9 +263,13 @@
         </div>
 
         <!-- window boilerplate
-            <div id="window" class="border-solid rounded-xl border-4 w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
+            <div id="window" class="border-solid rounded-xl border-4 sm:w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
                 <div id="windowheader" class="mt-2 font-semibold flex">
-                    <div id="windowclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url('./cursors/select.cur'),pointer]"></div>
+                    <div id="windowclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url('./cursors/select.cur'),pointer]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#ffffff"/>
+                        </svg>
+                    </div>
                     <p class="pl-2">Text</p>
                 </div>
                 <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white overflow-y-scroll">
@@ -238,7 +278,7 @@
             </div>
         -->
 
-        <!-- script.js for everything, all other js files contain json-style arrays -->
+        <!-- script.js for all logic, all other js files contain json-style arrays -->
         <script src="https://touhouengie.github.io/website/arrays/applist.js"></script>
         <script src="https://touhouengie.github.io/website/arrays/blog.js"></script>
         <script src="https://touhouengie.github.io/website/arrays/gallery.js"></script>

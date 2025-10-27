@@ -8,12 +8,12 @@ const playlist = [
     {
         title: "Usseewa",
         image: "./Images/n25.png",
-        author: "Ado feat. Mafuyu Asahina and Mizuki Akiyama",
+        author: "Ado x syudou feat. Mafuyu Asahina and Mizuki Akiyama",
         file: "./mp3s/usseewa.mp3"
     },
     {
         title: "Jackpot Sad Girl",
-        image: "./Images/n25.png",
+        image: "./Images/mafuyu_chan.png",
         author: "syudou feat. Mafuyu Asahina",
         file: "./mp3s/jackpotsadgirl.mp3"
     },
