@@ -6,6 +6,7 @@ for (var i = 0; i < appList.length; i++) {
   eval('var ' + namer + "ScreenOpen = document.querySelector(`#" + app + "open`);");
   eval('var ' + namer + "ScreenClose = document.querySelector(`#" + app + "close`);");
   eval(namer + "ScreenClose.addEventListener('click', function() { closeWindow(" + namer + "Screen); });");
+  // there are currently only 4 apps only accessible from the top bar. Other apps are accessible from the dock, or in a future implementation if necessary, a launchpad-style folder.
   if (i < 4) {
     eval(namer + "ScreenOpen.addEventListener('click', function() { openWindow(" + namer + "Screen); });");
   } else {
@@ -143,7 +144,9 @@ function musicplayer() {
     }
     document.querySelector("#shuffle").innerHTML = shuffle ? "Shuffle: OFF" : "Shuffle: ON";
     shuffle = !(shuffle);
-    playSong(playlist[shuffleOrder[0]]);
+    if (!(audio)) {
+      playSong(playlist[shuffleOrder[increment]]);
+    }
   });
   document.querySelector("#repeat").addEventListener('click', function() {
     document.querySelector("#repeat").innerHTML = repeat ? "Repeat: OFF" : "Repeat: ON";
