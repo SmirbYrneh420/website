@@ -110,6 +110,8 @@ function musicplayer() {
   var shuffleOrder = [];
   var increment = 0;
   var index = 0;
+  var newClass = "";
+  var original = "";
   for (let i = 0; i < playlist.length; i++) {
     var song = playlist[i];
     var newSong = document.createElement("li");
@@ -142,15 +144,13 @@ function musicplayer() {
         shuffleOrder.push(temp);
       }
     }
-    document.querySelector("#shuffle").innerHTML = shuffle ? "Shuffle: OFF" : "Shuffle: ON";
-    shuffle = !(shuffle);
+    setSvgAndStuff('shuffle');
     if (!(audio)) {
       playSong(playlist[shuffleOrder[increment]]);
     }
   });
   document.querySelector("#repeat").addEventListener('click', function() {
-    document.querySelector("#repeat").innerHTML = repeat ? "Repeat: OFF" : "Repeat: ON";
-    repeat = !(repeat);
+    setSvgAndStuff('repeat');
   });
   document.querySelector("#nextsong").addEventListener('click', function() {
     if (shuffle) {
@@ -172,6 +172,16 @@ function musicplayer() {
       playNextSong(playlist[index-1]);
     }
   });
+  function setSvgAndStuff(vari) {
+    eval(vari + ` = !(` + vari + `)`);
+    var variName = eval(vari);
+    newClass = variName ? "fill-cyan-500" : "fill-white";
+    original = variName ? "fill-white" : "fill-cyan-500";
+    eval(`document.querySelector("#` + vari + `button").classList.replace(original, newClass)`);
+    newClass = variName ? "stroke-cyan-500" : "stroke-white";
+    original = variName ? "stroke-white" : "stroke-cyan-500";
+    eval(`document.querySelector("#` + vari + `stroke").classList.replace(original, newClass)`);
+  }
 
   function playSong(song) {
     // Handles anything related to the Audio class.
