@@ -11,6 +11,7 @@
     --color-red-700: oklch(50.5% 0.213 27.518);
     --color-cyan-300: oklch(86.5% 0.127 207.078);
     --color-cyan-400: oklch(78.9% 0.154 211.53);
+    --color-cyan-500: oklch(71.5% 0.143 215.221);
     --color-sky-500: oklch(68.5% 0.169 237.323);
     --color-sky-600: oklch(58.8% 0.158 241.966);
     --color-slate-800: oklch(27.9% 0.041 260.031);
@@ -659,8 +660,14 @@
   .bg-cover {
     background-size: cover;
   }
+  .fill-cyan-500 {
+    fill: var(--color-cyan-500);
+  }
   .fill-white {
     fill: var(--color-white);
+  }
+  .stroke-cyan-500 {
+    stroke: var(--color-cyan-500);
   }
   .stroke-white {
     stroke: var(--color-white);
