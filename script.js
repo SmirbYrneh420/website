@@ -40,6 +40,55 @@ goUp.addEventListener('click', function() {
   // this will work for now but will have to redo logic later
 });
 
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  let cursor = getCookie("cursor");
+  if (cursor != "") {
+   configureCursor(cursor);
+  } else {   
+    setCookie("cursor", "1", 365);
+  }
+}
+checkCookie();
+
+function configureCursor(num) {
+  var cursorPointer = document.querySelectorAll(".pointer");
+  var cursorDefault = document.querySelectorAll(".normal");
+  var cursorText = document.querySelectorAll(".text");
+  setCursors(cursorPointer, "pointer", "cursor-1-pointer");
+  setCursors(cursorDefault, "normal", "cursor-1-normal");
+  setCursors(cursorText, "text", "cursor-1-text");
+
+  function setCursors(list, target, replacer) {
+    for (var i = 0; i < list.length; i++) {
+      list[i].classList.replace(target, replacer);
+    }
+  }
+
+}
+
 // consult blog.js for the content array
 function noteview() {
   var notesContent = document.querySelector('#notescontent');
@@ -115,7 +164,7 @@ function musicplayer() {
   for (let i = 0; i < playlist.length; i++) {
     var song = playlist[i];
     var newSong = document.createElement("li");
-    newSong.classList.add("cursor-[url(./cursors/select.cur),pointer]");
+    newSong.classList.add("cursor-[url(./cursors/1/select.cur),pointer]");
     newSong.innerHTML = `<p>${song.title}</p><p class="text-xs">${song.author}</p><br>`;
     newSong.addEventListener('click', (function(currentSong) {
       return function() {

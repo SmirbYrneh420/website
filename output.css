@@ -13,7 +13,6 @@
     --color-cyan-400: oklch(78.9% 0.154 211.53);
     --color-cyan-500: oklch(71.5% 0.143 215.221);
     --color-sky-500: oklch(68.5% 0.169 237.323);
-    --color-sky-600: oklch(58.8% 0.158 241.966);
     --color-slate-800: oklch(27.9% 0.041 260.031);
     --color-gray-700: oklch(37.3% 0.034 259.733);
     --color-gray-800: oklch(27.8% 0.033 256.848);
@@ -374,17 +373,11 @@
   .cursor-\[url\(\'\.\/cursors\/normal\.cur\'\)\,default\] {
     cursor: url('./cursors/normal.cur'),default;
   }
-  .cursor-\[url\(\'\.\/cursors\/select\.cur\'\)\,pointer\] {
-    cursor: url('./cursors/select.cur'),pointer;
-  }
-  .cursor-\[url\(\'\.\/cursors\/text_sel\.cur\'\)\,text\] {
-    cursor: url('./cursors/text_sel.cur'),text;
+  .cursor-\[url\(\.\/cursors\/1\/select\.cur\)\,pointer\] {
+    cursor: url(./cursors/1/select.cur),pointer;
   }
   .cursor-\[url\(\.\/cursors\/select\.cur\)\,_pointer\] {
     cursor: url(./cursors/select.cur), pointer;
-  }
-  .cursor-\[url\(\.\/cursors\/select\.cur\)\,pointer\] {
-    cursor: url(./cursors/select.cur),pointer;
   }
   .list-none {
     list-style-type: none;
@@ -689,6 +682,24 @@
       grid-template-columns: repeat(5, minmax(0, 1fr));
     }
   }
+}
+.cursor-1-pointer {
+  cursor: url('./cursors/1/select.cur'), pointer;
+}
+.cursor-1-normal {
+  cursor: url('./cursors/1/normal.cur'), default;
+}
+.cursor-1-text {
+  cursor: url('./cursors/1/text_sel.cur'), text;
+}
+.cursor-2-pointer {
+  cursor: url('./cursors/2/select.cur'), pointer;
+}
+.cursor-2-normal {
+  cursor: url('./cursors/2/normal.cur'), default;
+}
+.cursor-2-text {
+  cursor: url('./cursors/2/text_sel.cur'), text;
 }
 @property --tw-translate-x {
   syntax: "*";

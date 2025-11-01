@@ -24,16 +24,16 @@
         <title>Touhou Engie Operating Environment</title>
     </head>
 
-    <body id="desktop" class="font-sans bg-cover h-screen bg-sky-500 bg-[url(./wallpaper.png)] overflow-hidden cursor-[url('./cursors/normal.cur'),default]">
+    <body id="desktop" class="font-sans bg-cover h-screen bg-sky-500 bg-[url(./wallpaper.png)] overflow-hidden normal">
         <div id="topbar" class="flex justify-between absolute w-full backdrop-blur-md bg-[rgba(0, 0, 0, 0.25)] items-center text-white">
-            <span id="dropdownopen" class="ml-4 font-bold cursor-[url('./cursors/select.cur'),pointer] backdrop-blur-md pl-2 pr-2">teOE
+            <span id="dropdownopen" class="ml-4 font-bold pointer backdrop-blur-md pl-2 pr-2">teOE
                 <span id="dropdownmenu" class="p-2 pb-0 absolute w-40 left-1/100 top-4/3 z-5 bg-gray-800 rounded-md font-normal border-solid border hidden grid-cols-1 gap-0">
-                    <p id="welcomeopen" class="cursor-[url('./cursors/select.cur'),pointer]">About teOE</p>
-                    <p id="settingsopen" class="cursor-[url('./cursors/select.cur'),pointer]">Settings...</p>
-                    <p id="aboutopen" class="cursor-[url('./cursors/select.cur'),pointer]">More about me</p>
-                    <p id="contactopen" class="cursor-[url('./cursors/select.cur'),pointer]">Contact...</p>
-                    <p id="licenseopen" class="cursor-[url('./cursors/select.cur'),pointer]">Copyright Info</p>
-                    <p onclick="refresh()" class="cursor-[url('./cursors/select.cur'),pointer]">Refresh...</p>
+                    <p id="welcomeopen" class="pointer">About teOE</p>
+                    <p id="settingsopen" class="pointer">Settings...</p>
+                    <p id="aboutopen" class="pointer">More about me</p>
+                    <p id="contactopen" class="pointer">Contact...</p>
+                    <p id="licenseopen" class="pointer">Copyright Info</p>
+                    <p onclick="refresh()" class="pointer">Refresh...</p>
                 </span>
             </span>
             <span class="mr-4" id="time"></span>
@@ -41,7 +41,7 @@
         
         <div id="welcome" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/16 sm:left-27/76 text-white border-slate-800 bg-slate-800 block">
             <div id="welcomeheader" class="mt-2 font-semibold flex">
-                <div id="welcomeclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 cursor-[url('./cursors/select.cur'),pointer] hover:bg-red-700">
+                <div id="welcomeclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 pointer hover:bg-red-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" class="fill-white"/>
                     </svg>
@@ -60,7 +60,7 @@
 
         <div id="settings" class="border-solid rounded-xl border-4 sm:w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
             <div id="settingsheader" class="mt-2 font-semibold flex">
-                <div id="settingsclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url('./cursors/select.cur'),pointer]">
+                <div id="settingsclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" class="fill-white"/>
                     </svg>
@@ -68,13 +68,20 @@
                 <p class="pl-2">Settings</p>
             </div>
             <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white overflow-y-scroll">
-                
+                <h4>teOE Settings</h4>
+                <label>Cursor:</label>
+                <select id="cursor-selection" name="cursor" class="border normal">
+                    <option value="0">Default OS cursor</option>
+                    <option value="1">Kagamine Rin cursor</option>
+                    <option value="2">Animated N25 Miku cursor</option>
+                    <!-- Safari does not support option 2...*sigh* -->
+                </select>
             </div>
         </div>
 
         <div id="about" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/16 sm:left-27/76 text-white border-slate-800 bg-slate-800 hidden">
             <div id="aboutheader" class="mt-2 font-semibold flex">
-                <div id="aboutclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 cursor-[url('./cursors/select.cur'),pointer] hover:bg-red-700">
+                <div id="aboutclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 pointer hover:bg-red-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" class="fill-white"/>
                     </svg>
@@ -87,15 +94,15 @@
                 <p>Most of my expertise stems from <span class="text-cyan-300 inline">HTML, CSS, Tailwind CSS, and JavaScript</span>, with a little bit of Godot.</p>
                 <p>Currently learning React, C, and PHP/mySQL to build this more...</p>
                 <p>I also run my school's one and only coding club, powered by and partnered with Hack Club. (shoutout to their great programs btw)</p>
-                <a href="https://touhouengie.github.io/website"><img class="w-22 h-8 mb-2 cursor-[url('./cursors/select.cur'),pointer]" src="./Images/rin8831.png" alt="an 88x31 button"></a>
+                <a href="https://touhouengie.github.io/website"><img class="w-22 h-8 mb-2 pointer" src="./Images/rin8831.png" alt="an 88x31 button"></a>
                 <p class="text-sm">P.S. If you want this Kagamine Rin Approved (tm) 88x31 button, here is the non-tCSS code:</p>
-                <input class="text-sm cursor-[url('./cursors/text_sel.cur'),text] w-80 border border-white rounded-md select-all" value='<a href="https://touhouengie.github.io/website"><img src="https://touhouengie.github.io/website/Images/rin8831.png" alt="An 88x31 button (Kagamine Rin Approved)" width="88" height="31"></a>' readonly></input>
+                <input class="text-sm text w-80 border border-white rounded-md select-all" value='<a href="https://touhouengie.github.io/website"><img src="https://touhouengie.github.io/website/Images/rin8831.png" alt="An 88x31 button (Kagamine Rin Approved)" width="88" height="31"></a>' readonly></input>
             </div>
         </div>
 
         <div id="contact" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/8 sm:left-6/19 text-white border-slate-800 bg-slate-800 hidden">
             <div id="contactheader" class="mt-2 font-semibold flex">
-                <div id="contactclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 cursor-[url('./cursors/select.cur'),pointer] hover:bg-red-700">
+                <div id="contactclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 pointer hover:bg-red-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" class="fill-white"/>
                     </svg>
@@ -119,7 +126,7 @@
 
         <div id="license" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/8 sm:left-6/19 text-white border-slate-800 bg-slate-800 hidden">
             <div id="licenseheader" class="mt-2 font-semibold flex ">
-                <div id="licenseclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 cursor-[url('./cursors/select.cur'),pointer] hover:bg-red-700">
+                <div id="licenseclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 pointer hover:bg-red-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" class="fill-white"/>
                     </svg>
@@ -140,7 +147,7 @@
         
         <div id="noteview" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/25 sm:left-7/25 text-white border-slate-800 bg-slate-800 hidden">
             <div id="noteviewheader" class="mt-2 font-semibold flex">
-                <div id="noteviewclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer] hover:bg-red-700">
+                <div id="noteviewclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 pointer hover:bg-red-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" class="fill-white"/>
                     </svg>
@@ -155,7 +162,7 @@
 
         <div id="gallery" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/20 sm:left-27/100 text-white border-slate-800 bg-slate-800 hidden">
             <div id="galleryheader" class="mt-2 font-semibold flex">
-                <div id="galleryclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer] hover:bg-red-700">
+                <div id="galleryclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 pointer hover:bg-red-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" class="fill-white"/>
                     </svg>
@@ -173,7 +180,7 @@
 
         <div id="musicplayer" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/20 sm:left-27/100 text-white border-slate-800 bg-slate-800 hidden">
             <div id="musicplayerheader" class="mt-2 font-semibold flex">
-                <div id="musicplayerclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer] hover:bg-red-700">
+                <div id="musicplayerclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 pointer hover:bg-red-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" class="fill-white"/>
                     </svg>
@@ -188,21 +195,21 @@
                         <span id="songauthor"><p>~</p></span>
                         <span class="flex justify-center items-center">
                             <p id="seekprogress" class="pt-3 pr-1">0:00</p>
-                            <input type="range" id="seekbar" value="0" max="100" class="w-full rounded-md border border-white cursor-[url('./cursors/normal.cur'),default]">
+                            <input type="range" id="seekbar" value="0" max="100" class="w-full rounded-md border border-white normal">
                             <p id="totalprogress" class="pt-3 pl-1">0:00</p>
                         </span>
                         <div class="group flex justify-around text-xl">
-                            <p id="rewind" class="cursor-[url('./cursors/select.cur'),pointer] w-6 h-6"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M22 17.574V6.426c0-1.847-1.6-3.015-2.903-2.118L13 8.768V7.123c0-1.616-1.467-2.638-2.661-1.853L2.92 10.147c-1.228.807-1.228 2.899 0 3.706l7.418 4.877c1.194.785 2.661-.237 2.661-1.853v-1.645l6.097 4.46c1.302.897 2.903-.27 2.903-2.118"/></svg></p>
-                            <span id="pause" class="cursor-[url('./cursors/select.cur'),pointer] w-6 h-6"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6c0-1.886 0-2.828.586-3.414S4.114 2 6 2s2.828 0 3.414.586S10 4.114 10 6v12c0 1.886 0 2.828-.586 3.414S7.886 22 6 22s-2.828 0-3.414-.586S2 19.886 2 18zm12 0c0-1.886 0-2.828.586-3.414S16.114 2 18 2s2.828 0 3.414.586S22 4.114 22 6v12c0 1.886 0 2.828-.586 3.414S19.886 22 18 22s-2.828 0-3.414-.586S14 19.886 14 18z"/></svg></span>
-                            <p id="nextsong" class="cursor-[url('./cursors/select.cur'),pointer] w-6 h-6"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M2 17.574V6.426C2 4.58 3.6 3.411 4.903 4.308L11 8.768V7.123c0-1.616 1.467-2.638 2.661-1.853l7.417 4.877c1.229.807 1.229 2.899 0 3.706l-7.417 4.877c-1.194.785-2.661-.237-2.661-1.853v-1.645l-6.097 4.46C3.601 20.589 2 19.422 2 17.574"/></svg></p>
+                            <p id="rewind" class="pointer w-6 h-6"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M22 17.574V6.426c0-1.847-1.6-3.015-2.903-2.118L13 8.768V7.123c0-1.616-1.467-2.638-2.661-1.853L2.92 10.147c-1.228.807-1.228 2.899 0 3.706l7.418 4.877c1.194.785 2.661-.237 2.661-1.853v-1.645l6.097 4.46c1.302.897 2.903-.27 2.903-2.118"/></svg></p>
+                            <span id="pause" class="pointer w-6 h-6"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6c0-1.886 0-2.828.586-3.414S4.114 2 6 2s2.828 0 3.414.586S10 4.114 10 6v12c0 1.886 0 2.828-.586 3.414S7.886 22 6 22s-2.828 0-3.414-.586S2 19.886 2 18zm12 0c0-1.886 0-2.828.586-3.414S16.114 2 18 2s2.828 0 3.414.586S22 4.114 22 6v12c0 1.886 0 2.828-.586 3.414S19.886 22 18 22s-2.828 0-3.414-.586S14 19.886 14 18z"/></svg></span>
+                            <p id="nextsong" class="pointer w-6 h-6"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M2 17.574V6.426C2 4.58 3.6 3.411 4.903 4.308L11 8.768V7.123c0-1.616 1.467-2.638 2.661-1.853l7.417 4.877c1.229.807 1.229 2.899 0 3.706l-7.417 4.877c-1.194.785-2.661-.237-2.661-1.853v-1.645l-6.097 4.46C3.601 20.589 2 19.422 2 17.574"/></svg></p>
                         </div>
                         <div class="flex flex-row justify-between">
-                            <span id="shuffle" class="cursor-[url('./cursors/select.cur'),pointer]">
+                            <span id="shuffle" class="pointer">
                                 <svg id="shufflestroke" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-white" viewBox="0 0 24 24">
                                     <path id="shufflebutton" class="fill-white" d="M2 16.25a.75.75 0 0 0 0 1.5zm8.748-2.163l-.643-.386zm2.504-4.174l.643.386zM22 7l.53.53a.75.75 0 0 0 0-1.06zm-2.53 1.47a.75.75 0 0 0 1.06 1.06zm1.06-4a.75.75 0 1 0-1.06 1.06zm-5.31 2.92l-.369-.653zM2 17.75h3.603v-1.5H2zm9.39-3.277l2.505-4.174l-1.286-.772l-2.504 4.174zm7.007-6.723H22v-1.5h-3.603zm3.073-1.28l-2 2l1.06 1.06l2-2zm1.06 0l-2-2l-1.06 1.06l2 2zm-8.635 3.829c.434-.724.734-1.22 1.006-1.589c.263-.355.468-.543.689-.668l-.739-1.305c-.467.264-.82.627-1.155 1.08c-.326.44-.668 1.011-1.087 1.71zm4.502-4.049c-.815 0-1.48 0-2.025.052c-.562.055-1.054.17-1.521.435l.739 1.305c.22-.125.487-.204.927-.247c.456-.044 1.036-.045 1.88-.045zM5.603 17.75c.815 0 1.48 0 2.025-.052c.562-.055 1.054-.17 1.521-.435l-.739-1.305c-.22.125-.487.204-.927.247c-.456.044-1.036.045-1.88.045zm4.502-4.049c-.435.724-.734 1.22-1.006 1.589c-.263.355-.468.543-.689.668l.74 1.305c.466-.264.819-.627 1.154-1.08c.326-.44.668-1.011 1.087-1.71zM2 6.25a.75.75 0 0 0 0 1.5zM22 17l.53.53a.75.75 0 0 0 0-1.06zm-1.47-2.53a.75.75 0 1 0-1.06 1.06zm-1.06 4a.75.75 0 1 0 1.06 1.06zm-3.345-1.525l.144-.736zm-1.682-2.33a.75.75 0 1 0-1.286.77zm.025 1.391l.558-.501zm-6.593-8.95l.143-.737zm1.682 2.33a.75.75 0 0 0 1.286-.772zm-.025-1.393l-.558.502zM2 7.75h4.668v-1.5H2zm15.332 10H22v-1.5h-4.668zm5.198-1.28l-2-2l-1.06 1.06l2 2zm-1.06 0l-2 2l1.06 1.06l2-2zm-4.138-.22c-.645 0-.867-.003-1.063-.041l-.287 1.472c.372.072.765.069 1.35.069zm-4.175-.864c.3.502.5.84.754 1.122l1.115-1.003c-.134-.149-.25-.337-.583-.89zm3.112.823a2.25 2.25 0 0 1-1.243-.704l-1.115 1.003a3.75 3.75 0 0 0 2.071 1.173zM6.668 7.75c.645 0 .867.003 1.063.041l.287-1.472c-.372-.072-.765-.069-1.35-.069zm4.175.864c-.3-.502-.5-.84-.754-1.122L8.974 8.495c.134.149.25.337.583.89zm-3.112-.823c.48.094.916.34 1.243.704l1.115-1.003a3.75 3.75 0 0 0-2.071-1.173z"/>
                                 </svg>
                             </span>
-                            <span id="repeat" class="cursor-[url('./cursors/select.cur'),pointer]">
+                            <span id="repeat" class="pointer">
                                 <svg id="repeatstroke" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-white" viewBox="0 0 24 24"><path id="repeatbutton" class="fill-white" fill-rule="evenodd" d="M8.47 2.47a.75.75 0 0 1 1.06 0l2 2A.75.75 0 0 1 11 5.75H9a6.25 6.25 0 1 0 0 12.5h.5a.75.75 0 0 1 0 1.5H9a7.75 7.75 0 0 1 0-15.5h.19l-.72-.72a.75.75 0 0 1 0-1.06M13.75 5a.75.75 0 0 1 .75-.75h.5a7.75 7.75 0 0 1 0 15.5h-.19l.72.72a.75.75 0 1 1-1.06 1.06l-2-2a.75.75 0 0 1 .53-1.28h2a6.25 6.25 0 1 0 0-12.5h-.5a.75.75 0 0 1-.75-.75m-1.463 4.307a.75.75 0 0 1 .463.693v4a.75.75 0 0 1-1.5 0v-2.19l-.22.22a.75.75 0 1 1-1.06-1.06l1.5-1.5a.75.75 0 0 1 .817-.163" clip-rule="evenodd"/></svg>
                             </span>
                         </div>
@@ -216,7 +223,7 @@
         </div>
         <div id="gamedemo" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/20 sm:left-1/4 text-white border-slate-800 bg-slate-800 hidden">
             <div id="gamedemoheader" class="mt-2 font-semibold flex">
-                <div id="gamedemoclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer]">
+                <div id="gamedemoclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" class="fill-white"/>
                     </svg>
@@ -229,7 +236,7 @@
 
         <div id="email" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/20 sm:left-3/10 text-white border-slate-800 bg-slate-800 hidden">
             <div id="emailheader" class="mt-2 font-semibold flex">
-                <div id="emailclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 cursor-[url('./cursors/select.cur'),pointer]">
+                <div id="emailclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" class="fill-white"/>
                     </svg>
@@ -240,7 +247,7 @@
                 <form action="" method="post">
                     <div>
                         <label for="replyto">Choose your preferred method of contact: </label>
-                        <select name="replyto" id="replyto" class="cursor-[url('./cursors/normal.cur'),default]">
+                        <select name="replyto" id="replyto" class="normal">
                             <option value="email">E-mail (preferred)</option>
                             <option value="phone">Phone (text)</option>
                             <option value="discord">Discord</option>
@@ -251,33 +258,33 @@
                     <p class="text-sm"> (NOTE: If you select 'Anonymous' or do not provide a username/email/phone, I will not be able to reply.)</p>
                     <div>
                         <label for="username">Enter your email, phone, or username: </label>
-                        <input type="text" id="username" name="username" class="border border-white rounded-md cursor-[url('./cursors/text_sel.cur'),text]" />
+                        <input type="text" id="username" name="username" class="border border-white rounded-md text" />
                     </div>
                     <div>
                         <label for="message">Type your message here: </label>
-                        <textarea id="message" name="message" rows="11" cols="56" class="border border-white rounded-md cursor-[url('./cursors/text_sel.cur'),text]" required></textarea>
+                        <textarea id="message" name="message" rows="11" cols="56" class="border border-white rounded-md text" required></textarea>
                     </div>
                     <div>
-                        <input type="submit" value="Send" class="cursor-[url('./cursors/select.cur'),pointer] border border-white py-2 px-4 rounded-md bg-cyan-300 hover:bg-cyan-400"/>
+                        <input type="submit" value="Send" class="pointer border border-white py-2 px-4 rounded-md bg-cyan-300 hover:bg-cyan-400"/>
                     </div>
                 </form>   
           </div>
         </div>
         
         <div id="desktopApps" class="flex justify-center flex-row bg-[rgba(0, 0, 0, 0.25)] backdrop-blur-md rounded-lg border-1 border-gray-700 mb-2 fixed bottom-0 left-1/2 -translate-x-1/2">
-            <div id="noteviewopen" class="text-center p-1 drop-shadow-lg w-fit cursor-[url('./cursors/select.cur'),pointer]">
+            <div id="noteviewopen" class="text-center p-1 drop-shadow-lg w-fit pointer">
                 <img src="./Images/noteview.png" class="w-16 h-16 rounded-md" alt="noteview">
             </div>
-            <div id="galleryopen" class="text-center p-1 drop-shadow-lg w-fit cursor-[url('./cursors/select.cur'),pointer]">
+            <div id="galleryopen" class="text-center p-1 drop-shadow-lg w-fit pointer">
                 <img src="./Images/gallery.png" class="w-16 h-16 rounded-md" alt="gallery">
             </div>
-            <div id="musicplayeropen" class="text-center p-1 drop-shadow-lg w-fit cursor-[url('./cursors/select.cur'),pointer]">
+            <div id="musicplayeropen" class="text-center p-1 drop-shadow-lg w-fit pointer">
                 <img src="./Images/music.png" class="w-16 h-16 rounded-md" alt="musicplayer">
             </div>
-            <div id="gamedemoopen" class="text-center p-1 drop-shadow-lg w-fit cursor-[url('./cursors/select.cur'),pointer]">
+            <div id="gamedemoopen" class="text-center p-1 drop-shadow-lg w-fit pointer">
                 <img src="./Images/luka_chan.png" class="w-16 h-16 rounded-md" alt="gamedemo">
             </div>
-            <div id="emailopen" class="text-center p-1 drop-shadow-lg w-fit cursor-[url('./cursors/select.cur'),pointer]">
+            <div id="emailopen" class="text-center p-1 drop-shadow-lg w-fit pointer">
                 <img src="./Images/mail.png" class="w-16 h-16 rounded-md" alt="email">
             </div>
         </div>
@@ -285,7 +292,7 @@
         <!-- window boilerplate
             <div id="window" class="border-solid rounded-xl border-4 sm:w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
                 <div id="windowheader" class="mt-2 font-semibold flex">
-                    <div id="windowclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 cursor-[url('./cursors/select.cur'),pointer]">
+                    <div id="windowclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border-1 ml-3 pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" class="fill-white"/>
                         </svg>
