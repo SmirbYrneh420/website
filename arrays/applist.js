@@ -5,6 +5,11 @@ var appList = [
     hasBeenOpened: "true"
   },
   {
+    title: "settings",
+    mainId: "settings",
+    hasBeenOpened: "true"
+  },
+  {
     title: "about",
     mainId: "about",
     hasBeenOpened: true

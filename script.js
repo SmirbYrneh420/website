@@ -6,8 +6,8 @@ for (var i = 0; i < appList.length; i++) {
   eval('var ' + namer + "ScreenOpen = document.querySelector(`#" + app + "open`);");
   eval('var ' + namer + "ScreenClose = document.querySelector(`#" + app + "close`);");
   eval(namer + "ScreenClose.addEventListener('click', function() { closeWindow(" + namer + "Screen); });");
-  // there are currently only 4 apps only accessible from the top bar. Other apps are accessible from the dock, or in a future implementation if necessary, a launchpad-style folder.
-  if (i < 4) {
+  // there are currently only 5 apps only accessible from the top bar. Other apps are accessible from the dock, or in a future implementation if necessary, a launchpad-style folder.
+  if (i < 5) {
     eval(namer + "ScreenOpen.addEventListener('click', function() { openWindow(" + namer + "Screen); });");
   } else {
     eval(namer + "ScreenOpen.addEventListener('click', function() { iconTap(" + namer + "Screen, '" + app + "'); });");
