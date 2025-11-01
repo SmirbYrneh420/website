@@ -39,54 +39,65 @@ goUp.addEventListener('click', function() {
   setInitialGalleryContent();
   // this will work for now but will have to redo logic later
 });
+configureSettings();
+
+function setOutsideCookie(name, event) {
+    event.preventDefault();
+    setCookie(name, event.target.value, 365);
+}
 
 function setCookie(cname, cvalue, exdays) {
-  const d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  let expires = "expires="+ d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i <ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    console.log(document.cookie);
   }
-  return "";
-}
 
-function checkCookie() {
-  let cursor = getCookie("cursor");
-  if (cursor != "") {
-   configureCursor(cursor);
-  } else {   
-    setCookie("cursor", "1", 365);
+function configureSettings() {
+  checkCookie();
+
+  function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
   }
-}
-checkCookie();
 
-function configureCursor(num) {
-  var cursorPointer = document.querySelectorAll(".pointer");
-  var cursorDefault = document.querySelectorAll(".normal");
-  var cursorText = document.querySelectorAll(".text");
-  setCursors(cursorPointer, "pointer", "cursor-1-pointer");
-  setCursors(cursorDefault, "normal", "cursor-1-normal");
-  setCursors(cursorText, "text", "cursor-1-text");
-
-  function setCursors(list, target, replacer) {
-    for (var i = 0; i < list.length; i++) {
-      list[i].classList.replace(target, replacer);
+  function checkCookie() {
+    let cursor = getCookie("cursor");
+    if (cursor != "") {
+      configureCursor(cursor);
+      console.log("cookie found");
+    } else {   
+      setCookie("cursor", "1", 365);
+      console.log("cookie set");
     }
   }
 
+  function configureCursor(num) {
+    var cursorPointer = document.querySelectorAll(".pointer");
+    var cursorDefault = document.querySelectorAll(".normal");
+    var cursorText = document.querySelectorAll(".text");
+    setCursors(cursorPointer, "pointer", "cursor-1-pointer");
+    setCursors(cursorDefault, "normal", "cursor-1-normal");
+    setCursors(cursorText, "text", "cursor-1-text");
+
+    function setCursors(list, target, replacer) {
+      for (var i = 0; i < list.length; i++) {
+        list[i].classList.replace(target, replacer);
+      }
+    }
+  }
 }
 
 // consult blog.js for the content array

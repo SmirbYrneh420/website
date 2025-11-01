@@ -70,7 +70,7 @@
             <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white overflow-y-scroll">
                 <h4>teOE Settings</h4>
                 <label>Cursor:</label>
-                <select id="cursor-selection" name="cursor" class="border normal">
+                <select id="cursor" name="cursor" class="border normal" onchange="setOutsideCookie(`cursor`, event)">
                     <option value="0">Default OS cursor</option>
                     <option value="1">Kagamine Rin cursor</option>
                     <option value="2">Animated N25 Miku cursor</option>
