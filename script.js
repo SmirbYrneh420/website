@@ -45,14 +45,13 @@ function setOutsideCookie(name, event) {
     event.preventDefault();
     setCookie(name, event.target.value, 365);
 }
-
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     let expires = "expires="+ d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    console.log(document.cookie);
-  }
+    configureSettings();
+}
 
 function configureSettings() {
   checkCookie();
@@ -60,9 +59,9 @@ function configureSettings() {
   function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-      let c = ca[i];
+    let cookiearray = decodedCookie.split(';');
+    for(let i = 0; i < cookiearray.length; i++) {
+      let c = cookiearray[i];
       while (c.charAt(0) == ' ') {
         c = c.substring(1);
       }
@@ -88,14 +87,23 @@ function configureSettings() {
     var cursorPointer = document.querySelectorAll(".pointer");
     var cursorDefault = document.querySelectorAll(".normal");
     var cursorText = document.querySelectorAll(".text");
-    setCursors(cursorPointer, "pointer", "cursor-1-pointer");
-    setCursors(cursorDefault, "normal", "cursor-1-normal");
-    setCursors(cursorText, "text", "cursor-1-text");
+    var param = ["cursor-", "0", "-", "~"];
+    param[1] = num.toString();
+    routeCursorStyle(cursorPointer, param, "pointer");
+    routeCursorStyle(cursorDefault, param, "normal");
+    routeCursorStyle(cursorText, param, "text");
 
     function setCursors(list, target, replacer) {
       for (var i = 0; i < list.length; i++) {
         list[i].classList.replace(target, replacer);
       }
+    }
+
+    function routeCursorStyle(cursorPointer, arr, style) {
+      arr[3] = style;
+      var text = arr.join('');
+      console.log(arr);
+      setCursors(cursorPointer, style, text);
     }
   }
 }
