@@ -34,6 +34,7 @@ var selectedIcon = undefined;
 var audio = null;
 // navbar logic
 var goUp = document.querySelector("#moveup");
+var a = 0;
 goUp.addEventListener('click', function() {
   clearAllGalleryContent();
   setInitialGalleryContent();
@@ -46,6 +47,7 @@ function setOutsideCookie(name, event) {
     setCookie(name, event.target.value, 365);
 }
 function setCookie(cname, cvalue, exdays) {
+    a = getCookie('cursor');
     const d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     let expires = "expires="+ d.toUTCString();
@@ -53,24 +55,24 @@ function setCookie(cname, cvalue, exdays) {
     configureSettings();
 }
 
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let cookiearray = decodedCookie.split(';');
+  for(let i = 0; i < cookiearray.length; i++) {
+    let c = cookiearray[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
 function configureSettings() {
   checkCookie();
-
-  function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let cookiearray = decodedCookie.split(';');
-    for(let i = 0; i < cookiearray.length; i++) {
-      let c = cookiearray[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
 
   function checkCookie() {
     let cursor = getCookie("cursor");
@@ -84,26 +86,33 @@ function configureSettings() {
   }
 
   function configureCursor(num) {
+    num = num || 1
     var cursorPointer = document.querySelectorAll(".pointer");
     var cursorDefault = document.querySelectorAll(".normal");
     var cursorText = document.querySelectorAll(".text");
     var param = ["cursor-", "0", "-", "~"];
+    var a = getCookie("cursor");
     param[1] = num.toString();
     routeCursorStyle(cursorPointer, param, "pointer");
     routeCursorStyle(cursorDefault, param, "normal");
     routeCursorStyle(cursorText, param, "text");
 
+    function routeCursorStyle(cursor, arr, style) {
+      arr[3] = style;
+      var text = arr.join('');
+      if (cursor.length < 1) {
+        arr[1] = a;
+        cursor = document.querySelectorAll(arr.join(''));
+        style = arr.join('');
+      }
+      setCursors(cursor, style, text);
+    }
+
     function setCursors(list, target, replacer) {
       for (var i = 0; i < list.length; i++) {
         list[i].classList.replace(target, replacer);
+        console.log('cursor set');
       }
-    }
-
-    function routeCursorStyle(cursorPointer, arr, style) {
-      arr[3] = style;
-      var text = arr.join('');
-      console.log(arr);
-      setCursors(cursorPointer, style, text);
     }
   }
 }
