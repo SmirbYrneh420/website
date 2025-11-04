@@ -483,6 +483,9 @@
   .bg-\[url\(\.\/wallpaper\.png\)\] {
     background-image: url(./wallpaper.png);
   }
+  .bg-\[url\(https\:\/\/comment-walt-warrior-donated\.trycloudflare\.com\/drive\/webpage_data\/wallpaper\.png\)\] {
+    background-image: url(https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/wallpaper.png);
+  }
   .bg-cover {
     background-size: cover;
   }

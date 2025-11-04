@@ -27,6 +27,7 @@ document.addEventListener('click', function() {
 });
 
 // additional variables
+var json = "https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/";
 var topBar = document.querySelector("#topbar");
 var dock = document.querySelector("#desktopApps");
 var largestIndex = 1;
@@ -78,10 +79,8 @@ function configureSettings() {
     let cursor = getCookie("cursor");
     if (cursor != "") {
       configureCursor(cursor);
-      console.log("cookie found");
     } else {   
       setCookie("cursor", "1", 365);
-      console.log("cookie set");
     }
   }
 
@@ -111,31 +110,38 @@ function configureSettings() {
     function setCursors(list, target, replacer) {
       for (var i = 0; i < list.length; i++) {
         list[i].classList.replace(target, replacer);
-        console.log('cursor set');
       }
     }
   }
 }
 
-// consult blog.js for the content array
-function noteview() {
+async function getJsonData(url, file) {
+  var finale = [];
+  const signal = await fetch(url.concat("/json/", file));
+  const json = await signal.json();
+  for (var i in json) {
+    finale.push(json[i]);
+  }
+  return finale[0];
+}
+
+// consult blog.json for the content array
+async function noteview() {
+  const blog = await getJsonData(json, "blog.json");
   var notesContent = document.querySelector('#notescontent');
   var top = document.querySelector("#history");
-  for (let i = 0; i < content.length; i++) {
-    var note = content[i];
+  for (let i = 0; i < blog.length; i++) {
+    var note = blog[i];
     var newEntry = document.createElement("div");
-    newEntry.classList.add("cursor-[url(./cursors/select.cur),_pointer]");
-    newEntry.classList.add("border-solid");
-    newEntry.classList.add("border-2");
-    newEntry.classList.add("rounded-md");
-    newEntry.classList.add("bg-gray-900");
+    newEntry.classList.add("border-solid", "border-2", "rounded-md", "bg-gray-900", "pointer");
     newEntry.innerHTML = `<p>${note.title} (${note.date})</p>`;
     newEntry.addEventListener("click", function() {
-      notesContent.innerHTML = content[i].content;
+      notesContent.innerHTML = blog[i].content;
     });
     top.appendChild(newEntry);
   }
-  notesContent.innerHTML = content[0].content;
+  notesContent.innerHTML = blog[0].content;
+  configureSettings();
 }
 
 function gallery() {
@@ -179,9 +185,10 @@ function email() {
   return;
 }
 
-function musicplayer() {
+async function musicplayer() {
   var target = document.querySelector("#playlist");
   var pauseButton = document.querySelector("#pause");
+  var playlist = await getJsonData(json, "music.json");
   var shuffle = false;
   var repeat = false;
   var shuffleOrder = [];
@@ -192,7 +199,7 @@ function musicplayer() {
   for (let i = 0; i < playlist.length; i++) {
     var song = playlist[i];
     var newSong = document.createElement("li");
-    newSong.classList.add("cursor-[url(./cursors/1/select.cur),pointer]");
+    newSong.classList.add("pointer");
     newSong.innerHTML = `<p>${song.title}</p><p class="text-xs">${song.author}</p><br>`;
     newSong.addEventListener('click', (function(currentSong) {
       return function() {
@@ -249,6 +256,8 @@ function musicplayer() {
       playNextSong(playlist[index-1]);
     }
   });
+
+  configureSettings();
   function setSvgAndStuff(vari) {
     eval(vari + ` = !(` + vari + `)`);
     var variName = eval(vari);
@@ -275,8 +284,8 @@ function musicplayer() {
       audio.pause();
       audio = null;
     }
-    audio = new Audio(song.file);
-    document.querySelector("#thumbnail").innerHTML = `<img src="${song.image}">`;
+    audio = new Audio(json.concat(song.file));
+    document.querySelector("#thumbnail").innerHTML = `<img src="${json.concat(song.image)}">`;
     document.querySelector("#songtitle").innerHTML = `<h3>${song.title}</h3>`;
     document.querySelector("#songauthor").innerHTML = `<p>${song.author}</p>`;
     pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6c0-1.886 0-2.828.586-3.414S4.114 2 6 2s2.828 0 3.414.586S10 4.114 10 6v12c0 1.886 0 2.828-.586 3.414S7.886 22 6 22s-2.828 0-3.414-.586S2 19.886 2 18zm12 0c0-1.886 0-2.828.586-3.414S16.114 2 18 2s2.828 0 3.414.586S22 4.114 22 6v12c0 1.886 0 2.828-.586 3.414S19.886 22 18 22s-2.828 0-3.414-.586S14 19.886 14 18z"/></svg>`;
