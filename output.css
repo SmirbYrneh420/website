@@ -354,9 +354,6 @@
   .w-full {
     width: 100%;
   }
-  .max-w-80 {
-    max-width: calc(var(--spacing) * 80);
-  }
   .flex-auto {
     flex: auto;
   }
@@ -367,17 +364,8 @@
     --tw-translate-x: calc(calc(1/2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
-  .transform {
-    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
-  }
   .cursor-\[url\(\'\.\/cursors\/normal\.cur\'\)\,default\] {
     cursor: url('./cursors/normal.cur'),default;
-  }
-  .cursor-\[url\(\.\/cursors\/1\/select\.cur\)\,pointer\] {
-    cursor: url(./cursors/1/select.cur),pointer;
-  }
-  .cursor-\[url\(\.\/cursors\/select\.cur\)\,_pointer\] {
-    cursor: url(./cursors/select.cur), pointer;
   }
   .list-none {
     list-style-type: none;
@@ -431,10 +419,6 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .border-1 {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
   .border-2 {
     border-style: var(--tw-border-style);
     border-width: 2px;
@@ -479,9 +463,6 @@
   }
   .bg-slate-800 {
     background-color: var(--color-slate-800);
-  }
-  .bg-\[url\(\.\/wallpaper\.png\)\] {
-    background-image: url(./wallpaper.png);
   }
   .bg-\[url\(https\:\/\/comment-walt-warrior-donated\.trycloudflare\.com\/drive\/webpage_data\/wallpaper\.png\)\] {
     background-image: url(https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/wallpaper.png);
@@ -558,10 +539,6 @@
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
-  }
-  .font-light {
-    --tw-font-weight: var(--font-weight-light);
-    font-weight: var(--font-weight-light);
   }
   .font-normal {
     --tw-font-weight: var(--font-weight-normal);
@@ -687,22 +664,22 @@
   }
 }
 .cursor-1-pointer {
-  cursor: url('./cursors/1/select.cur'), pointer;
+  cursor: url('https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/cursors/1/select.cur'), pointer;
 }
 .cursor-1-normal {
-  cursor: url('./cursors/1/normal.cur'), default;
+  cursor: url('https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/cursors/1/normal.cur'), default;
 }
 .cursor-1-text {
-  cursor: url('./cursors/1/text_sel.cur'), text;
+  cursor: url('https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/cursors/1/text_sel.cur'), text;
 }
 .cursor-2-pointer {
-  cursor: url('./cursors/2/select.cur'), pointer;
+  cursor: url('https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/cursors/2/select.cur'), pointer;
 }
 .cursor-2-normal {
-  cursor: url('./cursors/2/normal.cur'), default;
+  cursor: url('https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/cursors/2/normal.cur'), default;
 }
 .cursor-2-text {
-  cursor: url('./cursors/2/text_sel.cur'), text;
+  cursor: url('https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/cursors/2/text_sel.cur'), text;
 }
 @property --tw-translate-x {
   syntax: "*";
@@ -718,26 +695,6 @@
   syntax: "*";
   inherits: false;
   initial-value: 0;
-}
-@property --tw-rotate-x {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-rotate-y {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-rotate-z {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-skew-x {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-skew-y {
-  syntax: "*";
-  inherits: false;
 }
 @property --tw-border-style {
   syntax: "*";
@@ -843,11 +800,6 @@
       --tw-translate-x: 0;
       --tw-translate-y: 0;
       --tw-translate-z: 0;
-      --tw-rotate-x: initial;
-      --tw-rotate-y: initial;
-      --tw-rotate-z: initial;
-      --tw-skew-x: initial;
-      --tw-skew-y: initial;
       --tw-border-style: solid;
       --tw-font-weight: initial;
       --tw-blur: initial;

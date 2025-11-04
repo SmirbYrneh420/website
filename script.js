@@ -1,19 +1,41 @@
-// set all them variables for them windows
-for (var i = 0; i < appList.length; i++) {
-  var app = appList[i].title;
-  var namer = appList[i].mainId;
-  eval('var ' + namer + "Screen = document.querySelector(`#" + app + "`);");
-  eval('var ' + namer + "ScreenOpen = document.querySelector(`#" + app + "open`);");
-  eval('var ' + namer + "ScreenClose = document.querySelector(`#" + app + "close`);");
-  eval(namer + "ScreenClose.addEventListener('click', function() { closeWindow(" + namer + "Screen); });");
-  // there are currently only 5 apps only accessible from the top bar. Other apps are accessible from the dock, or in a future implementation if necessary, a launchpad-style folder.
-  if (i < 5) {
-    eval(namer + "ScreenOpen.addEventListener('click', function() { openWindow(" + namer + "Screen); });");
-  } else {
-    eval(namer + "ScreenOpen.addEventListener('click', function() { iconTap(" + namer + "Screen, '" + app + "'); });");
+// TODO: Maybe copyparty is a little too slow for my needs?
+var json = "https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/";
+var topBar = document.querySelector("#topbar");
+var dock = document.querySelector("#desktopApps");
+var largestIndex = 1;
+var selectedIcon = undefined;
+var audio = null;
+var appList = undefined;
+// navbar logic
+var goUp = document.querySelector("#moveup");
+var a = 0;
+goUp.addEventListener('click', function() {
+  clearAllGalleryContent();
+  setInitialGalleryContent();
+  // this will work for now but will have to redo logic later
+});
+configureSettings();
+
+async function setWindows() {
+  appList = await getJsonData(json, "applist.json");
+  // set all them variables for them windows
+  for (var i = 0; i < appList.length; i++) {
+    var app = appList[i].title;
+    var namer = appList[i].mainId;
+    eval('var ' + namer + "Screen = document.querySelector(`#" + app + "`);");
+    eval('var ' + namer + "ScreenOpen = document.querySelector(`#" + app + "open`);");
+    eval('var ' + namer + "ScreenClose = document.querySelector(`#" + app + "close`);");
+    eval(namer + "ScreenClose.addEventListener('click', function() { closeWindow(" + namer + "Screen); });");
+    // there are currently only 5 apps only accessible from the top bar. Other apps are accessible from the dock, or in a future implementation if necessary, a launchpad-style folder.
+    if (i < 5) {
+      eval(namer + "ScreenOpen.addEventListener('click', function() { openWindow(" + namer + "Screen); });");
+    } else {
+      eval(namer + "ScreenOpen.addEventListener('click', function() { iconTap(" + namer + "Screen, '" + app + "'); });");
+    }
+    dragElement(document.getElementById(app));
   }
-  dragElement(document.getElementById(app));
 }
+setWindows();
 
 // the lone dropdown menu
 var dropdownMenu = document.querySelector("#dropdownmenu");
@@ -25,23 +47,6 @@ dropdownMenuOpen.addEventListener('click', function(event) {
 document.addEventListener('click', function() {
   closeWindow(dropdownMenu);
 });
-
-// additional variables
-var json = "https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/";
-var topBar = document.querySelector("#topbar");
-var dock = document.querySelector("#desktopApps");
-var largestIndex = 1;
-var selectedIcon = undefined;
-var audio = null;
-// navbar logic
-var goUp = document.querySelector("#moveup");
-var a = 0;
-goUp.addEventListener('click', function() {
-  clearAllGalleryContent();
-  setInitialGalleryContent();
-  // this will work for now but will have to redo logic later
-});
-configureSettings();
 
 function setOutsideCookie(name, event) {
     event.preventDefault();
@@ -144,7 +149,8 @@ async function noteview() {
   configureSettings();
 }
 
-function gallery() {
+async function gallery() {
+  var galleryStructure = await getJsonData(json, "gallery.json");
   for (var i = 0; i < galleryStructure.length; i++) {
     setGalleryContent(galleryStructure, i);
     // i ain't gonna make your life harder than it has to be
