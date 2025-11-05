@@ -191,6 +191,20 @@ function email() {
   return;
 }
 
+async function parseAsTextDoc() {
+  const message = document.getElementById('message').value;
+  const blob = new Blob([message], {type: "text/markdown"});
+  // this web user is already extremely restricted anyway
+  fetch("https://comment-walt-warrior-donated.trycloudflare.com/mail/?pw=p4ssw0rd69", {
+    method: 'POST',
+    act: "tput",
+    body: blob,
+    headers: {
+      "Content-Type": "text/markdown; charset=UTF-8"
+    }
+  });
+}
+
 async function musicplayer() {
   var target = document.querySelector("#playlist");
   var pauseButton = document.querySelector("#pause");

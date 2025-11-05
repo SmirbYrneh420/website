@@ -75,7 +75,6 @@
                     <option value="0">Default OS cursor</option>
                     <option value="1">Kagamine Rin cursor</option>
                     <option value="2">N25 Miku cursor</option>
-                    <!-- Safari does not support option 2...*sigh* -->
                 </select>
                 <p>NOTE: You must refresh the page to observe the changes.</p>
             </div>
@@ -190,7 +189,7 @@
                 </div>
                 <p class="pl-2">Music Player</p>
             </div>
-            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-full h-full sm:w-150 sm:h-130 p-4 text-white">
+            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-full h-full sm:w-150 sm:h-140 p-4 text-white">
                 <div id="musicplayercontents" class="grid grid-cols-2">
                     <div id="player">
                         <span id="thumbnail" class="pt-0"><img src="https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/Images/music.png"></span>
@@ -247,30 +246,15 @@
                 <p class="pl-2">Email Me</p>
             </div>
             <div id="emailcontent" class="bg-gray-950 m-2 mt-0 rounded-lg w-full h-full sm:w-150 sm:h-120 p-4 text-white overflow-y-scroll">
-                <form action="" method="post">
-                    <div>
-                        <label for="replyto">Choose your preferred method of contact: </label>
-                        <select name="replyto" id="replyto" class="normal">
-                            <option value="email">E-mail (preferred)</option>
-                            <option value="phone">Phone (text)</option>
-                            <option value="discord">Discord</option>
-                            <option value="telegram">Telegram</option>
-                            <option value="anonymous">Anonymous</option>
-                        </select>
-                    </div>
-                    <p class="text-sm"> (NOTE: If you select 'Anonymous' or do not provide a username/email/phone, I will not be able to reply.)</p>
-                    <div>
-                        <label for="username">Enter your email, phone, or username: </label>
-                        <input type="text" id="username" name="username" class="border border-white rounded-md text" />
-                    </div>
-                    <div>
-                        <label for="message">Type your message here: </label>
-                        <textarea id="message" name="message" rows="11" cols="56" class="border border-white rounded-md text" required></textarea>
-                    </div>
-                    <div>
-                        <input type="submit" value="Send" class="pointer border border-white py-2 px-4 rounded-md bg-cyan-300 hover:bg-cyan-400"/>
-                    </div>
-                </form>   
+                <p>Note: If you want a reply, please provide a method of contact. I prefer emails or Discord usernames, but phone numbers and Telegram tags are acceptable.</p>
+                <p>NOTICE: This is currently not a very secure implementation. Please refrain from directly giving out sensitive information.</p>
+                <div>
+                    <label for="message">Type your message here: </label>
+                    <textarea id="message" name="message" rows="11" cols="56" class="border border-white rounded-md text" required></textarea>
+                </div>
+                <div>
+                    <button onclick="parseAsTextDoc()" class="pointer border border-white py-2 px-4 rounded-md bg-cyan-300 hover:bg-cyan-400">Send</button>
+                </div>
           </div>
         </div>
         
@@ -285,7 +269,7 @@
                 <img src="https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/Images/music.png" class="w-16 h-16 rounded-md" alt="musicplayer">
             </div>
             <div id="gamedemoopen" class="text-center p-1 drop-shadow-lg w-fit pointer">
-                <img src="https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/Images/luka_chan.png" class="w-16 h-16 rounded-md" alt="gamedemo">
+                <img src="https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/Images/godot.png" class="w-16 h-16 rounded-md" alt="gamedemo">
             </div>
             <div id="emailopen" class="text-center p-1 drop-shadow-lg w-fit pointer">
                 <img src="https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/Images/mail.png" class="w-16 h-16 rounded-md" alt="email">
