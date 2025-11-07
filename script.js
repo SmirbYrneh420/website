@@ -1,5 +1,5 @@
 // TODO: Maybe copyparty is a little too slow for my needs?
-var json = "https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/";
+var json = "https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data";
 var topBar = document.querySelector("#topbar");
 var dock = document.querySelector("#desktopApps");
 var largestIndex = 1;
@@ -188,6 +188,10 @@ function gamedemo() {
 
 function email() {
   // TODO: Buy a domain to migrate from GitHub Pages to another provider for PHP and MySQL support
+  return;
+}
+
+function interwebz() {
   return;
 }
 

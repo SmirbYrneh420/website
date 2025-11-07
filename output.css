@@ -306,6 +306,9 @@
   .h-120 {
     height: calc(var(--spacing) * 120);
   }
+  .h-fit {
+    height: fit-content;
+  }
   .h-full {
     height: 100%;
   }
@@ -367,6 +370,9 @@
   .cursor-\[url\(\'\.\/cursors\/normal\.cur\'\)\,default\] {
     cursor: url('./cursors/normal.cur'),default;
   }
+  .resize {
+    resize: both;
+  }
   .list-none {
     list-style-type: none;
   }
@@ -400,8 +406,14 @@
   .overflow-hidden {
     overflow: hidden;
   }
+  .overflow-x-hidden {
+    overflow-x: hidden;
+  }
   .overflow-x-scroll {
     overflow-x: scroll;
+  }
+  .overflow-y-hidden {
+    overflow-y: hidden;
   }
   .overflow-y-scroll {
     overflow-y: scroll;
@@ -627,6 +639,11 @@
       height: calc(var(--spacing) * 140);
     }
   }
+  .sm\:h-150 {
+    @media (width >= 40rem) {
+      height: calc(var(--spacing) * 150);
+    }
+  }
   .sm\:w-95 {
     @media (width >= 40rem) {
       width: calc(var(--spacing) * 95);
@@ -652,9 +669,19 @@
       width: calc(var(--spacing) * 150);
     }
   }
+  .sm\:w-200 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 200);
+    }
+  }
   .sm\:w-fit {
     @media (width >= 40rem) {
       width: fit-content;
+    }
+  }
+  .sm\:resize {
+    @media (width >= 40rem) {
+      resize: both;
     }
   }
   .sm\:grid-cols-5 {
