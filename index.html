@@ -148,7 +148,8 @@
             </div>
         </div>
         
-        <div id="noteview" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/25 sm:left-7/25 text-white border-slate-800 bg-slate-800 hidden">
+        <!-- horizontal resize is still plagued with bugs and issues -->
+        <div id="noteview" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/25 sm:left-7/25 text-white border-slate-800 bg-slate-800 hidden overflow-hidden resize-y">
             <div id="noteviewheader" class="mt-2 font-semibold flex">
                 <div id="noteviewclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 pointer hover:bg-red-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
@@ -158,7 +159,7 @@
                 <p class="pl-2 ">NoteView</p>
             </div>
             <div id="history" class="flex justify-between overflow-x-scroll bg-gray-950 m-2 mt-0 rounded-lg w-full sm:w-140 p-2 text-white"></div>
-            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-full h-full sm:w-140 sm:h-140 p-4 text-white overflow-y-scroll">
+            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-full h-full sm:w-140 p-4 text-white overflow-y-scroll">
                 <div id="notescontent">Loading...</div>
             </div>
         </div>
@@ -271,7 +272,7 @@
             </div>
             <div class="bg-gray-950 m-2 mt-0 rounded-lg p-4 text-white h-full">
                 <textarea id="webaddr" name="webaddr" rows="1" cols="50" class="border border-white rounded-md text" required>https://duckduckgo.com</textarea>
-                <object id="webview" class="w-full h-fit" data="https://duckduckgo.com"></object>
+                <object id="webview" class="w-full h-2/3" data="https://duckduckgo.com"></object>
             </div>
         </div>
         
