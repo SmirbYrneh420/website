@@ -1,13 +1,13 @@
 // TODO: Maybe copyparty is a little too slow for my needs?
-var json = "https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data";
-var topBar = document.querySelector("#topbar");
-var dock = document.querySelector("#desktopApps");
+const json = "https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data";
+const topBar = document.querySelector("#topbar");
+const dock = document.querySelector("#desktopApps");
 var largestIndex = 1;
 var selectedIcon = undefined;
 var audio = null;
 var appList = undefined;
 // navbar logic
-var goUp = document.querySelector("#moveup");
+const goUp = document.querySelector("#moveup");
 var a = 0;
 goUp.addEventListener('click', function() {
   clearAllGalleryContent();
@@ -38,8 +38,8 @@ async function setWindows() {
 setWindows();
 
 // the lone dropdown menu
-var dropdownMenu = document.querySelector("#dropdownmenu");
-var dropdownMenuOpen = document.querySelector("#dropdownopen");
+const dropdownMenu = document.querySelector("#dropdownmenu");
+const dropdownMenuOpen = document.querySelector("#dropdownopen");
 dropdownMenuOpen.addEventListener('click', function(event) { 
   event.stopPropagation();
   openWindow(dropdownMenu);
@@ -91,9 +91,9 @@ function configureSettings() {
 
   function configureCursor(num) {
     num = num || 1
-    var cursorPointer = document.querySelectorAll(".pointer");
-    var cursorDefault = document.querySelectorAll(".normal");
-    var cursorText = document.querySelectorAll(".text");
+    const cursorPointer = document.querySelectorAll(".pointer");
+    const cursorDefault = document.querySelectorAll(".normal");
+    const cursorText = document.querySelectorAll(".text");
     var param = ["cursor-", "0", "-", "~"];
     var a = getCookie("cursor");
     param[1] = num.toString();
@@ -133,8 +133,8 @@ async function getJsonData(url, file) {
 // consult blog.json for the content array
 async function noteview() {
   const blog = await getJsonData(json, "blog.json");
-  var notesContent = document.querySelector('#notescontent');
-  var top = document.querySelector("#history");
+  const notesContent = document.querySelector('#notescontent');
+  const top = document.querySelector("#history");
   for (let i = 0; i < blog.length; i++) {
     var note = blog[i];
     var newEntry = document.createElement("div");
@@ -150,14 +150,14 @@ async function noteview() {
 }
 
 async function gallery() {
-  var galleryStructure = await getJsonData(json, "gallery.json");
+  const galleryStructure = await getJsonData(json, "gallery.json");
   for (var i = 0; i < galleryStructure.length; i++) {
     setGalleryContent(galleryStructure, i);
     // i ain't gonna make your life harder than it has to be
   }
   // consult gallery.js for the file structure array
   function setGalleryContent(inputArray, index) {
-    var galleryContent = document.querySelector("#gallerycontents");
+    const galleryContent = document.querySelector("#gallerycontents");
     var newEntry = document.createElement("span");
     newEntry.innerHTML = `<img class="w-20 h-20" src="${inputArray[index].image}"><p>${inputArray[index].name}</p>`;
     if (inputArray[index].isFolder) {
@@ -210,9 +210,9 @@ async function parseAsTextDoc() {
 }
 
 async function musicplayer() {
-  var target = document.querySelector("#playlist");
-  var pauseButton = document.querySelector("#pause");
-  var playlist = await getJsonData(json, "music.json");
+  const target = document.querySelector("#playlist");
+  const pauseButton = document.querySelector("#pause");
+  const playlist = await getJsonData(json, "music.json");
   var shuffle = false;
   var repeat = false;
   var shuffleOrder = [];
@@ -299,9 +299,9 @@ async function musicplayer() {
     // basically the equivalent of taking an integral of a derivative.
     // takes the index of a song in the array
     index = playlist.findIndex(s => s.title === song.title && s.author === song.author);
-    var seekbar = document.querySelector("#seekbar");
-    var seekleft = document.querySelector("#seekprogress");
-    var seekright = document.querySelector("#totalprogress");
+    const seekbar = document.querySelector("#seekbar");
+    const seekleft = document.querySelector("#seekprogress");
+    const seekright = document.querySelector("#totalprogress");
     var currentProgressInSeconds = 0;
     var totalProgressInSeconds = 0;
     if (audio) {
