@@ -18,3 +18,4 @@ Roadmap:
 Demo
 <img width="2560" height="1407" alt="image" src="https://github.com/user-attachments/assets/8b45195c-5b6a-4cbe-9916-086bf1e92cf0" />
 
+NOTE: While the repo was created in August, major work did not start until October.
