@@ -9,7 +9,7 @@ Features:
 - An 88x31 button for your linking needs
 
 Roadmap:
-- A file viewer for my self-made, AI-free, TerminalMontage annd Paper Mario-inspired art
+- A file viewer for my self-made, AI-free, TerminalMontage and Paper Mario-inspired art
 - An internet browser within an internet browser
 - A proper form of contact
 - And more!
@@ -18,4 +18,3 @@ Roadmap:
 Demo
 <img width="2560" height="1407" alt="image" src="https://github.com/user-attachments/assets/8b45195c-5b6a-4cbe-9916-086bf1e92cf0" />
 
-NOTE: While the repo was created in August, major work did not start until October.
