@@ -6,32 +6,38 @@ var largestIndex = 1;
 var selectedIcon = undefined;
 var audio = null;
 var appList = undefined;
+
 // navbar logic
 const goUp = document.querySelector("#moveup");
 var a = 0;
 goUp.addEventListener('click', function() {
-  clearAllGalleryContent();
-  setInitialGalleryContent();
+  var galleryContent = document.querySelector("#gallerycontents");
+  galleryContent.innerHTML = '';
+  gallery();
   // this will work for now but will have to redo logic later
 });
+
 configureSettings();
 
 async function setWindows() {
   appList = await getJsonData(json, "applist.json");
   // set all them variables for them windows
+  // image viewer is called within gallery, so skip that
   for (var i = 0; i < appList.length; i++) {
     var app = appList[i].title;
     var namer = appList[i].mainId;
     eval('var ' + namer + "Screen = document.querySelector(`#" + app + "`);");
-    eval('var ' + namer + "ScreenOpen = document.querySelector(`#" + app + "open`);");
     eval('var ' + namer + "ScreenClose = document.querySelector(`#" + app + "close`);");
     eval(namer + "ScreenClose.addEventListener('click', function() { closeWindow(" + namer + "Screen); });");
-    // there are currently only 5 apps only accessible from the top bar. Other apps are accessible from the dock, or in a future implementation if necessary, a launchpad-style folder.
-    if (i < 5) {
-      eval(namer + "ScreenOpen.addEventListener('click', function() { openWindow(" + namer + "Screen); });");
-    } else {
-      eval(namer + "ScreenOpen.addEventListener('click', function() { iconTap(" + namer + "Screen, '" + app + "'); });");
+    if (i > 0) {
+      eval('var ' + namer + "ScreenOpen = document.querySelector(`#" + app + "open`);");
+      if (i < 6) {
+        eval(namer + "ScreenOpen.addEventListener('click', function() { openWindow(" + namer + "Screen); });");
+      } else {
+        eval(namer + "ScreenOpen.addEventListener('click', function() { iconTap(" + namer + "Screen, '" + app + "'); });");
+      }
     }
+    // there are currently only 5 apps only accessible from the top bar. Other apps are accessible from the dock, or in a future implementation if necessary, a launchpad-style folder.
     dragElement(document.getElementById(app));
   }
 }
@@ -155,7 +161,7 @@ async function gallery() {
     setGalleryContent(galleryStructure, i);
     // i ain't gonna make your life harder than it has to be
   }
-  // consult gallery.js for the file structure array
+  // consult gallery.json for the file structure array
   function setGalleryContent(inputArray, index) {
     const galleryContent = document.querySelector("#gallerycontents");
     var newEntry = document.createElement("span");
@@ -170,12 +176,8 @@ async function gallery() {
       });
     } else {
       newEntry.addEventListener("click", function() {
-        // here's the plan:
-        // store the boilerplate somewhere around here.
-        // when this function is called, create a new div in #desktop with the boilerplate, setting variables and everything.
-        // then, set the contents to whatever is in the file.
-        // consult the first loop for more details.
-        console.log("Attempted to open file");
+        document.getElementById("imgviewcontents").innerHTML = inputArray[index].contents;
+        openWindow(document.querySelector("#imgview"));
       })
     }
     galleryContent.appendChild(newEntry);
