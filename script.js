@@ -84,15 +84,13 @@ function getCookie(cname) {
 }
 
 function configureSettings() {
-  checkCookie();
 
-  function checkCookie() {
-    let cursor = getCookie("cursor");
-    if (cursor != "") {
-      configureCursor(cursor);
-    } else {   
-      setCookie("cursor", "1", 365);
-    }
+  // check cookie
+  let cursor = getCookie("cursor");
+  if (cursor != "") {
+    configureCursor(cursor);
+  } else {   
+    setCookie("cursor", "1", 365);
   }
 
   function configureCursor(num) {

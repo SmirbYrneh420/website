@@ -625,6 +625,11 @@
       height: calc(var(--spacing) * 120);
     }
   }
+  .sm\:h-130 {
+    @media (width >= 40rem) {
+      height: calc(var(--spacing) * 130);
+    }
+  }
   .sm\:h-140 {
     @media (width >= 40rem) {
       height: calc(var(--spacing) * 140);
