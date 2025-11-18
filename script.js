@@ -166,9 +166,8 @@ async function gallery() {
     newEntry.innerHTML = `<img class="w-20 h-20" src="${inputArray[index].image}"><p>${inputArray[index].name}</p>`;
     if (inputArray[index].isFolder) {
       newEntry.addEventListener("click", function() {
+        galleryContent.innerHTML = '';
         for (var i = 0; i < inputArray[index].contents.length; i++) {
-          var galleryContent = document.querySelector("#gallerycontents");
-          galleryContent.innerHTML = '';
           setGalleryContent(inputArray[index].contents, i);
         } 
       });
@@ -176,7 +175,7 @@ async function gallery() {
       newEntry.addEventListener("click", function() {
         document.getElementById("imgviewcontents").innerHTML = inputArray[index].contents;
         openWindow(document.querySelector("#imgview"));
-      })
+      });
     }
     galleryContent.appendChild(newEntry);
   }
