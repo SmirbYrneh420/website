@@ -190,8 +190,11 @@ function email() {
   return;
 }
 
-function interwebz() {
-  return;
+// the most stubbornly dysfunctiional piece of code I've seen.
+function interwebz(url) {
+  document.getElementById("webview").src = url;
+  console.log('e');
+  openWindow(document.querySelector("#interwebz"));
 }
 
 function python() {
@@ -458,7 +461,7 @@ function iconTap(window, id) {
     openWindow(window);
 }
 
-function closeWindow(element, id) {
+function closeWindow(element) {
     element.style.display = "none"
 }
 

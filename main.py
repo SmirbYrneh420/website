@@ -19,7 +19,7 @@ def collatz(num):
         i += 1
         finale <= html.P(str(num))
         if ((num <= 0) or (num % 1 != 0)):
-            print("whoops") # if this prints someone give me money
+            finale <= html.P("whoops") # if this prints someone give me money
 
     return i
 
@@ -44,9 +44,11 @@ def pascal(degree):
 
     return 0
 
-def pascal_functional(degree):
+def pascal_functional(eist):
     # Pascal's Triangle but more useful
     # Triangle
+    degree = int(eist[0])
+    num = int(eist[1])
     triangle = [[1],
                 [1,1],
                 [1,2,1]]
@@ -60,8 +62,6 @@ def pascal_functional(degree):
         new_row.append(1)
         triangle.append(new_row)
         
-    # Prepare for real coefficients (testing in brython rn)
-    num = 3
     temp_list = []
     for i in range(len(triangle[-1])):
         temp_list.append(triangle[-1][i]*(num ** i))
@@ -82,7 +82,8 @@ def action(event):
         elif value == "P":
             result.text = pascal(int(result.text))
         elif value == "X":
-            result.text = pascal_functional(int(result.text))
+            listy = result.text.split("*")
+            result.text = pascal_functional(listy)
         elif value == "V":
             result.text == collatz(int(result.text))
     except:
