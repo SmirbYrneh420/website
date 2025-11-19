@@ -29,7 +29,7 @@ async function setWindows() {
     eval('var ' + namer + "Screen = document.querySelector(`#" + app + "`);");
     eval('var ' + namer + "ScreenClose = document.querySelector(`#" + app + "close`);");
     eval(namer + "ScreenClose.addEventListener('click', function() { closeWindow(" + namer + "Screen); });");
-    if (i > 0) {
+    if (i > 1) {
       eval('var ' + namer + "ScreenOpen = document.querySelector(`#" + app + "open`);");
       if (i < 6) {
         eval(namer + "ScreenOpen.addEventListener('click', function() { openWindow(" + namer + "Screen); });");
@@ -37,7 +37,7 @@ async function setWindows() {
         eval(namer + "ScreenOpen.addEventListener('click', function() { iconTap(" + namer + "Screen, '" + app + "'); });");
       }
     }
-    // there are currently only 5 apps only accessible from the top bar. Other apps are accessible from the dock, or in a future implementation if necessary, a launchpad-style folder.
+    // there are currently only 4 apps only accessible from the top bar. Other apps are accessible from the dock, or in a future implementation if necessary, a launchpad-style folder.
     dragElement(document.getElementById(app));
   }
 }

@@ -39,6 +39,7 @@
             <span class="mr-4" id="time"></span>
         </div>
         
+        <!-- TODO: redirect links into the interwebz browser. If I can't have custom URLs this will have to do. -->
         <div id="welcome" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/16 sm:left-27/76 text-white border-slate-800 bg-slate-800 block">
             <div id="welcomeheader" class="mt-2 font-semibold flex">
                 <div id="welcomeclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 pointer hover:bg-red-700">
@@ -126,6 +127,7 @@
                 <p class="text-sm">(you thought you were getting my real email there, were you? Nah, this is a burner email)</p>
                 <p>If you want to share a project, text document, or whatever your heart desires, you can use my copyparty server:</p>
                 <a href="https://comment-walt-warrior-donated.trycloudflare.com?pw=p4ssw0rd69">Access my copyparty fileserver (and upload some stuff)...</a>
+                <br>
                 <p>I also have these (that I rarely check):</p>
                 <ul class="list-none">
                     <li><img class="w-3 h-3 inline mr-3" src="https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/Images/github-mark-white.svg"><a href="https://github.com/touhouengie">GitHub</a></li>
@@ -296,8 +298,9 @@
                 <p class="pl-2">Interweb Browser</p>
             </div>
             <div class="bg-gray-950 m-2 mt-0 rounded-lg p-4 text-white h-full">
-                <textarea id="webaddr" name="webaddr" rows="1" cols="50" class="border border-white rounded-md text" required>https://duckduckgo.com</textarea>
-                <object id="webview" class="w-full h-2/3" data="https://duckduckgo.com"></object>
+                <div id="webview">
+                    <!-- to be changed with JS -->
+                </div>
             </div>
         </div>
         
@@ -320,9 +323,11 @@
                 <img src="https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/Images/mail.png" class="w-16 h-16 rounded-md" alt="email">
             </div>
             -->
+            <!-- 
             <div id="interwebzopen" class="text-center p-1 drop-shadow-lg w-fit pointer">
                 <img src="https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/Images/mafuyu_chan.png" class="w-16 h-16 rounded-md" alt="browser">
             </div>
+            -->
         </div>
 
         <!-- window boilerplate
