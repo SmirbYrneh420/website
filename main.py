@@ -1,4 +1,11 @@
 from browser import document, html
+finale = document["realresult"]
+calc = html.TABLE()
+calc <= html.TR(html.TH(html.DIV("0", id="result"), colspan=3) + html.TD("C"))
+lines = ["789", "456", "123", "0*=", "PXV"]
+calc <= (html.TR(html.TD(x) for x in line) for line in lines)
+document["pythonboard"] <= calc
+result = document["result"]
 
 def collatz(num):
     # Collatz conjecture
@@ -10,7 +17,7 @@ def collatz(num):
             num *= 3
             num += 1 # remove this line for silent mode
         i += 1
-        print(num)
+        finale <= html.P(str(num))
         if ((num <= 0) or (num % 1 != 0)):
             print("whoops") # if this prints someone give me money
 
@@ -33,7 +40,7 @@ def pascal(degree):
         triangle.append(new_row)
         
     for item in triangle:
-        print(item)
+        finale <= html.P(str(item))
 
     return 0
 
@@ -60,14 +67,6 @@ def pascal_functional(degree):
         temp_list.append(triangle[-1][i]*(num ** i))
     return temp_list
 
-calc = html.TABLE()
-calc <= html.TR(html.TH(html.DIV("0", id="result"), colspan=3) + html.TD("C"))
-finale = document["realresult"]
-lines = ["789", "456", "123", "0*=", "PXV"]
-calc <= (html.TR(html.TD(x) for x in line) for line in lines)
-document["pythonboard"] <= calc
-result = document["result"]
-
 def action(event):
     element = event.target
     value = element.text
@@ -79,6 +78,7 @@ def action(event):
                 result.text = result.text + value
         elif value == "C":
             result.text = "0"
+            finale.clear()
         elif value == "P":
             result.text = pascal(int(result.text))
         elif value == "X":
