@@ -14,7 +14,7 @@ def collatz(num):
         if ((num <= 0) or (num % 1 != 0)):
             print("whoops") # if this prints someone give me money
 
-    return ("Number of iterations: " + str(i))
+    return i
 
 def pascal(degree):
     # Pascal's Triangle
@@ -61,7 +61,7 @@ def pascal_functional(degree):
     return temp_list
 
 calc = html.TABLE()
-calc <= html.TR(html.TH(html.DIV("0", id="result"), colspan=3) + html.TD("Clear"))
+calc <= html.TR(html.TH(html.DIV("0", id="result"), colspan=3) + html.TD("C"))
 finale = document["realresult"]
 lines = ["789", "456", "123", "0*=", "PXV"]
 calc <= (html.TR(html.TD(x) for x in line) for line in lines)
@@ -77,14 +77,14 @@ def action(event):
                 result.text = value
             else:
                 result.text = result.text + value
-        elif value == "Clear":
+        elif value == "C":
             result.text = "0"
         elif value == "P":
-            result.text = pascal(result.text)
+            result.text = pascal(int(result.text))
         elif value == "X":
-            result.text = pascal_functional(result.text)
+            result.text = pascal_functional(int(result.text))
         elif value == "V":
-            result.text == collatz(result.text)
+            result.text == collatz(int(result.text))
     except:
         result.text = "error"
 
