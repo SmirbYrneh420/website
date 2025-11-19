@@ -31,7 +31,7 @@ async function setWindows() {
     eval(namer + "ScreenClose.addEventListener('click', function() { closeWindow(" + namer + "Screen); });");
     if (i > 1) {
       eval('var ' + namer + "ScreenOpen = document.querySelector(`#" + app + "open`);");
-      if (i < 6) {
+      if (i <= 6) {
         eval(namer + "ScreenOpen.addEventListener('click', function() { openWindow(" + namer + "Screen); });");
       } else {
         eval(namer + "ScreenOpen.addEventListener('click', function() { iconTap(" + namer + "Screen, '" + app + "'); });");
@@ -190,11 +190,8 @@ function email() {
   return;
 }
 
-// the most stubbornly dysfunctiional piece of code I've seen.
-function interwebz(url) {
-  document.getElementById("webview").src = url;
-  console.log('e');
-  openWindow(document.querySelector("#interwebz"));
+function interwebz() {
+  return;
 }
 
 function python() {
