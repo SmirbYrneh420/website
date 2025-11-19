@@ -25,6 +25,8 @@
     --text-xs--line-height: calc(1 / 0.75);
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
     --font-weight-normal: 400;
@@ -218,9 +220,6 @@
   .bottom-0 {
     bottom: calc(var(--spacing) * 0);
   }
-  .left-1\/2 {
-    left: calc(1/2 * 100%);
-  }
   .left-1\/4 {
     left: calc(1/4 * 100%);
   }
@@ -371,10 +370,6 @@
   .flex-none {
     flex: none;
   }
-  .-translate-x-1\/2 {
-    --tw-translate-x: calc(calc(1/2 * 100%) * -1);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
   .cursor-\[url\(\'\.\/cursors\/normal\.cur\'\)\,default\] {
     cursor: url('./cursors/normal.cur'),default;
   }
@@ -483,12 +478,6 @@
   }
   .bg-\[url\(https\:\/\/comment-walt-warrior-donated\.trycloudflare\.com\/drive\/webpage_data\/Images\/wallpaper_mobile\.JPG\)\] {
     background-image: url(https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/Images/wallpaper_mobile.JPG);
-  }
-  .bg-\[url\(https\:\/\/comment-walt-warrior-donated\.trycloudflare\.com\/drive\/webpage_data\/Images\/wallpaper_mobile\.png\)\] {
-    background-image: url(https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/Images/wallpaper_mobile.png);
-  }
-  .bg-\[url\(https\:\/\/comment-walt-warrior-donated\.trycloudflare\.com\/drive\/webpage_data\/wallpaper\.png\)\] {
-    background-image: url(https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/wallpaper.png);
   }
   .bg-cover {
     background-size: cover;
@@ -725,20 +714,19 @@
 .cursor-2-text {
   cursor: url('https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/cursors/2/text_sel.cur'), text;
 }
-@property --tw-translate-x {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
+td {
+  background-color: #ccc;
+  padding: 10px 30px 10px 30px;
+  border-radius: 0.2em;
+  text-align: center;
+  cursor: default;
 }
-@property --tw-translate-y {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-@property --tw-translate-z {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
+#result {
+  border-color: #000;
+  border-width: 1px;
+  border-style: solid;
+  padding: 10px 30px 10px 30px;
+  text-align: right;
 }
 @property --tw-border-style {
   syntax: "*";
@@ -838,12 +826,24 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
-      --tw-translate-x: 0;
-      --tw-translate-y: 0;
-      --tw-translate-z: 0;
       --tw-border-style: solid;
       --tw-font-weight: initial;
       --tw-blur: initial;
@@ -868,6 +868,9 @@
       --tw-backdrop-opacity: initial;
       --tw-backdrop-saturate: initial;
       --tw-backdrop-sepia: initial;
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
     }
   }
 }

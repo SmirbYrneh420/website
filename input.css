@@ -8,3 +8,19 @@
 .cursor-2-pointer { cursor: url('https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/cursors/2/select.cur'), pointer; }
 .cursor-2-normal { cursor: url('https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/cursors/2/normal.cur'), default; }
 .cursor-2-text { cursor: url('https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/cursors/2/text_sel.cur'), text; }
+
+/* python scheibe */
+td {
+    background-color: #ccc;
+    padding: 10px 30px 10px 30px;
+    border-radius: 0.2em;
+    text-align: center;
+    cursor: default;
+}
+#result {
+    border-color: #000;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px 30px 10px 30px;
+    text-align: right;
+}

@@ -194,6 +194,10 @@ function interwebz() {
   return;
 }
 
+function python() {
+  return;
+}
+
 // i can't get this to work
 async function parseAsTextDoc() {
   var message = document.getElementById('message').value;
