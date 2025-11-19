@@ -194,14 +194,15 @@ function interwebz() {
   return;
 }
 
+// i can't get this to work
 async function parseAsTextDoc() {
-  const message = document.getElementById('message').value;
-  const blob = new Blob([message], {type: "text/markdown"});
+  var message = document.getElementById('message').value;
+  message = "<-- BEGIN PGP MESSAGE --> \\n".concat(message);
+  message = message.concat("\\n <-- END PGP MESSAGE -->")
   // this web user is already extremely restricted anyway
-  fetch("https://comment-walt-warrior-donated.trycloudflare.com/mail/?pw=p4ssw0rd69", {
-    method: 'POST',
-    act: "tput",
-    body: blob,
+  fetch("https://comment-walt-warrior-donated.trycloudflare.com/mail/mail.txt?pw=p4ssw0rd69", {
+    method: 'PUT',
+    body: message,
     headers: {
       "Content-Type": "text/markdown; charset=UTF-8"
     }
