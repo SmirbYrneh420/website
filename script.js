@@ -11,8 +11,10 @@ var appList = undefined;
 const goUp = document.querySelector("#moveup");
 var a = 0;
 goUp.addEventListener('click', function() {
-  var galleryContent = document.querySelector("#gallerycontents");
+  const galleryContent = document.querySelector("#gallerycontents");
+  const filepath = document.querySelector("#filepath");
   galleryContent.innerHTML = '';
+  filepath.innerHTML = '/';
   gallery();
   // this will work for now but will have to redo logic later
 });
@@ -155,6 +157,7 @@ async function noteview() {
 
 async function gallery() {
   const galleryStructure = await getJsonData(json, "gallery.json");
+  
   for (var i = 0; i < galleryStructure.length; i++) {
     setGalleryContent(galleryStructure, i);
     // i ain't gonna make your life harder than it has to be
@@ -162,11 +165,13 @@ async function gallery() {
   // consult gallery.json for the file structure array
   function setGalleryContent(inputArray, index) {
     const galleryContent = document.querySelector("#gallerycontents");
+    const filePath = document.querySelector("#filepath");
     var newEntry = document.createElement("span");
     newEntry.innerHTML = `<img class="w-20 h-20" src="${inputArray[index].image}"><p>${inputArray[index].name}</p>`;
     if (inputArray[index].isFolder) {
       newEntry.addEventListener("click", function() {
         galleryContent.innerHTML = '';
+        filePath.innerHTML = '/' + inputArray[index].name + '/';
         for (var i = 0; i < inputArray[index].contents.length; i++) {
           setGalleryContent(inputArray[index].contents, i);
         } 
