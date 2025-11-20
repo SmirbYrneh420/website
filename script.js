@@ -167,7 +167,7 @@ async function gallery() {
     const galleryContent = document.querySelector("#gallerycontents");
     const filePath = document.querySelector("#filepath");
     var newEntry = document.createElement("span");
-    newEntry.innerHTML = `<img class="w-20 h-20" src="${inputArray[index].image}"><p>${inputArray[index].name}</p>`;
+    newEntry.innerHTML = `<img class="w-20 h-20" src="${inputArray[index].image}"><p class="break-all text-sm">${inputArray[index].name}</p>`;
     if (inputArray[index].isFolder) {
       newEntry.addEventListener("click", function() {
         galleryContent.innerHTML = '';
