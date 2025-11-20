@@ -717,7 +717,7 @@
   cursor: url('https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/cursors/2/text_sel.cur'), text;
 }
 td {
-  background-color: var(--color-sky-300);
+  background-color: oklch(74.6% 0.16 232.661);
   padding: 10px 30px 10px 30px;
   border-radius: 0.2em;
   text-align: center;
