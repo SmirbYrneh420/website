@@ -12,6 +12,7 @@
     --color-cyan-300: oklch(86.5% 0.127 207.078);
     --color-cyan-400: oklch(78.9% 0.154 211.53);
     --color-cyan-500: oklch(71.5% 0.143 215.221);
+    --color-sky-300: oklch(82.8% 0.111 230.318);
     --color-sky-500: oklch(68.5% 0.169 237.323);
     --color-slate-800: oklch(27.9% 0.041 260.031);
     --color-gray-700: oklch(37.3% 0.034 259.733);
@@ -561,9 +562,6 @@
   .break-all {
     word-break: break-all;
   }
-  .whitespace-normal {
-    white-space: normal;
-  }
   .text-cyan-300 {
     color: var(--color-cyan-300);
   }
@@ -718,8 +716,8 @@
 .cursor-2-text {
   cursor: url('https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/cursors/2/text_sel.cur'), text;
 }
-td {
-  background-color: #ccc;
+#calctable {
+  background-color: var(--color-sky-300);
   padding: 10px 30px 10px 30px;
   border-radius: 0.2em;
   text-align: center;
