@@ -137,7 +137,7 @@ async function getJsonData(url, file) {
 // consult blog.json for the content array
 async function noteview() {
   const blog = await getJsonData(json, "blog.json");
-  const notesContent = document.querySelector('#notescontent');
+  const notesContent = document.querySelector('#noteviewcontent');
   const top = document.querySelector("#history");
   for (let i = 0; i < blog.length; i++) {
     var note = blog[i];
