@@ -25,15 +25,16 @@ async function setWindows() {
   // image viewer is called within gallery, so skip that
   for (var i = 0; i < appList.length; i++) {
     var app = appList[i].title;
-    eval('var ' + app + "Screen = document.querySelector(`#" + app + "`);");
-    eval('var ' + app + "ScreenClose = document.querySelector(`#" + app + "close`);");
-    eval(app + "ScreenClose.addEventListener('click', function() { closeWindow(" + app + "Screen); });");
+    var namer = appList[i].mainId;
+    eval('var ' + namer + "Screen = document.querySelector(`#" + app + "`);");
+    eval('var ' + namer + "ScreenClose = document.querySelector(`#" + app + "close`);");
+    eval(namer + "ScreenClose.addEventListener('click', function() { closeWindow(" + namer + "Screen); });");
     if (i > 0) {
-      eval('var ' + app + "ScreenOpen = document.querySelector(`#" + app + "open`);");
-      if (i < 6) {
-        eval(app + "ScreenOpen.addEventListener('click', function() { openWindow(" + app + "Screen); });");
+      eval('var ' + namer + "ScreenOpen = document.querySelector(`#" + app + "open`);");
+      if (applist[i].hasBeenOpened) {
+        eval(namer + "ScreenOpen.addEventListener('click', function() { openWindow(" + namer + "Screen); });");
       } else {
-        eval(app + "ScreenOpen.addEventListener('click', function() { iconTap(" + app + "Screen, '" + app + "'); });");
+        eval(namer + "ScreenOpen.addEventListener('click', function() { iconTap(" + namer + "Screen, '" + app + "'); });");
       }
     }
     // there are currently only 4 apps only accessible from the top bar. Other apps are accessible from the dock, or in a future implementation if necessary, a launchpad-style folder.
@@ -136,7 +137,7 @@ async function getJsonData(url, file) {
 // consult blog.json for the content array
 async function noteview() {
   const blog = await getJsonData(json, "blog.json");
-  const notesContent = document.querySelector('#noteviewcontent');
+  const notesContent = document.querySelector('#notescontent');
   const top = document.querySelector("#history");
   for (let i = 0; i < blog.length; i++) {
     var note = blog[i];
