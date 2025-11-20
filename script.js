@@ -30,7 +30,7 @@ async function setWindows() {
     eval(app + "ScreenClose.addEventListener('click', function() { closeWindow(" + app + "Screen); });");
     if (i > 0) {
       eval('var ' + app + "ScreenOpen = document.querySelector(`#" + app + "open`);");
-      if (appList[i].hasBeenOpened) {
+      if (i < 6) {
         eval(app + "ScreenOpen.addEventListener('click', function() { openWindow(" + app + "Screen); });");
       } else {
         eval(app + "ScreenOpen.addEventListener('click', function() { iconTap(" + app + "Screen, '" + app + "'); });");
