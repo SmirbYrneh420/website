@@ -716,7 +716,7 @@
 .cursor-2-text {
   cursor: url('https://comment-walt-warrior-donated.trycloudflare.com/drive/webpage_data/cursors/2/text_sel.cur'), text;
 }
-#calctable {
+td {
   background-color: var(--color-sky-300);
   padding: 10px 30px 10px 30px;
   border-radius: 0.2em;
