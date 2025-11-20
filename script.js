@@ -190,11 +190,8 @@ function email() {
   return;
 }
 
-// the most stubbornly dysfunctiional piece of code I've seen.
-function interwebz(url) {
-  document.getElementById("webview").src = url;
-  console.log('e');
-  openWindow(document.querySelector("#interwebz"));
+function interwebz() {
+  return;
 }
 
 function refreshToHomeScreen() {
