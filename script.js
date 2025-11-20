@@ -197,6 +197,10 @@ function interwebz(url) {
   openWindow(document.querySelector("#interwebz"));
 }
 
+function refreshToHomeScreen() {
+  document.getElementById("webview").src = "https://comment-walt-warrior-donated.trycloudflare.com/";
+}
+
 function python() {
   return;
 }
