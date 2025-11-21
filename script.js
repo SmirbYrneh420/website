@@ -417,7 +417,7 @@ async function musicplayer() {
             console.warn("Could not resume context:", e);
         }
     }
-
+  }
   // Resume on wake
   document.addEventListener("visibilitychange", ensureAudioContextRunning);
   window.addEventListener("focus", ensureAudioContextRunning);
