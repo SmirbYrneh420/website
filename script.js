@@ -409,23 +409,36 @@ async function musicplayer() {
   }
 
   async function ensureAudioContextRunning() {
-    if (context.state !== "running") {
+    if (context.state === "suspended") {
         try {
+            // Optionally, pause and reset the audio before resuming the context
+            audio.pause();
+            
             await context.resume();
             console.log("AudioContext resumed");
+            
+            // Resume audio after context is resumed
+            audio.play();
         } catch (e) {
             console.warn("Could not resume context:", e);
         }
     }
   }
   // Resume on wake
-  document.addEventListener("visibilitychange", ensureAudioContextRunning);
-  window.addEventListener("focus", ensureAudioContextRunning);
-  
-  // mobile browsers are arseholes
-  window.addEventListener("touchstart", ensureAudioContextRunning, { passive: true });
-  window.addEventListener("click", ensureAudioContextRunning, { passive: true });
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+        ensureAudioContextRunning();
+    }
+  });
 
+  window.addEventListener("focus", ensureAudioContextRunning);
+
+  // Mobile, why?
+  window.addEventListener("touchstart", () => {
+    if (context.state === "suspended") {
+        ensureAudioContextRunning();
+    }
+  }, { once: true });
 }
 
 function time() {
