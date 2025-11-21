@@ -372,6 +372,8 @@ async function musicplayer() {
     }
   }
   function play_and_draw() {
+    // doing more than one source causes audio glitches beyond my understanding
+    // otherwise this is one and done
     if (!src) {
       var src = context.createMediaElementSource(audio);
       src.connect(analyser);
@@ -410,31 +412,7 @@ async function musicplayer() {
     audio.play();
     renderFrame();
   }
-
-  /*
-  async function ensureAudioContextRunning() {
-    if (context.state === "suspended") {
-        audio.pause();
-        await context.resume();
-      // temporary disallow background play until i get there
-    }
-  }
-  // Resume on wake
-  document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "visible") {
-        ensureAudioContextRunning();
-    }
-  });
-
-  window.addEventListener("focus", ensureAudioContextRunning);
-
-  // Mobile, why?
-  window.addEventListener("touchstart", () => {
-    if (context.state === "suspended") {
-        ensureAudioContextRunning();
-    }
-  }, { once: true });
-  */
+  // TODO: Set visualizer as an optional (experimental) setting, and squash the syncronization bugs related with the web audio API
 }
 
 function time() {
