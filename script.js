@@ -368,7 +368,9 @@ async function musicplayer() {
   }
   function play_and_draw() {
     var context = new AudioContext();
-    var src = context.createMediaElementSource(audio);
+    if (!src) {
+      var src = context.createMediaElementSource(audio);
+    }
     var analyser = context.createAnalyser();
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
@@ -404,10 +406,6 @@ async function musicplayer() {
     }
     audio.play();
     renderFrame();
-
-    if (context.state === "suspended") {
-      await context.resume();
-    }
   }
 }
 
