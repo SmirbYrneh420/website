@@ -278,6 +278,9 @@
   .ml-4 {
     margin-left: calc(var(--spacing) * 4);
   }
+  .ml-7 {
+    margin-left: calc(var(--spacing) * 7);
+  }
   .ml-14 {
     margin-left: calc(var(--spacing) * 14);
   }
@@ -349,6 +352,12 @@
   }
   .h-\[31px\] {
     height: 31px;
+  }
+  .h-\[50vh\] {
+    height: 50vh;
+  }
+  .h-\[70vh\] {
+    height: 70vh;
   }
   .h-\[95vh\] {
     height: 95vh;
@@ -695,6 +704,11 @@
   .sm\:left-27\/100 {
     @media (width >= 40rem) {
       left: calc(27/100 * 100%);
+    }
+  }
+  .sm\:ml-14 {
+    @media (width >= 40rem) {
+      margin-left: calc(var(--spacing) * 14);
     }
   }
   .sm\:h-100 {
