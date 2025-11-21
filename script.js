@@ -31,7 +31,7 @@ async function setWindows() {
     eval('var ' + namer + "Screen = document.querySelector(`#" + app + "`);");
     eval('var ' + namer + "ScreenClose = document.querySelector(`#" + app + "close`);");
     eval(namer + "ScreenClose.addEventListener('click', function() { closeWindow(" + namer + "Screen); });");
-    if (i > 1) {
+    if (i > 0) {
       eval('var ' + namer + "ScreenOpen = document.querySelector(`#" + app + "open`);");
       if (i < 6) {
         eval(namer + "ScreenOpen.addEventListener('click', function() { openWindow(" + namer + "Screen); });");
