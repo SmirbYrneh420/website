@@ -410,15 +410,8 @@ async function musicplayer() {
 
   async function ensureAudioContextRunning() {
     if (context.state === "suspended") {
-        try {
-            audio.pause();
-            audio.currentTime = 0; // if this somehow fixes the pitchup i will eat my hat
-            await context.resume();
-            console.log("AudioContext resumed");
-            audio.play();
-        } catch (e) {
-            console.warn("Could not resume context:", e);
-        }
+        audio.pause();
+      // temporary disallow background play until i get there
     }
   }
   // Resume on wake
