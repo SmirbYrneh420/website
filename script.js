@@ -233,6 +233,8 @@ async function musicplayer() {
   var index = 0;
   var newClass = "";
   var original = "";
+  var context = new AudioContext();
+  var analyser = context.createAnalyser();
   for (let i = 0; i < playlist.length; i++) {
     var song = playlist[i];
     var newSong = document.createElement("li");
@@ -367,15 +369,13 @@ async function musicplayer() {
     }
   }
   function play_and_draw() {
-    var context = new AudioContext();
     if (!src) {
       var src = context.createMediaElementSource(audio);
+      src.connect(analyser);
+      analyser.connect(context.destination);
     }
-    var analyser = context.createAnalyser();
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
-    src.connect(analyser);
-    analyser.connect(context.destination);
     analyser.fftSize = 256;
     var bufferLength = analyser.frequencyBinCount;
     console.log(bufferLength);
