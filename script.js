@@ -407,6 +407,25 @@ async function musicplayer() {
     audio.play();
     renderFrame();
   }
+
+  async function ensureAudioContextRunning() {
+    if (context.state !== "running") {
+        try {
+            await context.resume();
+            console.log("AudioContext resumed");
+        } catch (e) {
+            console.warn("Could not resume context:", e);
+        }
+    }
+
+  // Resume on wake
+  document.addEventListener("visibilitychange", ensureAudioContextRunning);
+  window.addEventListener("focus", ensureAudioContextRunning);
+  
+  // mobile browsers are arseholes
+  window.addEventListener("touchstart", ensureAudioContextRunning, { passive: true });
+  window.addEventListener("click", ensureAudioContextRunning, { passive: true });
+
 }
 
 function time() {
