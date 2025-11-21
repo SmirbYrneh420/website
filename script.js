@@ -404,6 +404,10 @@ async function musicplayer() {
     }
     audio.play();
     renderFrame();
+
+    if (context.state === "suspended") {
+      await context.resume();
+    }
   }
 }
 
