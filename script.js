@@ -322,6 +322,7 @@ async function musicplayer() {
       audio = null;
     }
     audio = new Audio(json.concat(song.file));
+    audio.crossOrigin = "anonymous";
     document.querySelector("#thumbnail").innerHTML = `<img src="${json.concat(song.image)}">`;
     document.querySelector("#songtitle").innerHTML = `<h3>${song.title}</h3>`;
     document.querySelector("#songauthor").innerHTML = `<p>${song.author}</p>`;
@@ -339,7 +340,7 @@ async function musicplayer() {
         audio.currentTime = (seekbar.value / 100) * audio.duration;
       }
     });
-    audio.play();
+    play_and_draw();
     audio.addEventListener('ended', function() {
       if (shuffle) {
         increment++;
@@ -364,6 +365,45 @@ async function musicplayer() {
       pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M21.409 9.353a2.998 2.998 0 0 1 0 5.294L8.597 21.614C6.534 22.737 4 21.277 4 18.968V5.033c0-2.31 2.534-3.769 4.597-2.648z"/></svg>`;
       audio.pause();
     }
+  }
+  function play_and_draw() {
+    var context = new AudioContext();
+    var src = context.createMediaElementSource(audio);
+    var analyser = context.createAnalyser();
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    src.connect(analyser);
+    analyser.connect(context.destination);
+    analyser.fftSize = 256;
+    var bufferLength = analyser.frequencyBinCount;
+    console.log(bufferLength);
+    var dataArray = new Uint8Array(bufferLength);
+    var WIDTH = canvas.width;
+    var HEIGHT = canvas.height;
+    var barWidth = (WIDTH / bufferLength) * 2.5;
+    var barHeight;
+    var x = 0;
+    function renderFrame() {
+      requestAnimationFrame(renderFrame);
+      x = 0;
+      analyser.getByteFrequencyData(dataArray);
+      ctx.fillStyle = "#030712";
+      ctx.fillRect(0, 0, WIDTH, HEIGHT);
+      for (var i = 0; i < bufferLength; i++) {
+        barHeight = dataArray[i] / 1.5 - 50;
+        
+        var r = barHeight + (25 * (i/bufferLength));
+        var g = 250 * (i/bufferLength);
+        var b = 50;
+
+        ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+        ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+
+        x += barWidth + 1;
+      }
+    }
+    audio.play();
+    renderFrame();
   }
 }
 
