@@ -413,7 +413,6 @@ async function musicplayer() {
   async function ensureAudioContextRunning() {
     if (context.state === "suspended") {
         audio.pause();
-        context.suspend();
       // temporary disallow background play until i get there
     }
   }
