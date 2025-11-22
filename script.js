@@ -61,7 +61,6 @@ function setOutsideCookie(name, event) {
     setCookie(name, event.target.value, 365);
 }
 function setCookie(cname, cvalue, exdays) {
-    a = getCookie('cursor');
     const d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     let expires = "expires="+ d.toUTCString();
@@ -89,12 +88,19 @@ function configureSettings() {
 
   // check cookie
   let cursor = getCookie("cursor");
+  // let visualize = getCookie('visualizer');
   if (cursor != "") {
     configureCursor(cursor);
   } else {   
     setCookie("cursor", "1", 365);
   }
-
+  /*
+  if (visualize != "") {
+    setVisualizer(visualize);
+  } else {
+    setCookie('visualizer', '1', 365);
+  }
+  */
   function configureCursor(num) {
     num = num || 1
     const cursorPointer = document.querySelectorAll(".pointer");
@@ -123,6 +129,9 @@ function configureSettings() {
         list[i].classList.replace(target, replacer);
       }
     }
+  }
+  function setVisualizer(flag) {
+    // test
   }
 }
 
