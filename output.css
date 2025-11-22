@@ -1,4 +1,4 @@
-/*! tailwindcss v4.1.17 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.1.16 | MIT License | https://tailwindcss.com */
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -12,6 +12,7 @@
     --color-cyan-300: oklch(86.5% 0.127 207.078);
     --color-cyan-400: oklch(78.9% 0.154 211.53);
     --color-cyan-500: oklch(71.5% 0.143 215.221);
+    --color-sky-300: oklch(82.8% 0.111 230.318);
     --color-sky-500: oklch(68.5% 0.169 237.323);
     --color-slate-800: oklch(27.9% 0.041 260.031);
     --color-gray-700: oklch(37.3% 0.034 259.733);
@@ -359,11 +360,11 @@
   .h-\[50vh\] {
     height: 50vh;
   }
+  .h-\[60vh\] {
+    height: 60vh;
+  }
   .h-\[70vh\] {
     height: 70vh;
-  }
-  .h-\[95vh\] {
-    height: 95vh;
   }
   .h-fit {
     height: fit-content;
@@ -714,24 +715,9 @@
       margin-left: calc(var(--spacing) * 14);
     }
   }
-  .sm\:h-100 {
-    @media (width >= 40rem) {
-      height: calc(var(--spacing) * 100);
-    }
-  }
   .sm\:h-104 {
     @media (width >= 40rem) {
       height: calc(var(--spacing) * 104);
-    }
-  }
-  .sm\:h-105 {
-    @media (width >= 40rem) {
-      height: calc(var(--spacing) * 105);
-    }
-  }
-  .sm\:h-110 {
-    @media (width >= 40rem) {
-      height: calc(var(--spacing) * 110);
     }
   }
   .sm\:h-120 {
@@ -747,6 +733,16 @@
   .sm\:h-140 {
     @media (width >= 40rem) {
       height: calc(var(--spacing) * 140);
+    }
+  }
+  .sm\:h-150 {
+    @media (width >= 40rem) {
+      height: calc(var(--spacing) * 150);
+    }
+  }
+  .sm\:h-fit {
+    @media (width >= 40rem) {
+      height: fit-content;
     }
   }
   .sm\:w-96 {
@@ -774,6 +770,11 @@
       width: calc(var(--spacing) * 150);
     }
   }
+  .sm\:w-170 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 170);
+    }
+  }
   .sm\:w-fit {
     @media (width >= 40rem) {
       width: fit-content;
@@ -788,6 +789,11 @@
   .sm\:grid-cols-5 {
     @media (width >= 40rem) {
       grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+  }
+  .sm\:overflow-y-auto {
+    @media (width >= 40rem) {
+      overflow-y: auto;
     }
   }
   .sm\:bg-\[url\(https\:\/\/comment-walt-warrior-donated\.trycloudflare\.com\/drive\/webpage_data\/wallpaper\.png\)\] {

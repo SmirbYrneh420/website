@@ -70,7 +70,7 @@
             </div>
         </div>
 
-        <div id="settings" class="border-solid rounded-xl border-4 sm:w-fit absolute top-1/10 left-1/4 text-white border-slate-800 bg-slate-800 hidden">
+        <div id="settings" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/10 sm:left-1/4 text-white border-slate-800 bg-slate-800 hidden">
             <div id="settingsheader" class="mt-2 font-semibold flex">
                 <div id="settingsclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border-black border ml-3 pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
@@ -79,7 +79,7 @@
                 </div>
                 <p class="pl-2">Settings</p>
             </div>
-            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white overflow-y-scroll">
+            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-full sm:w-150 h-120 p-4 text-white overflow-y-scroll">
                 <h4>teOE Settings</h4>
                 <label>Cursor:</label>
                 <select id="cursor" name="cursor" class="border normal" onchange="setOutsideCookie(`cursor`, event)">
@@ -106,7 +106,7 @@
                 </div>
                 <p id="aboutheader" class="pl-2 ">About the Creator</p>
             </div>
-            <div class="m-2 mt-0 rounded-lg w-full sm:w-110 p-4 bg-gray-950 text-white overflow-x-scroll">
+            <div class="m-2 mt-0 rounded-lg w-full h-[70vh] sm:h-fit sm:w-110 p-4 bg-gray-950 text-white overflow-x-scroll overflow-y-scroll sm:overflow-y-auto">
                 <p>Hi. I bike, code, draw, and drum in the slivers of spare time that I have.</p>
                 <p>I'm an aspiring computer engineering student, teaching myself about computers and coding since <span class="text-cyan-300 inline">August 2020</span>.</p>
                 <p>Most of my expertise stems from <span class="text-cyan-300 inline">HTML, CSS, Tailwind CSS, and JavaScript</span>, with a little bit of Godot.</p>
@@ -127,11 +127,11 @@
                 </div>
                 <p id="contactheader" class="pl-2 ">How to Contact Me</p>
             </div>
-            <div class="m-2 mt-0 rounded-lg w-full sm:w-120 p-4 bg-gray-950 text-white">
+            <div class="m-2 mt-0 rounded-lg w-full h-[70vh] sm:h-fit sm:w-120 p-4 bg-gray-950 text-white overflow-y-scroll sm:overflow-y-auto">
                 <p>Please note that I operate on Eastern Time and will typically be more likely to respond from 4pm to 10pm.</p>
                 <br>
                 <p>Discord: @touhouengie</p>
-                <p>E-mail: natsuki.ddlc1[at]outlook.com</p>
+                <p>E-mail: natsuki[dot]ddlc1[at]outlook[dot]com</p>
                 <p class="text-sm">(you thought you were getting my real email there, were you? Nah, this is a burner email)</p>
                 <p>If you want to share a project, text document, or whatever your heart desires, you can use my copyparty server:</p>
                 <a href="https://comment-walt-warrior-donated.trycloudflare.com?pw=p4ssw0rd69">Access my copyparty fileserver (and upload some stuff)...</a>
@@ -146,7 +146,7 @@
         </div>
 
         <div id="license" class="border-solid rounded-xl border-4 w-full sm:w-fit absolute top-1/8 sm:left-6/19 text-white border-slate-800 bg-slate-800 hidden">
-            <div id="licenseheader" class="mt-2 font-semibold flex ">
+            <div id="licenseheader" class="mt-2 font-semibold flex">
                 <div id="licenseclose" class="w-6 h-6 bg-red-600 rounded-xl border-solid border border-black ml-3 pointer hover:bg-red-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white m-px" viewBox="0 0 24 24" fill="none">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" class="fill-white"/>
@@ -154,7 +154,7 @@
                 </div>
                 <p id="licenseheader" class="pl-2 ">Licensing</p>
             </div>
-            <div class="m-2 mt-0 rounded-lg w-full sm:w-120 p-4 bg-gray-950 text-white">
+            <div class="m-2 mt-0 rounded-lg w-full h-[70vh] sm:h-fit sm:w-120 p-4 bg-gray-950 text-white overflow-y-scroll sm:overflow-y-auto">
                 <p>Unless otherwise stated, all icons, art, or images not in the Gallery are licensed under the
                     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.
                     <span class="flex"><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"></span>
@@ -192,7 +192,7 @@
                 <p class="pl-2 ">NoteView</p>
             </div>
             <div id="history" class="flex justify-between overflow-x-scroll bg-gray-950 m-2 mt-0 rounded-lg w-full sm:w-140 p-2 text-white"></div>
-            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-full h-150 sm:w-140 p-4 text-white overflow-y-scroll">
+            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-full h-[50vh] sm:h-150 sm:w-140 p-4 text-white overflow-y-scroll">
                 <div id="notescontent">Loading...</div>
             </div>
         </div>
@@ -270,7 +270,7 @@
                 </div>
                 <p class="pl-2">A Random Godot Demo That Barely Works</p>
             </div>
-            <div id="thing" class="bg-gray-950 m-2 mt-0 rounded-lg w-170 h-120 p-4 text-white overflow-y-scroll">
+            <div id="thing" class="bg-gray-950 m-2 mt-0 rounded-lg w-full sm:w-170 h-120 p-4 text-white overflow-y-scroll">
             </div>
         </div>
 
@@ -323,7 +323,7 @@
                 </div>
                 <p class="pl-2">Python Demos</p>
             </div>
-            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-150 h-120 p-4 text-white overflow-y-scroll">
+            <div class="bg-gray-950 m-2 mt-0 rounded-lg w-full h-120 sm:w-150 p-4 text-white overflow-y-scroll">
                 <p>Use P for Pascal's Triangle.</p>
                 <p>Use X for a polymonial calculator based on Pascal's Triangle. Given (x-y)^z, you input y*z.</p>
                 <p>Use V for the Collatz Conjecture.</p>
